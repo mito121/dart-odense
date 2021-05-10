@@ -1,0 +1,23 @@
+{
+  "name": "dart-odense",
+  "version": "1.0.0",
+  "description": "Down 2 Dart",
+  "main": "index.php",
+  "scripts": {
+    "test": "test",
+    "watch": "sass --watch assets/scss/style.scss assets/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mito121/dart-odense.git"
+  },
+  "author": "Gruppe 15",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mito121/dart-odense/issues"
+  },
+  "homepage": "https://github.com/mito121/dart-odense#readme",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  }
+}

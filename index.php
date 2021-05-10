@@ -11,7 +11,7 @@ $page = (isset($_GET['page'])) ? "pages/" . $_GET['page'] . '.php' : 'pages/fors
 if (file_exists($page)) {
     include_once($page);
 } else {
-    include_once 'pages/error404.php';
+    include_once 'pages/404.php';
 }
 
 // get footer
