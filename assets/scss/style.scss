@@ -1,3 +1,127 @@
-html{
-    background:black;
+/* 
+*** Variables
+ */
+$primary: #f9f9f9;
+$secondary: 'darkDank';
+$tertiary: 'dankDark';
+$max-w: '1140px';
+
+/* 
+*** GLOBAL
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-style: normal;
+  outline: none !important;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+/* 
+*** Header
+ */
+header {
+  width: 100%;
+  background: peru;
+  height: 125px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+
+  .logo {
+    :hover {
+      cursor: pointer;
+    }
+    img {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      li {
+        margin: 0 8px;
+        &:last-of-type {
+          margin-right: 0;
+        }
+        a {
+          padding: 6px 8px;
+        }
+      }
+    }
+  }
+}
+
+/* dwop dawn */
+.dropdown {
+  position: relative;
+
+  i {
+    margin-right: -5px;
+    transition: transform 250ms ease-in-out;
+  }
+
+  &:hover i {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  transform: translate(-80px, 5px);
+  text-align: right;
+  min-width: 135px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 
+*** Hero section
+ */
+.hero-fold {
+  height: calc(100vh - 125px);
+  width: 100%;
+  background: rebeccapurple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta {
+  background-color: $primary;
 }
