@@ -11,22 +11,27 @@
   <link href="assets/css/tailwind/style.css" rel="stylesheet" type="text/css" />
   <!-- Custom -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header>
     <!-- Logo -->
     <div class="logo">
-      <img src="http://placekitten.com/200/200" alt="logo" />
+      <a href="index.php">
+        <img draggable="false" src="http://placekitten.com/200/200" alt="logo" />
+      </a>
     </div>
     <!-- Navigation -->
     <nav>
       <ul>
-      <li>
-        <a href="index.php">
-          Forside
-        </a>
-      </li>
+        <li>
+          <a href="index.php">
+            Forside
+          </a>
+        </li>
 
         <li class="dropdown">
           <i class="fas fa-chevron-down"></i>
@@ -48,9 +53,8 @@
           <a href="#">Kalender</a>
         </li>
 
-        <li>
-          <a href="index.php?page=login"><i class="fas fa-user"></i> Log ind</a>
-        </li>
+        <!-- Login / logout -->
+        <?php echo isset($_SESSION['logged']) === true ?  "<li><a href=\"handlers/logoff.php\"><i class=\"fas fa-sign-out-alt\"></i> Log ud</a></li>" : "<li><a href=\"index.php?page=login\"><i class=\"fas fa-sign-in-alt\"></i> Log ind</a></li>"; ?>
       </ul>
     </nav>
   </header>

@@ -13,6 +13,11 @@
   outline: none !important;
 }
 
+.wrapper {
+  width: 100%;
+  max-width: 1140px;
+}
+
 h1 {
   font-size: 2.5em;
 }
@@ -47,7 +52,10 @@ header {
   align-items: center;
   padding: 0 15px;
 }
-header .logo :hover {
+header .logo {
+  user-select: none;
+}
+header .logo:hover {
   cursor: pointer;
 }
 header .logo img {
@@ -106,9 +114,6 @@ header nav ul li a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.hero-fold .hero-content {
-  min-width: 600px;
 }
 
 .cta {

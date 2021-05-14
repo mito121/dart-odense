@@ -18,6 +18,11 @@ $max-w: '1140px';
   outline: none !important;
 }
 
+.wrapper {
+  width: 100%;
+  max-width: 1140px;
+}
+
 h1 {
   font-size: 2.5em;
 }
@@ -54,7 +59,8 @@ header {
   padding: 0 15px;
 
   .logo {
-    :hover {
+    user-select: none;
+    &:hover {
       cursor: pointer;
     }
     img {
@@ -120,10 +126,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  .hero-content{
-    min-width:600px;
-  }
 }
 
 .cta {
