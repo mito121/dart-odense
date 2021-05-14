@@ -7,13 +7,20 @@
   <title>Dart Odense | Når dart går spart i den</title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/favicon.png">
+
+  <!-- ** CSS ** -->
   <!-- Tailwind -->
   <link href="assets/css/tailwind/style.css" rel="stylesheet" type="text/css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="assets/css/swiper/swiper.css" />
   <!-- Custom -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
+  <!-- ** JS ** -->
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+  <!-- Swiper -->
+  <script src="assets/js/swiper/swiper.js"></script>
 </head>
 
 <body>
@@ -37,7 +44,8 @@
           <i class="fas fa-chevron-down"></i>
           <a href="#">Spil</a>
           <div class="dropdown-content">
-            <a href="#">Fersk fisk</a>
+            <a href="#">Events</a>
+            <a href="#">Hestemøg</a>
           </div>
         </li>
 
@@ -45,12 +53,12 @@
           <i class="fas fa-chevron-down"></i>
           <a href="#">Om os</a>
           <div class="dropdown-content">
-            <a href="#">Frisk and</a>
+            <a href="#">Fersk and</a>
           </div>
         </li>
 
         <li>
-          <a href="#">Kalender</a>
+          <a href="#">Kontakt</a>
         </li>
 
         <!-- Login / logout -->
