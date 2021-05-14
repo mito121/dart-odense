@@ -107,6 +107,9 @@ header nav ul li a {
   justify-content: center;
   align-items: center;
 }
+.hero-fold .hero-content {
+  min-width: 600px;
+}
 
 .cta {
   background-color: #f9f9f9;

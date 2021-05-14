@@ -23,7 +23,7 @@
     <nav>
       <ul>
       <li>
-        <a href="#">
+        <a href="index.php">
           Forside
         </a>
       </li>
@@ -49,7 +49,7 @@
         </li>
 
         <li>
-          <a href="#"><i class="fas fa-user"></i> Log ind</a>
+          <a href="index.php?page=login"><i class="fas fa-user"></i> Log ind</a>
         </li>
       </ul>
     </nav>

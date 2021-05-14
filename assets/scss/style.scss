@@ -120,6 +120,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .hero-content{
+    min-width:600px;
+  }
 }
 
 .cta {
