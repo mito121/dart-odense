@@ -11,16 +11,12 @@
   <!-- ** CSS ** -->
   <!-- Tailwind -->
   <link href="assets/css/tailwind/style.css" rel="stylesheet" type="text/css" />
-  <!-- Swiper -->
-  <link rel="stylesheet" href="assets/css/swiper/swiper.css" />
+  <!-- Slick -->
+  <!-- <link rel="stylesheet" href="assets/css/swiper/swiper.css" /> -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" rel="stylesheet" />
   <!-- Custom -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-
-  <!-- ** JS ** -->
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-  <!-- Swiper -->
-  <script src="assets/js/swiper/swiper.js"></script>
 </head>
 
 <body>

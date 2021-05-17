@@ -14,72 +14,96 @@
 <!-- News -->
 <section>
     <div class="wrapper">
-        <h1>NYHEDER</h1>
-        <div class="flex w-full items-center">
-            <!-- Previous slide -->
-            <div id="swiper-prev"><i class="fas fa-chevron-left"></i></div>
-            <!-- Swiper -->
-            <div class="swiper-container" id="news-swiper">
-                <div class="swiper-wrapper">
+        <h1 class="ml-11 mt-6 mb-4">NYHEDER</h1>
 
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 1
-                        </div>
+        <div class="slick-slider">
+            <div class="slick-slide">
+                <div class="news-slide">
+                    <div class="slide-header">
+                        <h1>Skudsår double i Mickey</h1>
                     </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 2
-                        </div>
+                    <div class="read-time">
+                        Læsetid: &#60;6 min.
                     </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 3
-                        </div>
+                    <div class="slide-body">
+                        <p>
+                            Skudsåret er ferskt og det strammer.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown... <span class="tbc">[Fortsættes]</span>
+                        </p>
                     </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 4
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 5
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 6
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 7
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 8
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide" data-title="Arne" data-sub="Frisk fisk hver søndag." data-n="1">
-                        <div class="news-slide">
-                            Hej, jeg er en nyhed :-) 9
-                        </div>
-                    </div>
-
                 </div>
             </div>
-            <!-- Next slide -->
-            <div id="swiper-next"><i class="fas fa-chevron-right"></i></div>
+
+            <div class="slick-slide">
+                <div class="news-slide">
+                    <div class="slide-header">
+                        <h1>Skudsår double i Mickey</h1>
+                    </div>
+                    <div class="read-time">
+                        Læsetid: &#60;6 min.
+                    </div>
+                    <div class="slide-body">
+                        <p>
+                            Skudsåret er ferskt og det strammer.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown... <span class="tbc">[Fortsættes]</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slick-slide">
+                <div class="news-slide">
+                    <div class="slide-header">
+                        <h1>Skudsår double i Mickey</h1>
+                    </div>
+                    <div class="read-time">
+                        Læsetid: &#60;6 min.
+                    </div>
+                    <div class="slide-body">
+                        <p>
+                            Skudsåret er ferskt og det strammer.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown... <span class="tbc">[Fortsættes]</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slick-slide">
+                <div class="news-slide">
+                    <div class="slide-header">
+                        <h1>Skudsår double i Mickey</h1>
+                    </div>
+                    <div class="read-time">
+                        Læsetid: &#60;6 min.
+                    </div>
+                    <div class="slide-body">
+                        <p>
+                            Skudsåret er ferskt og det strammer.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown... <span class="tbc">[Fortsættes]</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slick-slide">
+                <div class="news-slide">
+                    <div class="slide-header">
+                        <h1>Skudsår double i Mickey</h1>
+                    </div>
+                    <div class="read-time">
+                        Læsetid: &#60;6 min.
+                    </div>
+                    <div class="slide-body">
+                        <p>
+                            Skudsåret er ferskt og det strammer.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown... <span class="tbc">[Fortsættes]</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
+
 </section>
