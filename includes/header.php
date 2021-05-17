@@ -14,7 +14,7 @@
   <!-- Slick -->
   <!-- <link rel="stylesheet" href="assets/css/swiper/swiper.css" /> -->
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" />
   <!-- Custom -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 </head>

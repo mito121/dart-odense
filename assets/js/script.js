@@ -5,7 +5,7 @@
 $(document).ready(function () {
   $('.slick-slider').slick({
     slidesToShow: 3,
-    swipeToSlide: true,
+    slidesToScroll: 3,
     infinite: false,
     arrows: true
   })
