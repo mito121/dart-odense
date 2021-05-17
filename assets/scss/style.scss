@@ -156,9 +156,10 @@ header {
   mix-blend-mode: difference;
 }
 
-.cta {
+.btn-primary {
   background-color: $primary;
-  
+  color: white;
+  padding: 6px 1.8rem;
 }
 
 /* slick */
@@ -199,6 +200,10 @@ header {
       margin-bottom: 10px;
     }
   }
+}
+
+.slick-initialized{
+  margin-bottom: 15px;
 }
 
 .tbc {

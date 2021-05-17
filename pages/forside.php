@@ -14,7 +14,7 @@
 <!-- News -->
 <section>
     <div class="wrapper">
-        <h1 class="ml-11 mt-6 mb-4">NYHEDER</h1>
+        <h1 class="ml-4 mt-6 mb-4">NYHEDER</h1>
 
         <div class="slick-slider">
             <div class="slick-slide">
@@ -96,9 +96,11 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
+        <div class="w-full flex justify-end">
+            <button class="btn btn-primary mr-4">Se alle</button>
+        </div>
+
     </div>
 
 </section>
