@@ -16,16 +16,6 @@ $(document).ready(function () {
   const paths = ["1.JPG", "2.JPG", "3.JPG", "4.JPG", "5.JPG"];
   const images = document.querySelectorAll(".magical-gallery-item img");
 
-  //window.setInterval(function () {
-  /*   for (let i = 0; i < images.length; i++) {
-    window.setInterval(function () {
-      console.log(i);
-      const newPath = paths[Math.floor(Math.random() * paths.length)];
-      images[i].src = "assets/img/" + newPath;
-      console.log(images[i]);
-    }, 5000);
-  } */
-  //}, 700);
   /* Change specific image src */
   function handleSrc(i) {
     window.setInterval(function () {
@@ -48,5 +38,6 @@ $(document).ready(function () {
     }, 7000);
   }
 
-  galleryLoop(); //  start the loop
+  /* Start gallery loop */
+  galleryLoop();
 });
