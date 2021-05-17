@@ -5,7 +5,7 @@
             <div class="w-2/5">
                 <h1>Når dart går spart i den</h1>
                 <p>Helligånden er blå.</p>
-                <button class="btn cta">Bliv medlem</button>
+                <button class="btn btn-primary">Bliv medlem</button>
             </div>
         </div>
     </div>
