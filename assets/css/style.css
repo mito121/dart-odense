@@ -147,6 +147,9 @@ header nav ul li a {
   color: white;
   padding: 6px 1.8rem;
 }
+.btn-primary:hover {
+  background-color: #19672a;
+}
 
 /* slick */
 .slick-container {
@@ -173,7 +176,7 @@ header nav ul li a {
   font-size: 1.6rem;
 }
 .slick-slide .news-slide .read-time {
-  background-color: red;
+  background-color: #dc3545;
   color: white;
   padding: 4px 6px;
   width: 125px;
@@ -193,14 +196,14 @@ header nav ul li a {
 
 .slick-prev:before {
   content: "";
-  color: red;
+  color: #dc3545;
   font-size: 60px;
   font-family: "FontAwesome";
 }
 
 .slick-next:before {
   content: "";
-  color: red;
+  color: #dc3545;
   font-size: 60px;
   font-family: "FontAwesome";
 }

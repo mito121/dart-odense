@@ -2,7 +2,9 @@
 *** Variables
  */
 $primary: #218838;
-$secondary: red;
+$primary-hover: darken($primary, 8%);
+$secondary: #dc3545;
+$secondary-hover: darken($secondary, 8%);
 $tertiary: blue;
 $max-w: '1140px';
 /* 
@@ -159,6 +161,10 @@ header {
   background-color: $primary;
   color: white;
   padding: 6px 1.8rem;
+
+  &:hover{
+    background-color: $primary-hover;
+  }
 }
 
 /* slick */
@@ -189,7 +195,7 @@ header {
     }
 
     .read-time {
-      background-color: red;
+      background-color: $secondary;
       color: white;
       padding: 4px 6px;
       width: 125px;
@@ -211,14 +217,14 @@ header {
 
 .slick-prev:before {
   content: '\f104';
-  color: red;
+  color: $secondary;
   font-size: 60px;
   font-family: 'FontAwesome';
 }
 
 .slick-next:before {
   content: '\f105';
-  color: red;
+  color: $secondary;
   font-size: 60px;
   font-family: 'FontAwesome';
 }
