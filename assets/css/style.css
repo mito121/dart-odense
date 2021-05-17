@@ -151,6 +151,9 @@ header nav ul li a {
   background-color: #19672a;
 }
 
+/* 
+*** News section
+ */
 /* slick */
 .slick-container {
   width: 100%;
@@ -178,8 +181,8 @@ header nav ul li a {
 .slick-slide .news-slide .read-time {
   background-color: #dc3545;
   color: white;
-  padding: 4px 6px;
-  width: 125px;
+  padding: 6px 8px;
+  width: max-content;
   font-size: 0.9em;
   text-align: center;
   border-radius: 5px;
@@ -216,6 +219,18 @@ header nav ul li a {
   color: #dc3545;
   font-size: 60px;
   font-family: "FontAwesome";
+}
+
+/* 
+*** Gallery section
+ */
+.magical-gallery {
+  display: flex;
+}
+
+.magical-gallery-item {
+  height: 200px;
+  width: 200px;
 }
 
 /*# sourceMappingURL=style.css.map */
