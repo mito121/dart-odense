@@ -17,11 +17,36 @@ $(document).ready(function () {
   const images = document.querySelectorAll(".magical-gallery-item img");
 
   //window.setInterval(function () {
-  for (let i = 0; i < images.length; i++) {
+  /*   for (let i = 0; i < images.length; i++) {
     window.setInterval(function () {
-      const newPath = paths[~~(Math.random() * paths.length)];
+      console.log(i);
+      const newPath = paths[Math.floor(Math.random() * paths.length)];
+      images[i].src = "assets/img/" + newPath;
+      console.log(images[i]);
+    }, 5000);
+  } */
+  //}, 700);
+  /* Change specific image src */
+  function handleSrc(i) {
+    window.setInterval(function () {
+      const newPath = paths[Math.floor(Math.random() * paths.length)];
       images[i].src = "assets/img/" + newPath;
     }, 5000);
   }
-  //}, 700);
+
+  /* Loop with timeout delay */
+  var i = 0;
+  function galleryLoop() {
+    setTimeout(function () {
+      console.log(i);
+      handleSrc(i);
+      i++;
+
+      if (i < images.length) {
+        galleryLoop();
+      }
+    }, 7000);
+  }
+
+  galleryLoop(); //  start the loop
 });
