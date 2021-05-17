@@ -37,7 +37,7 @@ h1 {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -142,7 +142,7 @@ header {
 .hero-fold {
   background-image: url(https://c1.wallpaperflare.com/preview/837/948/57/dart-darts-the-success-of-the-the-purpose-of-the.jpg);
   background-size: 100%;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
 
   height: calc(100vh - 125px);
@@ -152,8 +152,8 @@ header {
   align-items: center;
 }
 
-.hero-content{
-  color:#fff;
+.hero-content {
+  color: #fff;
   mix-blend-mode: difference;
 }
 
@@ -162,7 +162,7 @@ header {
   color: white;
   padding: 6px 1.8rem;
 
-  &:hover{
+  &:hover {
     background-color: $primary-hover;
   }
 }
@@ -207,12 +207,22 @@ header {
   }
 }
 
-.slick-initialized{
+.slick-initialized {
   margin-bottom: 15px;
 }
 
 .tbc {
   color: #ccc;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  transition: opacity 250ms ease-in-out;
+}
+
+.slick-next.slick-disabled:before,
+.slick-prev.slick-disabled:before {
+  opacity: 0 !important;
 }
 
 .slick-prev:before {
