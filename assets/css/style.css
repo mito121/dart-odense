@@ -126,16 +126,24 @@ header nav ul li a {
 *** Hero section
  */
 .hero-fold {
+  background-image: url(https://c1.wallpaperflare.com/preview/837/948/57/dart-darts-the-success-of-the-the-purpose-of-the.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   height: calc(100vh - 125px);
   width: 100%;
-  background: rebeccapurple;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.hero-content {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
 .cta {
-  background-color: #f9f9f9;
+  background-color: red;
 }
 
 /* slick */
