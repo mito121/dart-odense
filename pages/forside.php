@@ -14,7 +14,7 @@
 <!-- News -->
 <section>
     <div class="wrapper">
-        <h1 class="ml-4 mt-6 mb-4">NYHEDER</h1>
+        <h1 class=" mt-6 mb-4">NYHEDER</h1>
 
         <div class="slick-slider">
             <div class="slick-slide">
@@ -141,7 +141,7 @@
 <!-- Gallery -->
 <section>
     <div class="wrapper">
-        <h1 class="ml-4 mt-6 mb-4">GALLERI</h1>
+        <h1 class=" mt-6 mb-4">GALLERI</h1>
         
         <div class="magical-gallery">
             <div class="magical-gallery-item">
