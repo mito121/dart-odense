@@ -250,6 +250,9 @@ header {
   display:flex;
 }
 .magical-gallery-item {
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 200px;
   width: 200px;
 }

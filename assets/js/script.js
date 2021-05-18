@@ -14,13 +14,14 @@ $(document).ready(function () {
    *** Magical gallery
    */
   const paths = ["1.JPG", "2.JPG", "3.JPG", "4.JPG", "5.JPG"];
-  const images = document.querySelectorAll(".magical-gallery-item img");
+  const images = document.querySelectorAll(".magical-gallery-item");
 
   /* Change specific image src */
   function handleSrc(i) {
+
     window.setInterval(function () {
       const newPath = paths[Math.floor(Math.random() * paths.length)];
-      images[i].src = "assets/img/" + newPath;
+      $(images[i]).backstretch("assets/img/" + newPath, { fade: 400 });
     }, 5000);
   }
 
@@ -35,7 +36,7 @@ $(document).ready(function () {
       if (i < images.length) {
         galleryLoop();
       }
-    }, 7000);
+    }, 700);
   }
 
   /* Start gallery loop */
