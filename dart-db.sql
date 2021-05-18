@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 18. 05 2021 kl. 11:57:46
--- Serverversion: 10.4.14-MariaDB
--- PHP-version: 7.2.33
+-- Genereringstid: 18. 05 2021 kl. 14:06:27
+-- Serverversion: 10.1.33-MariaDB
+-- PHP-version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `dart_images`
+--
+
+CREATE TABLE `dart_images` (
+  `id` int(11) NOT NULL,
+  `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
+  `collection_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Data dump for tabellen `dart_images`
+--
+
+INSERT INTO `dart_images` (`id`, `path`, `collection_id`) VALUES
+(2, '3dlul.gif', NULL),
+(3, 'brid.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -52,7 +73,7 @@ CREATE TABLE `dart_users` (
   `name` varchar(24) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
   `email` varchar(32) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
-  `role_id` int(11) NOT NULL DEFAULT 1
+  `role_id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -65,6 +86,12 @@ INSERT INTO `dart_users` (`id`, `name`, `email`, `password`, `role_id`) VALUES
 --
 -- Begrænsninger for dumpede tabeller
 --
+
+--
+-- Indeks for tabel `dart_images`
+--
+ALTER TABLE `dart_images`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks for tabel `dart_roles`
@@ -81,6 +108,12 @@ ALTER TABLE `dart_users`
 --
 -- Brug ikke AUTO_INCREMENT for slettede tabeller
 --
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `dart_images`
+--
+ALTER TABLE `dart_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `dart_roles`
