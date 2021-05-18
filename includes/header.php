@@ -57,8 +57,11 @@
           <a href="#">Kontakt</a>
         </li>
 
+        <!-- Admin -->
+        <?php echo isset($_SESSION['logged']) === true ? "<li><a href=\"index.php?page=admin\"></i>Admin</a></li>" : null; ?>
+
         <!-- Login / logout -->
-        <?php echo isset($_SESSION['logged']) === true ?  "<li><a href=\"handlers/logoff.php\"><i class=\"fas fa-sign-out-alt\"></i> Log ud</a></li>" : "<li><a href=\"index.php?page=login\"><i class=\"fas fa-sign-in-alt\"></i> Log ind</a></li>"; ?>
+        <?php echo isset($_SESSION['logged']) === true ? "<li><a href=\"handlers/logoff.php\"><i class=\"fas fa-sign-out-alt\"></i> Log ud</a></li>" : "<li><a href=\"index.php?page=login\"><i class=\"fas fa-sign-in-alt\"></i> Log ind</a></li>"; ?>
       </ul>
     </nav>
   </header>

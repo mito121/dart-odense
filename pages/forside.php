@@ -1,3 +1,28 @@
+<?php
+    require_once 'includes/dbconnect.php';
+    
+    /* Get images for magic gallery */
+    $sql = "SELECT `id`, `path`, `collection_id` FROM `dart_images`";
+    $result = $conn->query($sql);
+
+    if(mysqli_num_rows($result) > 0){
+        $magic_gallery = array();
+        while ($obj = $result -> fetch_object()) {
+            /* Create new object */
+            $imageObj = new stdClass();
+            /* Set object values */
+            $imageObj->id = $obj->id;
+            $imageObj->path = $obj->path;
+            $imageObj->collection_id = $obj->collection_id;
+            /* Push object to array */
+            $magic_gallery[] = $imageObj;
+          }
+          $magicJSON = json_encode($magic_gallery);
+          /* die(str_replace("\"","'", $magicJSON)); */
+    }else{
+        /* No images were found */
+    }
+?>
 <!-- *** -->
 <!--  FOLD *** -->
 <!-- *** -->
@@ -21,7 +46,7 @@
         <h1 class=" mt-6 mb-4">NYHEDER</h1>
 
         <div class="slick-slider">
-            
+
             <div class="slick-slide">
                 <div class="news-slide">
                     <a href="index.php">
@@ -207,7 +232,7 @@
     <div class="wrapper">
         <h1 class=" mt-6 mb-4">GALLERI</h1>
 
-        <div class="magical-gallery">
+        <div class="magical-gallery" id="magical-data" data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>
