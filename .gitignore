@@ -1,4 +1,4 @@
-includes/dbconnect.php
+#includes/dbconnect.php
 node_modules/*
 package-lock.json
 assets/css/style.css.map
