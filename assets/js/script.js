@@ -10,15 +10,15 @@ $(document).ready(function () {
     arrows: true,
   });
 
+  
   /*
    *** Magical gallery
    */
-  /* const paths = ["1.JPG", "2.JPG", "3.JPG", "4.JPG", "5.JPG"]; */
+
   const paths = JSON.parse($("#magical-data").attr("data-dart-magic"));
-  /* console.log(paths) */
   const images = document.querySelectorAll(".magical-gallery-item");
 
-  /* Change specific image src */
+  /* Function to change a specific image src (based in index, passed as a prop) */
   function handleSrc(i) {
     window.setInterval(function () {
       const newPath = paths[Math.floor(Math.random() * paths.length)].path;
