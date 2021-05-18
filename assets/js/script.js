@@ -10,18 +10,25 @@ $(document).ready(function () {
     arrows: true,
   });
 
+
   /*
    *** Magical gallery
    */
   const paths = ["1.JPG", "2.JPG", "3.JPG", "4.JPG", "5.JPG"];
-  const images = document.querySelectorAll(".magical-gallery-item img");
+  const images = document.querySelectorAll(".magical-gallery-item");
 
   /* Change specific image src */
   function handleSrc(i) {
     window.setInterval(function () {
       const newPath = paths[Math.floor(Math.random() * paths.length)];
-      images[i].src = "assets/img/" + newPath;
+      $(images[i]).backstretch("assets/img/" + newPath, { fade: 400 });
     }, 5000);
+  }
+
+  /* Set images on load */
+  for (let n = 0; n < images.length; n++) {
+    const newPath = paths[n];
+    $(images[n]).backstretch("assets/img/" + newPath);
   }
 
   /* Loop function with timeout delay */

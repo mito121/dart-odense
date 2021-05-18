@@ -14,7 +14,7 @@
 <!-- News -->
 <section>
     <div class="wrapper">
-        <h1 class="ml-4 mt-6 mb-4">NYHEDER</h1>
+        <h1 class=" mt-6 mb-4">NYHEDER</h1>
 
         <div class="slick-slider">
             <div class="slick-slide">
@@ -138,32 +138,27 @@
 </section>
 
 
-<!-- News -->
+<!-- Gallery -->
 <section>
     <div class="wrapper">
-        <h1 class="ml-4 mt-6 mb-4">GALLERI</h1>
-
+        <h1 class=" mt-6 mb-4">GALLERI</h1>
         
         <div class="magical-gallery">
-
-        
             <div class="magical-gallery-item">
-                <img src="assets/img/1.JPG" alt="">
+                <!-- <img src="assets/img/1.JPG" alt=""> -->
             </div>
 
             <div class="magical-gallery-item">
-                <img src="assets/img/2.JPG" alt="">
+                <!-- <img src="assets/img/2.JPG" alt=""> -->
             </div>
 
             <div class="magical-gallery-item">
-                <img src="assets/img/3.JPG" alt="">
+                <!-- <img src="assets/img/3.JPG" alt=""> -->
             </div>
 
             <div class="magical-gallery-item">
-                <img src="assets/img/4.JPG" alt="">
+                <!-- <img src="assets/img/4.JPG" alt=""> -->
             </div>
-
-
         </div>
 
 
