@@ -24,7 +24,7 @@ $(document).ready(function () {
     }, 5000);
   }
 
-  /* Loop with timeout delay */
+  /* Loop function with timeout delay */
   var i = 0;
   function galleryLoop() {
     setTimeout(function () {
