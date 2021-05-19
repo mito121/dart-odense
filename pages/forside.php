@@ -1,7 +1,7 @@
 <?php
     require_once 'includes/dbconnect.php';
     
-    /* Get images for magic gallery */
+    /* Get image paths for magic gallery */
     $sql = "SELECT `id`, `path`, `collection_id` FROM `dart_images`";
     $result = $conn->query($sql);
 
@@ -18,9 +18,6 @@
             $magic_gallery[] = $imageObj;
           }
           $magicJSON = json_encode($magic_gallery);
-          /* die(str_replace("\"","'", $magicJSON)); */
-    }else{
-        /* No images were found */
     }
 ?>
 <!-- *** -->
@@ -231,9 +228,10 @@
 <section>
     <div class="wrapper">
         <h1 class=" mt-6 mb-4">GALLERI</h1>
-
-        <div class="magical-gallery" id="magical-data" data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">
-            <div class="magical-gallery-item"></div>
+<button id="happer">hap</button>
+        <div class="magical-gallery" id="magical-data"
+            data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">
+            <div class="magical-gallery-item" onmouseover=""></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>

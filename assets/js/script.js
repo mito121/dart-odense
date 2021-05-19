@@ -10,7 +10,6 @@ $(document).ready(function () {
     arrows: true,
   });
 
-  
   /*
    *** Magical gallery
    */
@@ -18,23 +17,33 @@ $(document).ready(function () {
   const paths = JSON.parse($("#magical-data").attr("data-dart-magic"));
   const images = document.querySelectorAll(".magical-gallery-item");
 
-  /* Function to change a specific image src (based in index, passed as a prop) */
-  function handleSrc(i) {
+  /* Function to start interval that changes a specific image src (based in index, passed as a prop) */
+  const startInterval = (i) => {
     window.setInterval(function () {
       const newPath = paths[Math.floor(Math.random() * paths.length)].path;
       $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
     }, 500);
+  };
+
+  function pauseInterval (i) {
+    clearInterval(startInterval);
   }
 
   /* Set images on load */
-
-  // *** USE THIS WHEN THERE ARE MORE THAN 10 IMAGES UPLOADED
-  // for (let n = 0; n < paths.length; n++) {
-  // *** USE THIS WHEN THERE ARE LESS THAN 10 IMAGES UPLOADED
-  for (let n = 0; n < paths.length; n++) {
-    const newPath = paths[n].path;
-    console.log(newPath);
-    $(images[n]).backstretch("uploads/small/" + newPath);
+  if (paths.length > 0) {
+    // If there are more than 10 images uploaded
+    for (let n = 0; n < paths.length; n++) {
+      const newPath = paths[n].path;
+      console.log(newPath);
+      $(images[n]).backstretch("uploads/small/" + newPath);
+    }
+  } else {
+    // If there are less than 10 images uploaded
+    for (let n = 0; n < paths.length; n++) {
+      const newPath = paths[n].path;
+      console.log(newPath);
+      $(images[n]).backstretch("uploads/small/" + newPath);
+    }
   }
 
   /* Loop function with timeout delay */
@@ -42,7 +51,7 @@ $(document).ready(function () {
   function galleryLoop() {
     setTimeout(function () {
       console.log(i);
-      handleSrc(i);
+      startInterval(i);
       i++;
 
       if (i < images.length) {

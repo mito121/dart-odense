@@ -230,6 +230,8 @@ header nav ul li a {
 .magical-gallery {
   display: flex;
   flex-wrap: wrap;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .magical-gallery-item {
