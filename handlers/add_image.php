@@ -9,7 +9,6 @@ require_once '../includes/dbconnect.php';
 require_once 'resize_image.php';
 
 if (!empty($_FILES)) {
-    // IMAGE UPLOAD  
     $valid_formats = array("jpg", "JPG", "JPEG", "PNG", "png", "gif", "bmp");
     $target_dir = "../uploads/";
     $target_dir_small = "../uploads/small/";
@@ -27,7 +26,6 @@ if (!empty($_FILES)) {
     }
     // Check if file already exists
     if (file_exists($orginal_target_path)) {
-        die("file alrdy exists");
         $uploadOk = 0;
     }
     // Check file size
@@ -37,7 +35,6 @@ if (!empty($_FILES)) {
     } */
     // Allow certain file formats
     if (!in_array(pathinfo($filename, PATHINFO_EXTENSION), $valid_formats)) {
-        die("file format is shitty");
         $uploadOk = 0;
     }
     // Check if $uploadOk is set to 0 by an error
@@ -63,5 +60,5 @@ if (!empty($_FILES)) {
     } else {
         $output = "Noget gik galt.";
     }
+    header("location: ../index.php?msg=$output");
 }
-echo $output;

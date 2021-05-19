@@ -252,6 +252,8 @@ header {
 .magical-gallery {
   display: flex;
   flex-wrap: wrap;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .magical-gallery-item {
   height: 228px;
