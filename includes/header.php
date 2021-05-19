@@ -17,6 +17,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" />
   <!-- Custom -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+  <!-- TinyMCE -->
+  <script src="https://cdn.tiny.cloud/1/6tuqmnzsuhl7pk0sio1g4wiw8uuumzsntdwfi22eo6q251qg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
