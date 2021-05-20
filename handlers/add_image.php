@@ -1,9 +1,4 @@
 <?php
-/* ***
-*** MULTI FILE UPLOAD:
-    https://stackoverflow.com/questions/9046657/upload-multiple-files-in-php
-    https://stackoverflow.com/questions/40129388/multiple-file-upload-with-php
-*/
 
 require_once '../includes/dbconnect.php';
 require_once 'resize_image.php';

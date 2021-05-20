@@ -32,7 +32,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                                 <h1>$post_title</h1>
                             </div>
                             <div class=\"read-time\">
-                                Læsetid: &#60;$post_read_time min.
+                                Læsetid: $post_read_time min.
                             </div>
                             <div class=\"slide-body\">
                                 $post_content

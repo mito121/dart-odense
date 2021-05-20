@@ -1,20 +1,6 @@
 <div class="wrapper top-space">
     <section>
-        <h1>Admin panel</h1>
-
-        <div>
-            <h2>Upload billede</h2>
-            <form action="./handlers/add_image.php" method="post" enctype="multipart/form-data">
-                <div class="form-row">
-                    <label for="fileToUpload">Select image to upload:</label>
-                    <input type="file" name="image" id="fileToUpload">
-                </div>
-
-                <button class="btn btn-primary" type="submit">Upload</button>
-                <br />
-                <?php echo isset($_GET['message']) ? $_GET['message'] : null; ?>
-            </form>
-        </div>
+        <h1>Administrér nyheder</h1>
 
         <div>
             <h2>Opret nyhed</h2>

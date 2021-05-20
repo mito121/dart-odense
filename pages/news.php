@@ -8,6 +8,7 @@ $sql = "SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated
 $result = $conn->query($sql);
 
 $news = "";
+$yearHeadings = array();
 
 if (mysqli_num_rows($result) > 0) {
     while ($obj = $result->fetch_object()) {
@@ -18,12 +19,23 @@ if (mysqli_num_rows($result) > 0) {
         $post_author = $obj->author_id;
         $post_updated = $obj->last_updated;
 
+        // Check if Year header should be insterted
+        $year = substr($post_updated, 0, 4);
+        if (false !== $key = array_search($year, $yearHeadings)) { // year is not new - dont add heading
+            $thisHeading = "";
+        } else { // year is new - add heading
+            $yearHeadings[] = $year;
+            $thisHeading = "<h2 class=\"news-year-heading\">" . end($yearHeadings) . "</h2>";
+        }
+        /* die(substr($post_updated, 0 ,4)); */
+
         if (strlen(strip_tags($post_content)) > 500) {
             $post_content = str_replace("&nbsp;", '', $post_content);
             $post_content = substr(strip_tags($post_content), 0, 500) . "... <span class=\"tbc\">[Fortsættes]</span>";
         }
 
         $news .= "
+                $thisHeading
                 <div class=\"news-container\">
                     <a href=\"index.php\">
                         <div class=\"slide-header\">
@@ -71,7 +83,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
         <div class="all-news flex flex-wrap">
-            <h1 class="w-full">2021</h1>
+            <!-- <h1 class="w-full">2021</h1> -->
             <!--             <div class="news-container">
                 <a href="index.php">
                     <div class="slide-header">
