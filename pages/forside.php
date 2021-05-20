@@ -9,7 +9,7 @@ $result = $conn->query($sql);
 
 $news = "";
 
-if (mysqli_num_rows($result) > 0) {
+if ($result && mysqli_num_rows($result) > 0) {
     while ($obj = $result->fetch_object()) {
         $post_id = $obj->id;
         $post_title = $obj->title;
@@ -18,12 +18,11 @@ if (mysqli_num_rows($result) > 0) {
         $post_author = $obj->author_id;
         $post_updated = $obj->last_updated;
 
-
+        /* If post content is too long, cut it off and strip tags */
         if (strlen(strip_tags($post_content)) > 500) {
             $post_content = str_replace("&nbsp;", '', $post_content);
             $post_content = substr(strip_tags($post_content), 0, 500) . "... <span class=\"tbc\">[Fortsættes]</span>";
         }
-
 
         $news .= "
                 <div class=\"slick-slide\">
