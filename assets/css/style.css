@@ -34,9 +34,25 @@ h2 {
   font-size: 2em;
 }
 
+h3 {
+  font-size: 1.6em;
+}
+
 .form-row > label {
   display: block;
   margin: 8px 0;
+}
+
+.form-row-50 {
+  width: 50%;
+}
+.form-row-50 > label {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.form-row.radio label {
+  margin-bottom: 0;
 }
 
 form {
@@ -47,8 +63,28 @@ form input[type=submit] {
   margin: 6px 0 0 0;
 }
 
-.form-row label {
+.form-row label,
+.form-row-50 label {
   font-weight: 700;
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+.radio-row input[type=radio] {
+  height: 20px;
+  width: 20px;
+}
+.radio-row label {
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.required {
+  color: red;
+  font-weight: 900;
 }
 
 input[type=text],
@@ -83,6 +119,9 @@ textarea {
 
 .top-space {
   margin-top: 150px;
+}
+.top-space > div.wrapper {
+  padding-top: 75px;
 }
 
 /* 
@@ -133,6 +172,7 @@ header .logo img {
 }
 header nav ul {
   display: flex;
+  align-items: center;
 }
 header nav ul li {
   margin: 0 8px;
@@ -332,6 +372,23 @@ header nav ul li a {
 }
 
 /* 
+*** Sign up
+ */
+.calc-price input {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #ddd;
+}
+.calc-price span {
+  background-color: #ddd;
+  border: 1px solid #333;
+  padding: 1px 6px;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  margin-left: -5px;
+}
+
+/* 
 *** Admin images
  */
 /* Add collection */
@@ -348,8 +405,12 @@ header nav ul li a {
 #drop_file_zone {
   background-color: #eee;
   border: #999 5px dashed;
-  width: 290px;
-  height: 200px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 290px;
+  min-height: 200px;
+  /* width: 290px;
+  height: 200px; */
   padding: 8px;
   font-size: 18px;
 }

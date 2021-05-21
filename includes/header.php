@@ -36,6 +36,12 @@
             <nav>
                 <ul>
                     <li>
+                        <a href="index.php?page=sign-up" class="btn btn-primary">
+                            Bliv medlem
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="index.php">
                             Forside
                         </a>

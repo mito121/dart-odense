@@ -31,23 +31,32 @@
             </div>
 
             <div class="flex">
-                <!-- Drag & drop area -->
-                <div id="drop_file_zone" ondrop="upload_file(event); this.style.backgroundColor = '#eee';"
-                    ondragover="this.style.backgroundColor = '#ccc'; return false;"
-                    ondragleave="this.style.backgroundColor = '#eee'">
-                    <div id="drag_upload_file">
-                        <p>Drop files here</p>
-                        <p>or</p>
-                        <p><input type="button" class="btn btn-secondary" value="Select Files"
-                                onclick="file_explorer();">
-                        </p>
-                        <input type="file" id="selectfile" multiple>
-                    </div>
+                <div class="form-row-50">
+                    <label for="collection_desc">Album beskrivelse</label>
+                    <textarea class="tinymce" name="the_post" id="collection_desc"></textarea>
                 </div>
 
-                <!-- List of uploaded files -->
-                <ol id="uploaded-files"></ol>
+                <!-- Drag & drop area -->
+                <div class="form-row-50">
+                    <label for="collection_images">Album billeder</label>
+                    <div id="drop_file_zone" ondrop="upload_file(event); this.style.backgroundColor = '#eee';"
+                        ondragover="this.style.backgroundColor = '#ccc'; return false;"
+                        ondragleave="this.style.backgroundColor = '#eee'">
+                        <div id="drag_upload_file">
+                            <p>Drop files here</p>
+                            <p>or</p>
+                            <p><input type="button" class="btn btn-secondary" id="collection_images" value="Select Files"
+                                    onclick="file_explorer();">
+                            </p>
+                            <input type="file" id="selectfile" multiple>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- List of uploaded files -->
+            <ol id="uploaded-files"></ol>
+            <div id="img-preview"></div>
+
 
 
             <button class="btn btn-primary" id="submit-collection" onclick="upload_collection()">Opret album</button>

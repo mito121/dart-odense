@@ -40,9 +40,30 @@ h2 {
   font-size: 2em;
 }
 
+h3 {
+  font-size: 1.6em;
+
+}
+
 .form-row > label {
   display: block;
   margin: 8px 0;
+}
+
+.form-row-50 {
+  width: 50%;
+  > label {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
+
+.form-row {
+  &.radio {
+    label {
+      margin-bottom: 0;
+    }
+  }
 }
 
 form {
@@ -54,10 +75,31 @@ form {
   }
 }
 
-.form-row {
+.form-row,
+.form-row-50 {
   label {
     font-weight: 700;
   }
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  input[type="radio"] {
+    height: 20px;
+    width: 20px;
+  }
+
+  label {
+    font-weight: 500;
+    margin-left: 5px;
+  }
+}
+
+.required {
+  color: red;
+  font-weight: 900;
 }
 
 input[type="text"],
@@ -93,6 +135,10 @@ textarea {
 
 .top-space {
   margin-top: 150px;
+
+  > div.wrapper {
+    padding-top: 75px;
+  }
 }
 
 /* 
@@ -151,6 +197,7 @@ header {
   nav {
     ul {
       display: flex;
+      align-items: center;
       li {
         margin: 0 8px;
         &:last-of-type {
@@ -365,6 +412,26 @@ header {
 }
 
 /* 
+*** Sign up
+ */
+.calc-price {
+  input {
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    background-color:#ddd;
+  }
+
+  span {
+    background-color:#ddd;
+    border: 1px solid #333;
+    padding: 1px 6px;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    margin-left: -5px;
+  }
+}
+
+/* 
 *** Admin images
  */
 
@@ -382,8 +449,14 @@ header {
 #drop_file_zone {
   background-color: #eee;
   border: #999 5px dashed;
-  width: 290px;
-  height: 200px;
+
+  width: 100%;
+  max-width: 600px;
+  min-width: 290px;
+  min-height: 200px;
+
+  /* width: 290px;
+  height: 200px; */
   padding: 8px;
   font-size: 18px;
 }

@@ -3,6 +3,7 @@ require_once '../includes/dbconnect.php';
 require_once 'resize_image.php';
 
 $collection_name = mysqli_real_escape_string($conn, $_POST['name']);
+$collection_desc = mysqli_real_escape_string($conn, $_POST['desc']);
 $this_collection_id = 1;
 
 if (!empty($_FILES) && !empty($collection_name)) {
@@ -66,7 +67,7 @@ if (!empty($_FILES) && !empty($collection_name)) {
         }
     }
     /* Insert collection into db */
-    $sql = "INSERT INTO `dart_collections`(`id`, `name`) VALUES ('$this_collection_id', '$collection_name')";
+    $sql = "INSERT INTO `dart_collections`(`id`, `name`, `description`) VALUES ('$this_collection_id', '$collection_name', '$collection_desc')";
     $result = $conn->query($sql);
     echo "Album oprettet!";
 } else {
