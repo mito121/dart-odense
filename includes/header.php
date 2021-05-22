@@ -35,11 +35,22 @@
             <!-- Navigation -->
             <nav>
                 <ul>
-                    <li>
-                        <a href="index.php?page=sign-up" class="btn btn-primary">
-                            Bliv medlem
-                        </a>
-                    </li>
+                    <!-- *** Show "Bliv medlem" if user is not a member -->
+                    <?php echo isset($_SESSION['membership_id']) && 
+                    !empty($_SESSION['membership_id']) ? "  <li>
+                                                                <a href=\"index.php?page=profile\">
+                                                                    Min profil
+                                                                </a>
+                                                            </li>"
+                                                        :
+                                                            "<li>
+                                                                <a href=\"index.php?page=sign-up\" class=\"btn btn-primary\">
+                                                                    Bliv medlem
+                                                                </a>
+                                                            </li>";
+                                                                ?>
+
+
 
                     <li>
                         <a href="index.php">

@@ -52,9 +52,10 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="thumbnail" value />
             </div>
             <!-- List of uploaded files -->
-            <ol id="uploaded-files"></ol>
+            <!-- <ol id="uploaded-files"></ol> -->
             <div id="img-preview"></div>
 
 

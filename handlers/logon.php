@@ -15,7 +15,14 @@ if (isset($_POST)) {
     }
     
     if (password_verify($password, $db_password)) { // If passwords match
-      $sql = "SELECT `id`, `name`, `password`, `role_id` FROM `dart_users` WHERE email = '$email' ";
+      /* LEFT JOIN, to always get data from entity 'dart_users', even if membership doesn't exist */
+      $sql = "
+        SELECT dart_users.`id` as id, dart_users.`name` as name, dart_users.`password` as password, dart_users.`role_id` as role_id, dart_memberships.id as membership_id, dart_membertypes.name as membership_name
+        FROM `dart_users`
+        LEFT JOIN dart_memberships on dart_memberships.user_id = dart_users.id
+        LEFT JOIN dart_membertypes on dart_membertypes.id = dart_memberships.type_id
+        WHERE dart_users.email = '$email'
+      ";
       $result = $conn->query($sql);
       $_SESSION['logged'] = true;
       while ($obj = $result->fetch_object()) {
@@ -23,6 +30,8 @@ if (isset($_POST)) {
         $_SESSION['role_id'] = $obj->role_id;
         $_SESSION['name'] = $obj->name;
         $_SESSION['email'] = $email;
+        $_SESSION['membership_id'] = $obj->membership_id;
+        $_SESSION['membership_name'] = $obj->membership_name;
       }
       header("Location: ../index.php");
     } else { // If passwords don't match

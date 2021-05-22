@@ -4,8 +4,10 @@ require_once 'resize_image.php';
 
 $collection_name = mysqli_real_escape_string($conn, $_POST['name']);
 $collection_desc = mysqli_real_escape_string($conn, $_POST['desc']);
+$collection_thumbnail = mysqli_real_escape_string($conn, $_POST['thumb']);
 $this_collection_id = 1;
 
+/* Get ID of this collection */
 if (!empty($_FILES) && !empty($collection_name)) {
     /* Get ID of this collection */
     $sql = "SELECT `id` FROM `dart_collections` ORDER BY id DESC LIMIT 1";
@@ -15,6 +17,11 @@ if (!empty($_FILES) && !empty($collection_name)) {
             $this_collection_id = $obj->id;
         }
         $this_collection_id = $this_collection_id + 1;
+    }
+
+    /* Set thumbnail to first image if unset */
+    if(empty($collection_thumbnail)){
+        $collection_thumbnail = $_FILES['file']['name'][0];
     }
 
     /* Upload each file */
@@ -67,9 +74,13 @@ if (!empty($_FILES) && !empty($collection_name)) {
         }
     }
     /* Insert collection into db */
-    $sql = "INSERT INTO `dart_collections`(`id`, `name`, `description`) VALUES ('$this_collection_id', '$collection_name', '$collection_desc')";
+    $sql = "INSERT INTO `dart_collections`(`id`, `name`, `description`, `thumbnail`) VALUES ('$this_collection_id', '$collection_name', '$collection_desc', '$collection_thumbnail')";
     $result = $conn->query($sql);
-    echo "Album oprettet!";
+    if($result === true){
+        echo "Album oprettet!";
+    }else{
+        echo "Noget gik galt!";
+    }
 } else {
     echo "Tilføj nogle billeder, før du opretter et album.";
 }

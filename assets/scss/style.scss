@@ -42,7 +42,6 @@ h2 {
 
 h3 {
   font-size: 1.6em;
-
 }
 
 .form-row > label {
@@ -418,11 +417,11 @@ header {
   input {
     border-right: none;
     border-radius: 5px 0 0 5px;
-    background-color:#ddd;
+    background-color: #ddd;
   }
 
   span {
-    background-color:#ddd;
+    background-color: #ddd;
     border: 1px solid #333;
     padding: 1px 6px;
     border-left: none;
@@ -472,4 +471,36 @@ header {
 
 #drag_upload_file #selectfile {
   display: none;
+}
+
+#img-preview {
+  display:flex;
+  flex-wrap: wrap;
+
+  .preview-container {
+    height: 250px;
+    width: 200px;
+    word-break: break-all;
+    border:2px solid transparent;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 8px;
+    transition: border-color 100ms ease-in-out;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    img {
+      height:175px;
+      width:200px;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    p{
+      margin: 5px;
+      pointer-events: none;
+    }
+  }
 }

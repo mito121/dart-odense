@@ -428,4 +428,32 @@ header nav ul li a {
   display: none;
 }
 
+#img-preview {
+  display: flex;
+  flex-wrap: wrap;
+}
+#img-preview .preview-container {
+  height: 250px;
+  width: 200px;
+  word-break: break-all;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 8px;
+  transition: border-color 100ms ease-in-out;
+}
+#img-preview .preview-container:hover {
+  cursor: pointer;
+}
+#img-preview .preview-container img {
+  height: 175px;
+  width: 200px;
+  object-fit: cover;
+  pointer-events: none;
+}
+#img-preview .preview-container p {
+  margin: 5px;
+  pointer-events: none;
+}
+
 /*# sourceMappingURL=style.css.map */

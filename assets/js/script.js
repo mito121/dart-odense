@@ -122,38 +122,48 @@ $(document).ready(function () {
 
   /* Submit membership form */
   function submitMembership() {
-    if (membertype !== false && paymentInterval !== false) {
+    let user_id = $("#user_id").val();
+    let membership_id = $("input[name=membership]:checked").val();
+    let membership_name = $("input[name=membership]:checked").attr("data-name");
+    let interval_id = $("input[name=interval]:checked").val();
+    let price = $("#calculated-price").val();
+
+    if (membertype == false || paymentInterval == false) {
+      // Missing form fields
+      alert("husk nu lige at udfylde alle felterne :)");
+    } else if (user_id == 0) {
+      // User is not logged
+      alert("du skal altså lige logge på, du...");
+    } else {
+      // Set & send form data
       let form_data = new FormData();
-
-      let user_id = $("#user_id").val();
-      let membership_id = $("input[name=membership]:checked").val();
-      let interval_id = $("input[name=interval]:checked").val();
-      let price = $("#calculated-price").val();
-
       form_data.append("user_id", user_id);
       form_data.append("membership_id", membership_id);
+      form_data.append("membership_name", membership_name);
       form_data.append("interval_id", interval_id);
       form_data.append("price", price);
 
       $.ajax({
         type: "POST",
-        url: "./handlers/signup.php",
+        url: "./handlers/membership_signup.php",
         contentType: false,
         processData: false,
+        //async: false,
         data: form_data,
         success: function (response) {
-          /* Signup response */
           $("#server-msg").html(response);
+          let url = window.location.href;
+          window.location.href = url + "&response=" + response;
         },
       });
     }
   }
 
-  $("#sign-up").on("click", submitMembership)
+  $("#sign-up").on("click", submitMembership);
 }); // document.ready
 
 /*
- *** Admin images
+ *** Create image collection
  */
 
 /* Create collection */
@@ -163,14 +173,14 @@ let fileobj;
 function upload_file(e) {
   e.preventDefault();
   document.querySelector("#selectfile").files = e.dataTransfer.files;
-  showFileNames();
+  preview();
 }
 
 /* Open file explorer */
 function file_explorer() {
   document.querySelector("#selectfile").click();
   document.getElementById("selectfile").onchange = function () {
-    showFileNames();
+    preview();
   };
 }
 
@@ -179,29 +189,6 @@ function upload_collection() {
   const files = document.querySelector("#selectfile").files;
   tinyMCE.triggerSave(true, true);
   ajax_file_upload(files);
-}
-
-/* Show uploaded file names */
-function showFileNames() {
-  /* Clear list */
-  document.querySelector("#uploaded-files").innerHTML = "";
-  /* Get files */
-  const files = document.querySelector("#selectfile").files;
-
-  /* Append each file name to ul */
-  for (let i = 0; i < files.length; i++) {
-    /* Create <li> element */
-    const li = document.createElement("LI");
-    /* Create text node */
-    const val = document.createTextNode(files[i].name);
-    /* Append text node to <li> */
-    li.appendChild(val);
-    /* Append <li> to <ol> */
-    document.querySelector("#uploaded-files").appendChild(li);
-  }
-
-  /* Show img previews */
-  preview();
 }
 
 /* Send AJAX request */
@@ -213,6 +200,8 @@ function ajax_file_upload(file_obj) {
     form_data.append("name", document.querySelector("#collection_name").value);
     /* Description of collection */
     form_data.append("desc", document.querySelector("#collection_desc").value);
+    /* Selected collection thumbnail */
+    form_data.append("thumb", document.querySelector("#thumbnail").value);
     /* Append each selected file to form data */
     for (i = 0; i < file_obj.length; i++) {
       form_data.append("file[]", file_obj[i]);
@@ -228,7 +217,7 @@ function ajax_file_upload(file_obj) {
         $("#collection_name").val("");
         $("#selectfile").val("");
         tinyMCE.activeEditor.setContent("");
-        showFileNames();
+        preview();
       },
     });
   }
@@ -245,22 +234,74 @@ const readURL = (file) => {
   });
 };
 
-// for demo
-const fileInput = document.querySelector("#selectfile");
-
 const preview = async (event) => {
-  /* Clear list */
+  // Clear list
   document.querySelector("#img-preview").innerHTML = "";
 
   const files = document.querySelector("#selectfile").files;
   for (let i = 0; i < files.length; i++) {
+    // Create container
+    const container = document.createElement("div");
+    container.onclick = selectThumbnail;
+    // Set container classes & attributes
+    container.className = "preview-container";
+    container.setAttribute("data-name", files[i].name);
+    container.setAttribute("data-index", i);
+    // Create <img>
     const img = document.createElement("img");
+    // Create Text node
+    const name = document.createTextNode(files[i].name);
+    // Create <p>
+    const p = document.createElement("p");
+    // Append img to container
+    container.appendChild(img);
+    // Append textnode to <p>
+    p.appendChild(name);
+    // Append <p> to container
+    container.appendChild(p);
+
+    document.querySelector("#img-preview").appendChild(container);
+    /*document.querySelector("#img-preview").appendChild(img); */
+
+    const url = await readURL(files[i]);
+    img.src = url;
+  }
+};
+
+// Set thumbnail
+function selectThumbnail(event) {
+  // Get index of selected image
+  let thumbnail = event.target.getAttribute("data-name");
+  // Set hidden input thumbnailIndex value
+  document.querySelector("#thumbnail").value = thumbnail;
+
+  // Remove all border-colors
+  const images = document.querySelectorAll(".preview-container");
+  for (let i = 0; i < images.length; i++) {
+    images[i].style.borderColor = "transparent";
+  }
+
+  // Add selection border-color to selected image
+  event.target.style.borderColor = "green";
+}
+
+/* 
+
+const preview = async (event) => {
+  // Clear list
+  document.querySelector("#img-preview").innerHTML = "";
+
+  const files = document.querySelector("#selectfile").files;
+  for (let i = 0; i < files.length; i++) {
+    // Create image
+    const img = document.createElement("img");
+    // Set image max-width
     img.attributeStyleMap.set("max-width", "150px");
     document.querySelector("#img-preview").appendChild(img);
 
     const url = await readURL(files[i]);
     img.src = url;
   }
-};
+}; */
 
 /* fileInput.addEventListener("change", preview); */
