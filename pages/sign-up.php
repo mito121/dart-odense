@@ -52,16 +52,16 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
 
             <!-- Discount row -->
             <div id="parents-radio">
-                <h5>Har du forældre i klubben?</h5>
-                <div class="radio-row">
-                    <input type="radio" class="parents-radio" name="parents" value="0" data-discount="200"
-                        id="parents-nej">
-                    <label for="parents-nej">Nej</label>
-                </div>
+                <h3>Har du forældre i klubben?</h3>
                 <div class="radio-row">
                     <input type="radio" class="parents-radio" name="parents" value="1" data-discount="200"
                         id="parents-ja">
                     <label for="parents-ja">Ja</label>
+                </div>
+                <div class="radio-row">
+                    <input type="radio" class="parents-radio" name="parents" value="0" data-discount="200"
+                        id="parents-nej">
+                    <label for="parents-nej">Nej</label>
                 </div>
             </div>
         </div>
