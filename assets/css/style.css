@@ -42,6 +42,18 @@ ol {
   list-style-type: decimal;
 }
 
+p {
+  margin: 8px 0 24px 0;
+}
+
+table {
+  width: 100%;
+}
+
+.w-450 {
+  width: 450px;
+}
+
 .form-row > label {
   display: block;
   margin: 8px 0;
@@ -95,6 +107,10 @@ form input[type=submit] {
   font-weight: 900;
 }
 
+.bg-gray {
+  background-color: #e4e4e4;
+}
+
 input[type=text],
 input[type=password],
 input[type=email],
@@ -139,7 +155,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #282a35;
+  background: #0d1716;
   height: 150px;
   display: flex;
   align-items: center;
@@ -170,7 +186,7 @@ header .logo {
   user-select: none;
   transform: translateY(20px);
   transition: transform 250ms ease-in-out, background-color 250ms ease-in-out;
-  background-color: #282a35;
+  background-color: #0d1716;
   border-radius: 50%;
   pointer-events: all;
 }
@@ -215,17 +231,22 @@ header nav ul li a {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: brown;
-  transform: translate(-75px, 0px);
-  text-align: right;
-  min-width: 135px;
+  left: 0;
+  text-align: left;
+  min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 6px 12px;
+  padding: 0;
   z-index: 1;
+  background-color: #fff;
 }
 .dropdown-content a {
   display: block;
-  margin-top: 3px;
+  padding: 0.5rem 1rem;
+  color: black;
+}
+.dropdown-content a:hover {
+  background-color: #bb1835;
+  color: white;
 }
 .dropdown-content a:first-of-type {
   margin-top: 0;
@@ -257,23 +278,23 @@ header nav ul li a {
 }
 
 .btn-primary {
-  background-color: #218838;
+  background-color: #00713e;
   color: white;
   padding: 6px 1.8rem;
 }
 .btn-primary:hover {
   cursor: pointer;
-  background-color: #19672a;
+  background-color: #004828;
 }
 
 .btn-secondary {
-  background-color: #dc3545;
+  background-color: #bb1835;
   color: white;
   padding: 6px 1.8rem;
 }
 .btn-secondary:hover {
   cursor: pointer;
-  background-color: #921925;
+  background-color: #610c1b;
 }
 
 /* 
@@ -308,7 +329,7 @@ header nav ul li a {
   font-size: 1.6rem;
 }
 .news-container .read-time {
-  background-color: #dc3545;
+  background-color: #bb1835;
   color: white;
   padding: 6px 8px;
   width: max-content;
@@ -342,14 +363,14 @@ header nav ul li a {
 
 .slick-prev:before {
   content: "";
-  color: #dc3545;
+  color: #bb1835;
   font-size: 60px;
   font-family: "FontAwesome";
 }
 
 .slick-next:before {
   content: "";
-  color: #dc3545;
+  color: #bb1835;
   font-size: 60px;
   font-family: "FontAwesome";
 }
@@ -474,6 +495,18 @@ header nav ul li a {
  */
 #member-details {
   display: none;
+}
+
+/* 
+*** About us
+ */
+.about-section h1 {
+  position: relative;
+  overflow: hidden;
+}
+.about-section h1 span {
+  position: absolute;
+  top: -150px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -19,7 +19,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $post_updated = $obj->last_updated;
 
         /* If post content is too long, cut it off and strip tags */
-        if (strlen(strip_tags($post_content)) > 500) {
+        if (strlen($post_content) > 100) {
             $post_content = str_replace("&nbsp;", '', $post_content);
             $post_content = substr(strip_tags($post_content), 0, 500) . "... <span class=\"tbc\">[Fortsættes]</span>";
         }

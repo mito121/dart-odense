@@ -50,8 +50,6 @@
                                                             </li>";
                                                                 ?>
 
-
-
                     <li>
                         <a href="index.php">
                             Forside
@@ -69,9 +67,14 @@
 
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
-                        <a href="#">Om os</a>
+                        <a href="index.php?page=omos">Om os</a>
                         <div class="dropdown-content">
-                            <a href="#">Fersk and</a>
+                            <a href="index.php?page=omos#aboutus">Hvem er vi?</a>
+                            <a href="index.php?page=omos#openhrs">Åbningstider</a>
+                            <a href="index.php?page=omos#chiefs">Bestyrelsen</a>
+                            <a href="index.php?page=omos#sponsors">Sponsorer</a>
+                            <a href="index.php?page=rules">Love & vedtægter</a>
+                            <a href="index.php?page=privacy">Privatlivspolitik</a>
                         </div>
                     </li>
 
