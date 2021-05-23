@@ -87,6 +87,10 @@ $(document).ready(function () {
   /*
    *** Sign up
    */
+  let membertype = false,
+    paymentInterval = false,
+    price = 0,
+    parents;
   // Show membership details when membership is selected
   function displayMembershipDetails(id) {
     const details = [
@@ -130,6 +134,8 @@ $(document).ready(function () {
     const heading = document.querySelector("#membership-heading");
     const list = document.querySelector("#membership-details");
     const perks = details[id - 1].perks;
+    const parents = document.querySelector("#parents-radio");
+    // Show details container
     container.style.display = "block";
 
     // Set heading in HTML
@@ -138,29 +144,29 @@ $(document).ready(function () {
     list.innerHTML = "";
     // Set new values
     for (let i = 0; i < perks.length; i++) {
-      $("#membership-details").append( '<li>' + perks[i] + '</li>' );
+      $("#membership-details").append("<li>" + perks[i] + "</li>");
     }
 
     // If membership type is Junior, show extra input for discount
-    if(id == 4){
-      console.log("så går det løs")
+    if (id == 4) {
+      parents.style.display = "block";
+    } else {
+      parents.style.display = "none";
     }
   }
 
-  /* if radio buttons are checked */
-  let membertype = false,
-    paymentInterval = false,
-    price = 0;
-
-  $(".interval-radio, .membership-radio").on("click", (e) => {
-    // Display membership details
-    displayMembershipDetails(e.target.value);
-    // Set membertype or paymentinterval to true
+  // On radio input clicks
+  $(".interval-radio, .membership-radio, .parents-radio").on("click", (e) => {
+    // On membership click
     if (e.target.classList.contains("membership-radio")) {
       membertype = true;
+      // Display membership details
+      displayMembershipDetails(e.target.value);
+      // On interval click
     } else if (e.target.classList.contains("interval-radio")) {
       paymentInterval = true;
     }
+
     // Calculate price
     if (membertype === true && paymentInterval === true) {
       let unit = $("input[name=interval]:checked").attr("data-unit");
@@ -170,9 +176,17 @@ $(document).ready(function () {
       let discount = $("input[name=membership]:checked").attr("data-discount");
 
       if (unit == 4) {
+        // Yearly payment
         // If yearly payment, subtract discount
         price = price_per_unit * unit - discount;
+
+        // Check if membership is junior and has parents with memberships
+        parents = $("input[name=parents]:checked").val();
+        if (parents > 0) {
+          price = price / 2;
+        }
       } else {
+        // Quarterly payment
         price = price_per_unit * unit;
       }
 
