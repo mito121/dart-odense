@@ -45,6 +45,19 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
             </div>
         </div>
 
+        <!-- Membership details -->
+        <div id="member-details">
+            <h3 id="membership-heading"></h3>
+            <ol class="pl-8" id="membership-details"></ol>
+
+            <!-- Discount row -->
+            <div class="form-row">
+                <input type="radio" class="membership-radio" name="membership" value="4" data-price="100"
+                    data-discount="0" data-name="Junior" id="junior">
+                <label for="junior">Junior</label>
+            </div>
+        </div>
+
         <!-- Payment interval -->
         <div class="form-row radio">
             <h3>Betaling hvert <span class="required">*</span></h3>
@@ -70,7 +83,8 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
             </div>
         </div>
 
-        <input type="hidden" name="user_id" id="user_id" value="<?php echo isset($user_id) && !empty($user_id) ? $user_id : 0; ?>" />
+        <input type="hidden" name="user_id" id="user_id"
+            value="<?php echo isset($user_id) && !empty($user_id) ? $user_id : 0; ?>" />
 
         <button class="btn btn-primary" id="sign-up">Bliv medlem</button>
 

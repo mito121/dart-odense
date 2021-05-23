@@ -44,6 +44,10 @@ h3 {
   font-size: 1.6em;
 }
 
+ol {
+  list-style-type: decimal;
+}
+
 .form-row > label {
   display: block;
   margin: 8px 0;
@@ -175,6 +179,7 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: transform 250ms ease-in-out;
+    pointer-events: none;
   }
 
   .logo {
@@ -183,6 +188,7 @@ header {
     transition: transform 250ms ease-in-out, background-color 250ms ease-in-out;
     background-color: $dark;
     border-radius: 50%;
+    pointer-events: all;
 
     &:hover {
       cursor: pointer;
@@ -194,6 +200,7 @@ header {
   }
 
   nav {
+    pointer-events: all;
     ul {
       display: flex;
       align-items: center;
@@ -474,33 +481,40 @@ header {
 }
 
 #img-preview {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
 
   .preview-container {
     height: 250px;
     width: 200px;
     word-break: break-all;
-    border:2px solid transparent;
+    border: 2px solid transparent;
     border-radius: 5px;
     overflow: hidden;
     margin: 8px;
     transition: border-color 100ms ease-in-out;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
 
     img {
-      height:175px;
-      width:200px;
+      height: 175px;
+      width: 200px;
       object-fit: cover;
       pointer-events: none;
     }
 
-    p{
+    p {
       margin: 5px;
       pointer-events: none;
     }
   }
+}
+
+/* 
+*** Sign up Membership
+ */
+#member-details {
+  display: none;
 }

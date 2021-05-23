@@ -87,21 +87,81 @@ $(document).ready(function () {
   /*
    *** Sign up
    */
+  // Show membership details when membership is selected
+  function displayMembershipDetails(id) {
+    const details = [
+      {
+        id: 1,
+        heading: "Som aktiv medlem får du:",
+        perks: [
+          "Fri adgang til klubbens faciliteter på åbningsdage",
+          "Mulighed for at spille med i løbende turnering under Dartfyn og DDU",
+          "Betalt licens hvis du ønsker at spille med i Dartfyn eller DDU.",
+          "Stemmeret til klubbens årlige generalforsamling.",
+        ],
+      },
+      {
+        id: 2,
+        heading: "Som passiv medlem får du:",
+        perks: ["Fri adgang til klubbens faciliteter på åbningsdage"],
+      },
+      {
+        id: 3,
+        heading: "Som pensionist får du:",
+        perks: [
+          "Fri adgang til klubbens faciliteter på åbningsdage",
+          "Mulighed for at spille med i løbende turnering under Dartfyn og DDU",
+          "Betalt licens hvis du ønsker at spille med i Dartfyn eller DDU.",
+          "Stemmeret til klubbens årlige generalforsamling.",
+        ],
+      },
+      {
+        id: 4,
+        heading: "Som junior får du:",
+        perks: [
+          "Fri adgang til klubbens faciliteter på åbningsdage",
+          "Mulighed for at spille med i løbende turnering under Dartfyn og DDU",
+          "Betalt licens hvis du ønsker at spille med i Dartfyn eller DDU.",
+        ],
+      },
+    ];
+
+    const container = document.querySelector("#member-details");
+    const heading = document.querySelector("#membership-heading");
+    const list = document.querySelector("#membership-details");
+    const perks = details[id - 1].perks;
+    container.style.display = "block";
+
+    // Set heading in HTML
+    heading.innerHTML = details[id - 1].heading;
+    // Reset list
+    list.innerHTML = "";
+    // Set new values
+    for (let i = 0; i < perks.length; i++) {
+      $("#membership-details").append( '<li>' + perks[i] + '</li>' );
+    }
+
+    // If membership type is Junior, show extra input for discount
+    if(id == 4){
+      console.log("så går det løs")
+    }
+  }
 
   /* if radio buttons are checked */
   let membertype = false,
     paymentInterval = false,
     price = 0;
 
-  $(".membership-radio").on("click", () => {
-    membertype = true;
-  });
-
-  $(".interval-radio").on("click", () => {
-    paymentInterval = true;
-  });
-
-  $(".interval-radio, .membership-radio").on("click", () => {
+  $(".interval-radio, .membership-radio").on("click", (e) => {
+    // Display membership details
+    displayMembershipDetails(e.target.value);
+    // Set membertype or paymentinterval to true
+    if (e.target.classList.contains("membership-radio")) {
+      membertype = true;
+    } else if (e.target.classList.contains("interval-radio")) {
+      paymentInterval = true;
+    }
+    // Calculate price
     if (membertype === true && paymentInterval === true) {
       let unit = $("input[name=interval]:checked").attr("data-unit");
       let price_per_unit = $("input[name=membership]:checked").attr(
@@ -270,9 +330,9 @@ const preview = async (event) => {
 
 // Set thumbnail
 function selectThumbnail(event) {
-  // Get index of selected image
+  // Get name of selected image
   let thumbnail = event.target.getAttribute("data-name");
-  // Set hidden input thumbnailIndex value
+  // Set hidden thumbnail input
   document.querySelector("#thumbnail").value = thumbnail;
 
   // Remove all border-colors
@@ -281,27 +341,6 @@ function selectThumbnail(event) {
     images[i].style.borderColor = "transparent";
   }
 
-  // Add selection border-color to selected image
+  // Add border-color to selected image
   event.target.style.borderColor = "green";
 }
-
-/* 
-
-const preview = async (event) => {
-  // Clear list
-  document.querySelector("#img-preview").innerHTML = "";
-
-  const files = document.querySelector("#selectfile").files;
-  for (let i = 0; i < files.length; i++) {
-    // Create image
-    const img = document.createElement("img");
-    // Set image max-width
-    img.attributeStyleMap.set("max-width", "150px");
-    document.querySelector("#img-preview").appendChild(img);
-
-    const url = await readURL(files[i]);
-    img.src = url;
-  }
-}; */
-
-/* fileInput.addEventListener("change", preview); */
