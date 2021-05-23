@@ -4,13 +4,23 @@ require_once 'includes/dbconnect.php';
 /* 
 *** Get news
  */
-$sql = "SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated` FROM `dart_posts` ORDER BY `last_updated` DESC, `id` DESC";
+$yearFilter = !empty($_GET['year']) ? $_GET['year'] : null;
+if(isset($yearFilter)){
+    $sql = "
+    SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated`, YEAR(last_updated) as year 
+    FROM `dart_posts`
+    WHERE YEAR(last_updated) = '$yearFilter'
+    ORDER BY `last_updated` DESC, `id` DESC
+    ";
+} else {
+    $sql = "SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated`, YEAR(last_updated) as year FROM `dart_posts` ORDER BY `last_updated` DESC, `id` DESC";
+}
+
 $result = $conn->query($sql);
 
-$news = "";
-$yearHeadings = array();
-
 if (mysqli_num_rows($result) > 0) {
+    $news = "";
+    $yearHeadings = array();
     while ($obj = $result->fetch_object()) {
         $post_id = $obj->id;
         $post_title = $obj->title;
@@ -27,9 +37,9 @@ if (mysqli_num_rows($result) > 0) {
             $yearHeadings[] = $year;
             $thisHeading = "<h2 class=\"news-year-heading\">" . end($yearHeadings) . "</h2>";
         }
-        /* die(substr($post_updated, 0 ,4)); */
-
-        if (strlen(strip_tags($post_content)) > 500) {
+        
+        /* If post content is too long, cut it off and strip tags */
+        if (strlen($post_content) > 100) {
             $post_content = str_replace("&nbsp;", '', $post_content);
             $post_content = substr(strip_tags($post_content), 0, 500) . "... <span class=\"tbc\">[Fortsættes]</span>";
         }
@@ -51,34 +61,47 @@ if (mysqli_num_rows($result) > 0) {
                 </div>";
     }
 }
+
+/* 
+*** Get year filter select options
+ */
+$sql = "SELECT YEAR(`last_updated`) as year FROM `dart_posts` GROUP BY YEAR(`last_updated`) DESC";
+$result = $conn->query($sql);
+if (mysqli_num_rows($result) > 0) {
+    $options = "<option>Vælg år</option>";
+    while ($obj = $result->fetch_object()) {
+        $year = $obj->year;
+
+        if(isset($yearFilter) && $yearFilter == $year){
+            $options .= "<option value='$year' selected>$year</option>";
+        }else{
+            $options .= "<option value='$year'>$year</option>";
+        }
+    }
+}
 ?>
-<!-- *** -->
-<!--  News *** -->
-<!-- *** -->
-<section>
+
+<section class="top-space">
     <div class="wrapper">
 
-        <div class="flex justify-between items-center mt-8">
-            <h1>NYHEDER</h1>
+        <div class="flex justify-between items-center">
+            <h1 class="mb-8">Nyheder</h1>
 
-            <div class="flex">
-                <select class="mr-3">
-                    <option selected>Vælg år</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
+            <!-- <div class="flex"> -->
+                <!-- <select class="mr-3" id="filter-year"> -->
+                <select id="filter-year">
+                    <?php echo $options; ?>
                 </select>
 
-                <select>
+                <!-- <select id="filter-items-per-page">
                     <option selected>20 indlæg pr. side</option>
                     <option>6</option>
                     <option>66</option>
                     <option>666</option>
                     <option>69420</option>
-                </select>
+                </select> -->
 
-            </div>
+            <!-- </div> -->
         </div>
 
 

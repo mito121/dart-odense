@@ -44,7 +44,7 @@
                                                             </li>"
                                                         :
                                                             "<li>
-                                                                <a href=\"index.php?page=sign-up\" class=\"btn btn-primary\">
+                                                                <a href=\"index.php?page=sign-up\" class=\"btn btn-primary\" id=\"get-membership\">
                                                                     Bliv medlem
                                                                 </a>
                                                             </li>";
@@ -56,30 +56,38 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="index.php?page=news">Nyheder</a>
+                    </li>
+
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
-                        <a href="#">Spil</a>
+                        <a href="index.php?page=games">Spil</a>
                         <div class="dropdown-content">
-                            <a href="#">Events</a>
-                            <a href="#">Hestemøg</a>
+                            <a href="index.php?page=games">Regler</a>
+                            <a href="#">Stillinger</a>
                         </div>
+                    </li>
+
+                    <li>
+                        <a href="index.php?page=galleries">Galleri</a>
                     </li>
 
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
                         <a href="index.php?page=omos">Om os</a>
                         <div class="dropdown-content">
-                            <a href="index.php?page=omos#aboutus">Hvem er vi?</a>
+                            <a href="index.php?page=omos">Hvem er vi?</a>
                             <a href="index.php?page=omos#openhrs">Åbningstider</a>
                             <a href="index.php?page=omos#chiefs">Bestyrelsen</a>
                             <a href="index.php?page=omos#sponsors">Sponsorer</a>
-                            <a href="index.php?page=rules">Love & vedtægter</a>
+                            <a href="index.php?page=laws">Love & vedtægter</a>
                             <a href="index.php?page=privacy">Privatlivspolitik</a>
                         </div>
                     </li>
 
                     <li>
-                        <a href="#">Kontakt</a>
+                        <a href="index.php?page=contact">Kontakt</a>
                     </li>
 
                     <!-- Admin -->
@@ -87,8 +95,9 @@
                                                                             <i class=\"fas fa-chevron-down\"></i>
                                                                             <a href=\"index.php?page=admin\"></i>Admin</a>
                                                                             <div class=\"dropdown-content\">
-                                                                                <a href=\"index.php?page=admin-images\">Billeder</a>
-                                                                                <a href=\"index.php?page=admin-posts\">Nyheder</a>
+                                                                                <a href=\"index.php?page=admin-images\">Nyt album</a>
+                                                                                <a href=\"index.php?page=admin-posts\">Ny nyhed</a>
+                                                                                <a href=\"index.php?page=admin-games\">Nyt spil</a>
                                                                             </div>
                                                                         </li>" : null; ?>
 

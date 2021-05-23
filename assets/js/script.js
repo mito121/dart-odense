@@ -42,7 +42,7 @@ $(document).ready(function () {
       window.setInterval(function () {
         const newPath = paths[Math.floor(Math.random() * paths.length)].path;
         $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
-      }, 500);
+      }, 5000);
     };
 
     /* Set images on load */
@@ -73,7 +73,7 @@ $(document).ready(function () {
         if (i < images.length) {
           galleryLoop();
         }
-      }, 700);
+      }, 7000);
     }
 
     // Start the loop
@@ -357,4 +357,27 @@ function selectThumbnail(event) {
 
   // Add border-color to selected image
   event.target.style.borderColor = "green";
+}
+
+/*
+ *** News
+ */
+const filterYear = document.querySelector("#filter-year");
+const filterItemsPerPage = document.querySelector("#filter-items-per-page");
+
+// Filter by year
+function handleYearFilter(e) {
+  let url = window.location.href;
+  /* const value = e.target.value; */
+  const value = e.target.value.length == 4 ? e.target.value : null;
+
+  if (value !== null) {
+    window.location.href = "index.php?page=news&year=" + value;
+  } else {
+    window.location.href = "index.php?page=news";
+  }
+}
+
+if (filterYear) {
+  filterYear.addEventListener("change", handleYearFilter);
 }

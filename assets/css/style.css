@@ -40,6 +40,7 @@ h3 {
 
 ol {
   list-style-type: decimal;
+  padding-left: 25px;
 }
 
 p {
@@ -215,6 +216,10 @@ header nav ul li a {
   font-size: 1.3em;
 }
 
+#get-membership {
+  /* display: none; */
+}
+
 /* dwop dawn */
 .dropdown {
   position: relative;
@@ -260,7 +265,7 @@ header nav ul li a {
 *** Hero section
  */
 .hero-fold {
-  background-image: url(https://c1.wallpaperflare.com/preview/837/948/57/dart-darts-the-success-of-the-the-purpose-of-the.jpg);
+  background-image: url(../img/hero-img.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -274,7 +279,6 @@ header nav ul li a {
 
 .hero-content {
   color: #fff;
-  mix-blend-mode: difference;
 }
 
 .btn-primary {
@@ -313,7 +317,7 @@ header nav ul li a {
 }
 
 .news-container {
-  margin: 20px 40px 0 0;
+  margin: 20px 30px 0 0;
   height: 450px;
   width: 350px;
   display: inline-block;
@@ -403,6 +407,7 @@ header nav ul li a {
   width: 100%;
   font-size: 1.8em;
   font-weight: 600;
+  margin-top: 2.5rem;
 }
 
 /* 
@@ -507,6 +512,81 @@ header nav ul li a {
 .about-section h1 span {
   position: absolute;
   top: -150px;
+}
+
+/* 
+*** Laws
+ */
+ol.abc {
+  counter-reset: list;
+}
+ol.abc li {
+  list-style: none;
+}
+ol.abc li::before {
+  content: counter(list, lower-alpha) ") ";
+  counter-increment: list;
+}
+
+.law h2 {
+  font-weight: 600;
+}
+
+.last-revision {
+  font-style: italic;
+}
+
+/* 
+*** Games
+ */
+.games .game {
+  display: flex;
+  box-shadow: 0px 3px 10px #00000035;
+  border-radius: 10px;
+  /* padding: 20px 30px; */
+  margin-bottom: 30px;
+  width: 100%;
+  height: 330px;
+}
+.games .game h1 {
+  font-size: 2em;
+}
+.games .game div {
+  width: 50%;
+}
+.games .game div:first-of-type {
+  padding: 20px 30px;
+}
+.games .game div:last-of-type {
+  height: 100%;
+}
+.games .game div img {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #0d1716;
+  height: 150px;
+  color: #fff;
+  margin-top: 50px;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}
+footer i {
+  margin: 0 8px;
+  font-size: 2rem;
+}
+footer .follow-us {
+  font-style: italic;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -68,7 +68,7 @@ if (mysqli_num_rows($result) > 0) {
 <!-- *** -->
 <!--  FOLD *** -->
 <!-- *** -->
-<section class="hero-fold">
+<section class="hero-fold" id="hero">
     <div class="wrapper">
         <div class="flex justify-end items-center hero-content">
             <div class="w-2/5">
@@ -110,7 +110,8 @@ if (mysqli_num_rows($result) > 0) {
     <div class="wrapper">
         <h1 class=" mt-6 mb-4">GALLERI</h1>
 
-        <div class="magical-gallery" id="magical-data" data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">
+        <div class="magical-gallery" id="magical-data"
+            data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">
             <div class="magical-gallery-item" onmouseover=""></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>
@@ -123,7 +124,10 @@ if (mysqli_num_rows($result) > 0) {
             <div class="magical-gallery-item"></div>
         </div>
 
-
-
+        <div class="w-full flex justify-end">
+            <a href="index.php?page=galleries">
+                <button class="btn btn-primary mr-4">Se alle</button>
+            </a>
+        </div>
     </div>
 </section>
