@@ -45,8 +45,8 @@
                         <div id="drag_upload_file">
                             <p>Drop files here</p>
                             <p>or</p>
-                            <p><input type="button" class="btn btn-secondary" id="collection_images" value="Select Files"
-                                    onclick="file_explorer();">
+                            <p><input type="button" class="btn btn-secondary" id="collection_images"
+                                    value="Select Files" onclick="file_explorer();">
                             </p>
                             <input type="file" id="selectfile" multiple>
                         </div>
@@ -55,10 +55,7 @@
                 <input type="hidden" id="thumbnail" value />
             </div>
             <!-- List of uploaded files -->
-            <!-- <ol id="uploaded-files"></ol> -->
             <div id="img-preview"></div>
-
-
 
             <button class="btn btn-primary" id="submit-collection" onclick="upload_collection()">Opret album</button>
         </div>
