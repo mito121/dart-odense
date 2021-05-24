@@ -363,13 +363,12 @@ function selectThumbnail(event) {
  *** News
  */
 const filterYear = document.querySelector("#filter-year");
-const filterItemsPerPage = document.querySelector("#filter-items-per-page");
 
 // Filter by year
 function handleYearFilter(e) {
   let url = window.location.href;
   /* const value = e.target.value; */
-  const value = e.target.value.length == 4 ? e.target.value : null;
+  let value = e.target.value.length == 4 ? e.target.value : null;
 
   if (value !== null) {
     window.location.href = "index.php?page=news&year=" + value;
@@ -380,4 +379,26 @@ function handleYearFilter(e) {
 
 if (filterYear) {
   filterYear.addEventListener("change", handleYearFilter);
+}
+
+/*
+ *** Galleries
+ */
+const GalleryFilterYear = document.querySelector("#gallery-filter-year");
+
+// Filter by year
+function handleGalleryYearFilter(e) {
+  let url = window.location.href;
+  /* const value = e.target.value; */
+  let value = e.target.value.length == 4 ? e.target.value : null;
+
+  if (value !== null) {
+    window.location.href = "index.php?page=galleries&year=" + value;
+  } else {
+    window.location.href = "index.php?page=galleries";
+  }
+}
+
+if (GalleryFilterYear) {
+  GalleryFilterYear.addEventListener("change", handleGalleryYearFilter);
 }

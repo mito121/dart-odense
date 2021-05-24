@@ -34,7 +34,6 @@ if (mysqli_num_rows($result) > 0) {
         <h1 class="mb-8"><?php echo $post_title; ?></h1>
 
         <div class="parallax" style="background-image: url(<?php echo $img_src; ?>);"></div>
-        <!-- <img src="<?php /* echo $img_src; */ ?>" alt="bannerbillede"> -->
 
         <div class="post-content">
             <?php echo $post_content; ?>

@@ -66,11 +66,10 @@ if (!empty($_FILES) && !empty($collection_name)) {
         
             // RESIZE IMAGE
             $imageResizer = new ImageResizer($original_target_path);
-            //$imageResizer->resizeTo(250, 166);
             $imageResizer->resizeTo(300, 200);
             $imageResizer->saveImage($small_target_path);
-            $imageResizer->resizeTo(1050, 700);
-            $imageResizer->saveImage($original_target_path);
+/*             $imageResizer->resizeTo(1200, 764);
+            $imageResizer->saveImage($original_target_path); */
         }
     }
     /* Insert collection into db */

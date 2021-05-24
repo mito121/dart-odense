@@ -83,8 +83,8 @@ if (isset($_POST)) {
             $imageResizer = new ImageResizer($orginal_target_path);
             $imageResizer->resizeTo(300, 300);
             $imageResizer->saveImage($small_target_path);
-            /* $imageResizer->resizeTo(1050, 700); */
-            $imageResizer->saveImage($orginal_target_path);
+            /* $imageResizer->resizeTo(1050, 700);
+            $imageResizer->saveImage($orginal_target_path); */
 
             $sql = "INSERT INTO `dart_images`(`path`, `post_id`) VALUES ('$filename', '$post_id')";
 

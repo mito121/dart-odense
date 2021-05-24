@@ -84,7 +84,7 @@ if (mysqli_num_rows($result) > 0) {
         <div class="flex justify-between items-center">
             <h1 class="mb-8">Albummer</h1>
             <!-- Filter year -->
-            <select id="filter-year">
+            <select id="gallery-filter-year">
                 <?php echo $options; ?>
             </select>
         </div>
