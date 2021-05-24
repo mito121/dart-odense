@@ -6,15 +6,23 @@ require_once 'includes/dbconnect.php';
  */
 $yearFilter = !empty($_GET['year']) ? $_GET['year'] : null;
 if(isset($yearFilter)){
-    $sql = "
-    SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated`, YEAR(last_updated) as year 
-    FROM `dart_posts`
-    WHERE YEAR(last_updated) = '$yearFilter'
-    ORDER BY `last_updated` DESC, `id` DESC
-    ";
+    $sql = "SELECT  `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content, `dart_posts`.`read_time` AS read_time,
+                    `dart_posts`.`author_id` AS author_id, YEAR(`dart_posts`.`last_updated`) AS year, `dart_posts`.`last_updated` AS last_updated ,
+                    `dart_images`.`path` AS img
+            FROM `dart_posts`
+            LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`
+            WHERE YEAR(last_updated) = '$yearFilter'
+            ORDER BY `last_updated` DESC, `id` DESC";
 } else {
-    $sql = "SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated`, YEAR(last_updated) as year FROM `dart_posts` ORDER BY `last_updated` DESC, `id` DESC";
+    $sql = "SELECT  `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content, `dart_posts`.`read_time` AS read_time,
+                    `dart_posts`.`author_id` AS author_id, YEAR(`dart_posts`.`last_updated`) AS year, `dart_posts`.`last_updated` AS last_updated ,
+                    `dart_images`.`path` AS img
+            FROM `dart_posts`
+            LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`
+            ORDER BY `last_updated` DESC, `id` DESC";
 }
+
+
 
 $result = $conn->query($sql);
 
@@ -28,6 +36,7 @@ if (mysqli_num_rows($result) > 0) {
         $post_content = $obj->content;
         $post_author = $obj->author_id;
         $post_updated = $obj->last_updated;
+        $img_src = "./uploads/small/" . $obj->img;
 
         // Check if Year header should be insterted
         $year = substr($post_updated, 0, 4);
@@ -35,7 +44,7 @@ if (mysqli_num_rows($result) > 0) {
             $thisHeading = "";
         } else { // year is new - add heading
             $yearHeadings[] = $year;
-            $thisHeading = "<h2 class=\"news-year-heading\">" . end($yearHeadings) . "</h2>";
+            $thisHeading = "<h2 class=\"year-heading\">" . end($yearHeadings) . "</h2>";
         }
         
         /* If post content is too long, cut it off and strip tags */
@@ -47,12 +56,15 @@ if (mysqli_num_rows($result) > 0) {
         $news .= "
                 $thisHeading
                 <div class=\"news-container\">
-                    <a href=\"index.php\">
+                    <a href=\"index.php?page=news-single&id=$post_id\">
+                        <div class=\"news-img\">
+                            <img src=\"$img_src\" alt=\"bannerbillede\" />
+                        </div>
                         <div class=\"slide-header\">
                             <h1>$post_title</h1>
                         </div>
                         <div class=\"read-time\">
-                            Læsetid: &#60;$post_read_time min.
+                            Læsetid: $post_read_time min.
                         </div>
                         <div class=\"slide-body\">
                             $post_content
@@ -83,53 +95,16 @@ if (mysqli_num_rows($result) > 0) {
 
 <section class="top-space">
     <div class="wrapper">
-
         <div class="flex justify-between items-center">
             <h1 class="mb-8">Nyheder</h1>
-
-            <!-- <div class="flex"> -->
-                <!-- <select class="mr-3" id="filter-year"> -->
-                <select id="filter-year">
-                    <?php echo $options; ?>
-                </select>
-
-                <!-- <select id="filter-items-per-page">
-                    <option selected>20 indlæg pr. side</option>
-                    <option>6</option>
-                    <option>66</option>
-                    <option>666</option>
-                    <option>69420</option>
-                </select> -->
-
-            <!-- </div> -->
+            <!-- Filter year -->
+            <select id="filter-year">
+                <?php echo $options; ?>
+            </select>
         </div>
 
-
         <div class="all-news flex flex-wrap">
-            <!-- <h1 class="w-full">2021</h1> -->
-            <!--             <div class="news-container">
-                <a href="index.php">
-                    <div class="slide-header">
-                        <h1>Skudsår double i Mickey</h1>
-                    </div>
-                    <div class="read-time">
-                        Læsetid: &#60;6 min.
-                    </div>
-                    <div class="slide-body">
-                        <p>
-                            Skudsåret er ferskt og det strammer. Her kommer pipilangstrømp' lorem ipsum dolor sit
-                            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum... <span class="tbc">[Fortsættes]</span>
-                        </p>
-                    </div>
-                </a>
-            </div> -->
-
             <?php echo $news; ?>
-
         </div>
     </div>
 </section>

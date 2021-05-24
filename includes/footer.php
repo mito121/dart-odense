@@ -1,6 +1,6 @@
         </main>
         <footer>
-            <div class="wrapper">
+            <div class="wrapper <?php echo $pageName === 'forside' ? 'p-15px' : null; ?>">
                 <div class="flex justify-between w-full">
                     <p class="flex items-center"> <span>&copy;</span> <span id="current-year"></span> Dart Odense - All
                         rights reserved.</p>

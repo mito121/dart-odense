@@ -25,6 +25,7 @@
 
 <body>
     <header>
+    <!-- <header style="display:none;"> -->
         <div class="header-content">
             <!-- Logo -->
             <div class="logo">
@@ -95,7 +96,7 @@
                                                                             <i class=\"fas fa-chevron-down\"></i>
                                                                             <a href=\"index.php?page=admin\"></i>Admin</a>
                                                                             <div class=\"dropdown-content\">
-                                                                                <a href=\"index.php?page=admin-images\">Nyt album</a>
+                                                                                <a href=\"index.php?page=admin-collections\">Nyt album</a>
                                                                                 <a href=\"index.php?page=admin-posts\">Ny nyhed</a>
                                                                                 <a href=\"index.php?page=admin-games\">Nyt spil</a>
                                                                             </div>

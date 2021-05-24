@@ -8,6 +8,8 @@ $page = '';
 
 // get full page path
 $page = (isset($_GET['page'])) ? "pages/" . $_GET['page'] . '.php' : 'pages/forside.php';
+// get page name
+$pageName = (isset($_GET['page'])) ? $_GET['page'] : 'forside';
 
 // if page doesnt exist, redirect to 404
 if (file_exists($page)) {

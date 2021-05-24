@@ -1,3 +1,48 @@
+<?php
+require_once 'includes/dbconnect.php';
+
+/* 
+*** Get news
+ */
+$sql = "SELECT `dart_games`.`id` AS id, `dart_games`.`name` AS name, `dart_games`.`rules` AS rules, `dart_images`.`path` AS img
+        FROM `dart_games`
+        LEFT JOIN `dart_images` ON `dart_games`.`id` = `dart_images`.`game_id`
+        ORDER BY `dart_games`.`name` ASC
+        ";
+$result = $conn->query($sql);
+
+$games = "";
+
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($obj = $result->fetch_object()) {
+        $game_id = $obj->id;
+        $game_name = $obj->name;
+        $game_rules = $obj->rules;
+        $img_src = "./uploads/small/" . $obj->img;
+
+        /* If rules content is too long, cut it off and strip tags */
+        if (strlen($game_rules) > 150) {
+            $game_rules = str_replace("&nbsp;", '', $game_rules);
+            $game_rules = substr($game_rules, 0, 150) . "... <span class=\"tbc\">[Fortsættes]</span>";
+        }
+
+        $games .= "  <div class=\"game\">
+                        <div class=\"flex flex-col justify-between\">
+                            <div class=\"w-full\">
+                                <h1>$game_name</h1>
+                                <p>$game_rules</p>
+                            </div>
+
+                            <a href=\"index.php?page=game&id=$game_id\" class=\"btn btn-primary w-min\">Se regler og stillinger</a>
+                        </div>
+
+                        <div>
+                            <img src=\"$img_src\" alt=\"\">
+                        </div>
+                    </div>";
+    }
+}
+?>
 <section class="top-space">
     <div class="wrapper">
         <div class="flex justify-between items-center w-full">
@@ -7,90 +52,7 @@
 
 
         <div class="games">
-
-            <div class="game">
-                <div>
-                    <h1>Mickey</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.
-                    </p>
-
-                    <button class="btn btn-primary">Se regler og stillinger</button>
-                </div>
-
-                <div>
-                    <img src="http://placekitten.com/500/500" alt="">
-                </div>
-            </div> <!-- </game> -->
-
-            <div class="game">
-                <div>
-                    <h1>501</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.
-                    </p>
-
-                    <button class="btn btn-primary">Se regler og stillinger</button>
-                </div>
-
-                <div>
-                    <img src="http://placekitten.com/501/501" alt="">
-                </div>
-            </div> <!-- </game> -->
-
-            <div class="game">
-                <div>
-                    <h1>Shanghai</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.
-                    </p>
-
-                    <button class="btn btn-primary">Se regler og stillinger</button>
-                </div>
-
-                <div>
-                    <img src="http://placekitten.com/502/502" alt="">
-                </div>
-            </div> <!-- </game> -->
-
-            <div class="game">
-                <div>
-                    <h1>27</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.
-                    </p>
-
-                    <button class="btn btn-primary">Se regler og stillinger</button>
-                </div>
-
-                <div>
-                    <img src="http://placekitten.com/505/505" alt="">
-                </div>
-            </div> <!-- </game> -->
+            <?php echo $games; ?>
         </div>
     </div>
 </section>

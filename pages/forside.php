@@ -4,7 +4,9 @@ require_once 'includes/dbconnect.php';
 /* 
 *** Get news
  */
-$sql = "SELECT `id`, `title`, `content`, `read_time`, `author_id`, `last_updated` FROM `dart_posts` ORDER BY `last_updated` DESC, `id` DESC";
+$sql = "SELECT `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content, `dart_posts`.`read_time` AS read_time, `dart_posts`.`author_id` AS author_id, `dart_posts`.`last_updated` AS last_updated, `dart_images`.`path` AS img 
+        FROM `dart_posts`
+        LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`";
 $result = $conn->query($sql);
 
 $news = "";
@@ -17,6 +19,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $post_content = $obj->content;
         $post_author = $obj->author_id;
         $post_updated = $obj->last_updated;
+        $img_src = "./uploads/small/" . $obj->img;
 
         /* If post content is too long, cut it off and strip tags */
         if (strlen($post_content) > 100) {
@@ -27,7 +30,10 @@ if ($result && mysqli_num_rows($result) > 0) {
         $news .= "
                 <div class=\"slick-slide\">
                     <div class=\"news-container\">
-                        <a href=\"index.php\">
+                        <a href=\"index.php?page=news-single&id=$post_id\">
+                            <div class=\"news-img\">
+                                <img src=\"$img_src\" alt=\"bannerbillede\" />
+                            </div>
                             <div class=\"slide-header\">
                                 <h1>$post_title</h1>
                             </div>
@@ -85,7 +91,8 @@ if (mysqli_num_rows($result) > 0) {
 <!-- *** -->
 <section>
     <div class="wrapper">
-        <h1 class=" mt-6 mb-4">NYHEDER</h1>
+        <h1 class="main-heading">NYHEDER</h1>
+        <!-- <h1 class="mt-12 mb-4">NYHEDER</h1> -->
 
         <div class="slick-slider">
 
@@ -107,7 +114,7 @@ if (mysqli_num_rows($result) > 0) {
 <!--  GALLERY *** -->
 <!-- *** -->
 <section>
-    <div class="wrapper">
+    <div class="wrapper p-15px">
         <h1 class=" mt-6 mb-4">GALLERI</h1>
 
         <div class="magical-gallery" id="magical-data"
@@ -126,7 +133,7 @@ if (mysqli_num_rows($result) > 0) {
 
         <div class="w-full flex justify-end">
             <a href="index.php?page=galleries">
-                <button class="btn btn-primary mr-4">Se alle</button>
+                <button class="btn btn-primary mr-4 mt-25px">Se alle</button>
             </a>
         </div>
     </div>

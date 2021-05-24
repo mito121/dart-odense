@@ -18,6 +18,7 @@ html,
 body {
   overflow-x: hidden;
   font-size: 15px;
+  word-break: break-word;
 }
 
 .wrapper {
@@ -28,6 +29,9 @@ body {
 
 h1 {
   font-size: 2.5em;
+}
+h1.main-heading {
+  margin: 50px 0 15px 15px;
 }
 
 h2 {
@@ -72,9 +76,6 @@ table {
   margin-bottom: 0;
 }
 
-form {
-  background-color: palevioletred;
-}
 form button,
 form input[type=submit] {
   margin: 6px 0 0 0;
@@ -110,6 +111,18 @@ form input[type=submit] {
 
 .bg-gray {
   background-color: #e4e4e4;
+}
+
+.mt-25px {
+  margin-top: 25px;
+}
+
+.mt-15px {
+  margin-top: 15px;
+}
+
+.p-15px {
+  padding: 15px;
 }
 
 input[type=text],
@@ -269,12 +282,15 @@ header nav ul li a {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
+  /* Parallax */
   height: calc(100vh - 125px);
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .hero-content {
@@ -318,19 +334,32 @@ header nav ul li a {
 
 .news-container {
   margin: 20px 30px 0 0;
-  height: 450px;
+  height: 650px;
   width: 350px;
   display: inline-block;
+  overflow: hidden;
   box-shadow: 0px 3px 10px #00000035;
   border-radius: 10px;
-  padding: 12px 30px;
+  padding: 30px;
   /* Slide header */
 }
 .news-container .slide-header {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 .news-container .slide-header h1 {
   font-size: 1.6rem;
+  line-height: 2rem;
+}
+.news-container .news-img {
+  height: 150px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.news-container .news-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
 }
 .news-container .read-time {
   background-color: #bb1835;
@@ -340,7 +369,7 @@ header nav ul li a {
   font-size: 0.9em;
   text-align: center;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .slick-slide .news-container {
@@ -390,8 +419,8 @@ header nav ul li a {
 }
 
 .magical-gallery-item {
-  height: 228px;
-  width: 228px;
+  height: 222px;
+  width: 222px;
 }
 
 /* 
@@ -403,11 +432,52 @@ header nav ul li a {
   } */
 }
 
-.news-year-heading {
+.year-heading {
   width: 100%;
   font-size: 1.8em;
   font-weight: 600;
   margin-top: 2.5rem;
+}
+
+/* 
+*** All galleries page
+ */
+.gallery-container {
+  margin: 20px 30px 0 0;
+  width: 350px;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 0px 3px 10px #00000035;
+  border-radius: 10px;
+  padding: 30px;
+}
+.gallery-container .gallery-header {
+  margin-bottom: 25px;
+}
+.gallery-container .gallery-header h1 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+.gallery-container .gallery-thumbnail {
+  height: 250px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.gallery-container .gallery-thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.gallery-container .num-of-images {
+  background-color: #bb1835;
+  color: white;
+  padding: 6px 8px;
+  width: max-content;
+  font-size: 0.9em;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 12px;
 }
 
 /* 
@@ -425,6 +495,23 @@ header nav ul li a {
   border-left: none;
   border-radius: 0 5px 5px 0;
   margin-left: -5px;
+}
+
+/* 
+*** Single news
+ */
+.parallax {
+  height: 350px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  /* Parallax */
+  background-size: 1140px;
+}
+
+.post-content {
+  min-height: 200vh;
 }
 
 /* 
@@ -522,10 +609,13 @@ ol.abc {
 }
 ol.abc li {
   list-style: none;
+  margin: 8px 0;
 }
 ol.abc li::before {
   content: counter(list, lower-alpha) ") ";
   counter-increment: list;
+  margin-left: -17px;
+  font-weight: 600;
 }
 
 .law h2 {
@@ -547,25 +637,31 @@ ol.abc li::before {
   margin-bottom: 30px;
   width: 100%;
   height: 330px;
+  overflow: hidden;
+}
+.games .game:hover div:last-of-type img {
+  transform: scale(1.05);
 }
 .games .game h1 {
   font-size: 2em;
 }
-.games .game div {
+.games .game > div {
   width: 50%;
 }
-.games .game div:first-of-type {
+.games .game > div:first-of-type {
   padding: 20px 30px;
 }
-.games .game div:last-of-type {
+.games .game > div:last-of-type {
   height: 100%;
+  overflow: hidden;
 }
-.games .game div img {
+.games .game > div:last-of-type img {
   width: 100%;
   height: 100%;
   margin-left: auto;
   object-fit: cover;
   border-radius: 0 10px 10px 0;
+  transition: transform 500ms ease-in-out;
 }
 
 footer {

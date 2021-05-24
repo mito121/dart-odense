@@ -7,37 +7,13 @@ require_once 'resize_image.php';
 *** Insert post into db
  */
 if (isset($_POST)) {
-    $title = mysqli_real_escape_string($conn, $_POST['the_heading']);
-    $the_post = mysqli_real_escape_string($conn, $_POST['the_post']);
-    $restricted = isset($_POST['restricted']) && !empty($_POST['restricted']) ? mysqli_real_escape_string($conn, $_POST['restricted']) : NULL;
-    $author = mysqli_real_escape_string($conn, $_POST['author']);
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $rules = mysqli_real_escape_string($conn, $_POST['rules']);
 
-    /* Calculate read time */
-    $word_count = (int)str_word_count(strip_tags($the_post));
-
-    $read_time = 0;
-    switch ($word_count) {
-        case $word_count < 250:
-            $read_time = 1;
-            break;
-        case $word_count < 500:
-            $read_time = 2;
-            break;
-        case $word_count < 750:
-            $read_time = 3;
-            break;
-        case $word_count < 1000:
-            $read_time = 4;
-            break;
-        default:
-            $read_time = 5;
-            break;
-    }
-
-    /* Insert post */
-    $sql = "INSERT INTO `dart_posts`(`title`, `content`, `read_time`, `author_id`, `restricted`) VALUES ('$title', '$the_post', '$read_time', '$author', '$restricted')";
+    /* Insert game */
+    $sql = "INSERT INTO `dart_games`(`name`, `rules`) VALUES ('$name', '$rules')";
     $result = $conn->query($sql);
-    $post_id = $conn->insert_id;
+    $game_id = $conn->insert_id;
 
     /* 
     *** Insert banner image into db
@@ -86,13 +62,13 @@ if (isset($_POST)) {
             /* $imageResizer->resizeTo(1050, 700); */
             $imageResizer->saveImage($orginal_target_path);
 
-            $sql = "INSERT INTO `dart_images`(`path`, `post_id`) VALUES ('$filename', '$post_id')";
+            $sql = "INSERT INTO `dart_images`(`path`, `game_id`) VALUES ('$filename', '$game_id')";
 
             $result = $conn->query($sql);
-            $output = "Nyhed oprettet.";
+            $output = "Spil oprettet.";
         } else {
             $output = "Noget gik galt.";
         }
-        header("location: ../index.php?page=admin-posts&msg=$output");
+        header("location: ../index.php?page=admin-games&msg=$output");
     }
 }
