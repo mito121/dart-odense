@@ -21,9 +21,8 @@ if(isset($yearFilter)){
 }
 
 $result = $conn->query($sql);
-
+$galleries = "";
 if (mysqli_num_rows($result) > 0) {
-    $galleries = "";
     $yearHeadings = array();
     while ($obj = $result->fetch_object()) {
         $gallery_id = $obj->id;
