@@ -115,7 +115,7 @@ if (mysqli_num_rows($result) > 0) {
         <h1 class=" mt-6 mb-4">Galleri</h1>
 
         <div class="magical-gallery" id="magical-data"
-            data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">
+            data-dart-magic="<?php echo isset($magicJSON) && !empty($magicJSON) ? htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8') : null; ?>">
             <div class="magical-gallery-item" onmouseover=""></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>

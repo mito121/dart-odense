@@ -253,7 +253,7 @@ header nav ul {
   align-items: center;
 }
 header nav ul li {
-  margin: 0 8px;
+  margin: 0 12px;
   font-family: niveau-grotesk;
 }
 header nav ul li:last-of-type {

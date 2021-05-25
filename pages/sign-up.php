@@ -134,7 +134,5 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
         </div>
 
         <div id="server-msg"></div>
-        <?php /* echo $response !== false ? "<div id=\"server-msg\">$response</div>" : null;  */?>
-
     </div>
 </section>

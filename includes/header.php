@@ -105,8 +105,8 @@
                         <a href="index.php?page=admin"
                             class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
                         <div class="dropdown-content">
-                            <a href="index.php?page=admin-collections">Nyt album</a>
                             <a href="index.php?page=admin-posts">Ny nyhed</a>
+                            <a href="index.php?page=admin-collections">Nyt album</a>
                             <a href="index.php?page=admin-games">Nyt spil</a>
                         </div>
                     </li>
