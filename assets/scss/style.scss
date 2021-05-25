@@ -991,6 +991,13 @@ table.leaderboard {
   tr {
     border-radius: 5px;
     td {
+      &:first-of-type {
+        span {
+          &:first-of-type {
+            color: red;
+          }
+        }
+      }
     }
   }
 
@@ -1019,4 +1026,6 @@ table.leaderboard {
 //privacy page
 .privacyList{
   list-style-type: square;
+.rasmus-var-her {
+  content: "lol";
 }
