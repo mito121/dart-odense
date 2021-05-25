@@ -896,4 +896,8 @@ table.leaderboard th {
   color: white;
 }
 
+.privacyList {
+  list-style-type: square;
+}
+
 /*# sourceMappingURL=style.css.map */
