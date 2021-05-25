@@ -922,4 +922,8 @@ table.leaderboard td:first-of-type {
   text-align: center;
 }
 
+.privacyList {
+  list-style-type: square;
+}
+
 /*# sourceMappingURL=style.css.map */
