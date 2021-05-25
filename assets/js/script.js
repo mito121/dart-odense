@@ -77,12 +77,12 @@ $(document).ready(function () {
 
   // Start the loop
   galleryLoop();
-
-  /* TinyMCE */
-  tinymce.init({
-    selector: ".tinymce",
-  });
 }); // document.ready
+
+/* TinyMCE */
+tinymce.init({
+  selector: ".tinymce",
+});
 
 /*
  *** Sign up

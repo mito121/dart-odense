@@ -69,7 +69,7 @@
                             class="<?php echo $pageName == 'games'? 'active' : null; ?>">Spil</a>
                         <div class="dropdown-content">
                             <a href="index.php?page=games">Regler</a>
-                            <a href="#">Stillinger</a>
+                            <a href="index.php?page=leaderboards">Stillinger</a>
                         </div>
                     </li>
 
@@ -99,7 +99,7 @@
                     </li>
 
                     <!-- Admin -->
-                    <?php if(isset($_SESSION['role_id']) === 3) : ?>
+                    <?php if(isset($_SESSION['role_id']) && $_SESSION['role_id'] == 3) : ?>
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
                         <a href="index.php?page=admin"

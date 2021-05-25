@@ -1,23 +1,39 @@
 <!-- About us -->
 <section class="top-space pb-12">
     <div class="wrapper">
-        <h1 class="mb-8">Love & vedtægter</h1>
+        <h1 class="mb-8">Privatlivspolitik</h1>
 
+        <p>
+            Vi behandler personoplysninger og skal overholde lovgivningen og principperne for god databehandlingsskik.
+            Derfor har vi vedtaget denne privatlivspolitik, der kort fortæller, hvordan vi behandler personoplysninger,
+            der sikrer en lovlig og gennemsigtig behandling.
+        </p>
+        <p>
+            Vi behandler udelukkende personoplysninger til klare og saglige formål og ud fra foreningens legitime
+            interesser. Vi behandler kun personoplysninger, der er relevante og nødvendige for at opfylde de angivne
+            formål, og vi sletter dine oplysninger, når de ikke længere er nødvendige – eller når du beder os om det.
+        </p>
 
         <div class="law">
-            <h2>§ 16 Foreningens opløsning:</h2>
+            <h2>Vi er ansvarlige for behandling af dine personoplysninger</h2>
             <p>
-                Bestemmelse om foreningens opløsning kan kun foretages på en i dette øjemed indkaldt
+                Dart Odense er dataansvarlig, og vi sikrer, at dine personoplysninger behandles i overensstemmelse med
+                gældende lovgivning.
             </p>
             <p>
-                generalforsamling. Til dennes beslutningsdygtighed kræves, at mindst ½ af klubbens stemmeberettigede
-                medlemmer er tilstede, og til forslagets vedtagelse kræves, at mindst ¾ af de afgivne stemmer er for
-                forslaget. Opnås sådant flertal på en generalforsamling, der ikke er beslutningsdygtig, indkaldes til en
-                ny
-                generalforsamling, hvor beslutningen kan træffes med ovennævnte stemmeflertal, uanset hvilket antal
-                stemmeberettigede medlemmer, der er til stede. Eventuelle aktiver, herunder formue, fast ejendom og
-                løsøre,
-                skal fordeles til ungdomsarbejdet i Odense kommune
+                Du kan altid kontakte foreningens data-kontaktperson direkte via vores <a
+                    href="index.php?page=contact">kontaktformular</a> på hjemmesiden.
+            </p>
+        </div>
+
+        <div class="law">
+            <h2>Behandling af personoplysninger</h2>
+            <p>
+                Vi behandler følgende personoplysninger:
+            </p>
+            <p>
+                Du kan altid kontakte foreningens data-kontaktperson direkte via vores <a
+                    href="index.php?page=contact">kontaktformular</a> på hjemmesiden.
             </p>
         </div>
 

@@ -1,4 +1,4 @@
-        <?php var_dump($_SESSION); ?>
+        <?php /* var_dump($_SESSION); */ ?>
         </main>
         <footer>
             <div class="wrapper <?php echo $pageName === 'home' ? 'p-15px' : null; ?>">

@@ -873,4 +873,53 @@ img.hover-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* 
+*** Leaderboards
+ */
+table.leaderboard {
+  border-collapse: collapse;
+  width: 100%;
+  /* Table head */
+  /* Table body */
+  /* All */
+  /*   tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  } */
+}
+table.leaderboard thead tr th {
+  padding: 0;
+  text-align: left;
+  background-color: transparent;
+  color: black;
+  font-size: 0.7rem;
+}
+table.leaderboard tbody tr {
+  /* First <tr> */
+}
+table.leaderboard tbody tr td span {
+  padding: 15px;
+  display: block;
+}
+table.leaderboard tbody tr:first-of-type {
+  background-color: #000;
+  color: #fff;
+}
+table.leaderboard tr {
+  border-radius: 5px;
+}
+table.leaderboard td {
+  border: none;
+  padding: 0px 0px 20px 0px;
+  font-size: 1.2rem;
+  /* First <td> of each row */
+}
+table.leaderboard td:first-of-type {
+  padding: 0 15px 20px 0;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
