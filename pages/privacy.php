@@ -38,13 +38,32 @@
                 <li class="privacyItem">
                     Almindelige personoplysninger: Fx kontaktoplysninger som navn, adresse, indmeldelsesdato, telefonnummer, fødselsdato, mailadresse, mv.        
                 </li>
+                    <br>
                 <li class="privacyItem">
                     Cpr-numre og oplysninger om strafbare forhold (fx børneattest)
                 </li>
+                    <br>
                 <li class="privacyItem">
                     Følsomme personoplysninger: Fx et medlems sygdomshistorik.
                 </li>
             </ul>
+                <br><br>
+            2. Oplysninger om frivillige:    
+            </p>
+            <ul class="privacyList">
+                <li class="privacyItem">
+                    Almindelige personoplysninger: Fx kontaktoplysninger som adresser, telefonnummer og mailadresser, mv.                </li>
+                    <br>
+                <li class="privacyItem">
+                    Andre oplysninger om tillidsposter og andre hverv i relation til foreningen.                </li>
+                    <br>
+                <li class="privacyItem">
+                    Cpr-numre og oplysninger om strafbare forhold (fx børneattest)                </li>
+            </ul>
+            <br>
+            <h2>Cookies</h2>
+            <p id="privacyUO">introduktion</p>
+
         </div>
 
         <p class="last-revision">Sidst revideret 01.03.2020</p>
