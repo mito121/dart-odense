@@ -32,9 +32,19 @@
                 Vi behandler følgende personoplysninger:
             </p>
             <p>
-                Du kan altid kontakte foreningens data-kontaktperson direkte via vores <a
-                    href="index.php?page=contact">kontaktformular</a> på hjemmesiden.
+                1. Medlemsoplysninger     
             </p>
+            <ul class="privacyList">
+                <li class="privacyItem">
+                    Almindelige personoplysninger: Fx kontaktoplysninger som navn, adresse, indmeldelsesdato, telefonnummer, fødselsdato, mailadresse, mv.        
+                </li>
+                <li class="privacyItem">
+                    Cpr-numre og oplysninger om strafbare forhold (fx børneattest)
+                </li>
+                <li class="privacyItem">
+                    Følsomme personoplysninger: Fx et medlems sygdomshistorik.
+                </li>
+            </ul>
         </div>
 
         <p class="last-revision">Sidst revideret 01.03.2020</p>
