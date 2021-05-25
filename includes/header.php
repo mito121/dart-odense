@@ -99,7 +99,7 @@
                     </li>
 
                     <!-- Admin -->
-                    <?php if(isset($_SESSION['logged']) === true) : ?>
+                    <?php if(isset($_SESSION['role_id']) === 3) : ?>
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
                         <a href="index.php?page=admin"

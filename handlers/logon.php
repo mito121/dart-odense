@@ -31,7 +31,6 @@ if (isset($_POST)) {
         $_SESSION['name'] = $obj->name;
         $_SESSION['email'] = $email;
         $_SESSION['membership_id'] = $obj->membership_id;
-        $_SESSION['membership_name'] = $obj->membership_name;
       }
       header("Location: ../index.php");
     } else { // If passwords don't match

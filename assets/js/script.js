@@ -206,49 +206,10 @@ $(document).ready(function () {
   const signUp = document.querySelector("#sign-up");
   const backToMembership = document.querySelector("#back-to-membership");
 
-  /* Submit membership form with existing user */
-  function submitMembershipOnly() {
-    let membership_id = $("input[name=membership]:checked").val();
-    let membership_name = $("input[name=membership]:checked").attr("data-name");
-    let interval_id = $("input[name=interval]:checked").val();
-    let price = $("#calculated-price").val();
-
-    if (membertype == false || paymentInterval == false) {
-      // Missing form fields
-      alert("husk nu lige at udfylde alle felterne :)");
-    } else if (user_id == 0) {
-      // User is not logged
-      alert("du skal altså lige logge på, du...");
-    } else {
-      // Set & send form data
-      let form_data = new FormData();
-      form_data.append("user_id", user_id);
-      form_data.append("membership_id", membership_id);
-      form_data.append("membership_name", membership_name);
-      form_data.append("interval_id", interval_id);
-      form_data.append("price", price);
-
-      $.ajax({
-        type: "POST",
-        url: "./handlers/membership_signup.php",
-        contentType: false,
-        processData: false,
-        //async: false,
-        data: form_data,
-        success: function (response) {
-          $("#server-msg").html(response);
-          let url = window.location.href;
-          window.location.href = url + "&response=" + response;
-        },
-      });
-    }
-  }
-
-  /* Submit membership form with NEW user*/
+  /* Submit membership */
   function submitMembership() {
     // Membership fields
     let membership_id = $("input[name=membership]:checked").val();
-    let membership_name = $("input[name=membership]:checked").attr("data-name");
     let interval_id = $("input[name=interval]:checked").val();
     let price = $("#calculated-price").val();
 
@@ -262,35 +223,32 @@ $(document).ready(function () {
     if (membertype == false || paymentInterval == false) {
       // Missing form fields
       alert("Husk lige at vælge medlemskab og betalingsinterval!");
-    } else if (
-      (user_id == 0 && !name) ||
-      !email ||
-      password !== password_repeat
-    ) {
-      // If new user and name validation fails
-      if (!name) {
+      return false;
+    } else {
+      
+      // New user form validation
+      if (user_id == 0 && !name) {
         alert("Indtast dit navn");
         return false;
       }
+
       // If new user and email validation fails
-      if (!email) {
+      if (user_id == 0 && !email) {
         alert("Indtast din email");
         return false;
       }
+
       // If new user and password validation fails
-      if (password !== password_repeat) {
+      if (user_id == 0 && password !== password_repeat) {
         alert("Dine adgangskoder er ikke ens!");
         return false;
       }
-      return true;
-    } else {
+
       // Set & send form data
       let form_data = new FormData();
-
       // If user is already logged on
       form_data.append("user_id", user_id);
       form_data.append("membership_id", membership_id);
-      form_data.append("membership_name", membership_name);
       form_data.append("interval_id", interval_id);
       form_data.append("price", price);
 
@@ -315,15 +273,10 @@ $(document).ready(function () {
         //async: false,
         data: form_data,
         success: function (response) {
-          console.log(response);
-          /* return false */
-          if (response > 0) {
+          if (response == 1) {
             window.location.href = "index.php?page=profile";
-            console.log("jubii");
           } else {
-            let message = "Den indtastede email findes allerede. Prøv igen!";
-            document.querySelector("#server-msg").innerHTML = message;
-            console.log("fial");
+            document.querySelector("#server-msg").innerHTML = response;
           }
         },
       });
