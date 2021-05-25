@@ -77,9 +77,10 @@ if (mysqli_num_rows($result) > 0) {
 <section class="hero-fold" id="hero">
     <div class="wrapper">
         <div class="flex justify-end items-center hero-content">
-            <div class="w-2/5">
-                <h1>Når dart går spart i den</h1>
-                <p>Helligånden er blå.</p>
+            <div class="w-2/5 text-right">
+                <h1 class="stylish">Når dart er en sport</h1>
+                <p>I Dart Odense brænder vi for darten.<br />
+                    Som medlem af både DDU og Dartfyn er <br /> der masser af muligheder for dig der <br /> gerne vil spille dart.</p>
                 <button class="btn btn-primary">Bliv medlem</button>
             </div>
         </div>
@@ -91,13 +92,9 @@ if (mysqli_num_rows($result) > 0) {
 <!-- *** -->
 <section>
     <div class="wrapper">
-        <h1 class="main-heading">NYHEDER</h1>
-        <!-- <h1 class="mt-12 mb-4">NYHEDER</h1> -->
-
+        <h1 class="main-heading">Nyheder</h1>
         <div class="slick-slider">
-
             <?php echo $news; ?>
-
         </div>
         <div class="w-full flex justify-end">
             <a href="index.php?page=news">
@@ -115,7 +112,7 @@ if (mysqli_num_rows($result) > 0) {
 <!-- *** -->
 <section>
     <div class="wrapper p-15px">
-        <h1 class=" mt-6 mb-4">GALLERI</h1>
+        <h1 class=" mt-6 mb-4">Galleri</h1>
 
         <div class="magical-gallery" id="magical-data"
             data-dart-magic="<?php echo htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8'); ?>">

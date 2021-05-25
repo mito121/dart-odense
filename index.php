@@ -1,15 +1,16 @@
 <?php
 session_start();
-/* var_dump($_SESSION); */
-// get header
-require_once "includes/header.php";
 
 $page = '';
 
 // get full page path
-$page = (isset($_GET['page'])) ? "pages/" . $_GET['page'] . '.php' : 'pages/forside.php';
+$page = (isset($_GET['page'])) ? "pages/" . $_GET['page'] . '.php' : 'pages/home.php';
 // get page name
-$pageName = (isset($_GET['page'])) ? $_GET['page'] : 'forside';
+$pageName = (isset($_GET['page'])) ? $_GET['page'] : 'home';
+
+
+// get header
+require_once "includes/header.php";
 
 // if page doesnt exist, redirect to 404
 if (file_exists($page)) {

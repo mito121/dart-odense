@@ -29,7 +29,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $games .= "  <div class=\"game\">
                         <div class=\"flex flex-col justify-between\">
                             <div class=\"w-full\">
-                                <h1>$game_name</h1>
+                                <h3>$game_name</h3>
                                 <p>$game_rules</p>
                             </div>
 

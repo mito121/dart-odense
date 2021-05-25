@@ -9,6 +9,12 @@ $tertiary: #dcc2a1;
 $tertiary-hover: darken($tertiary, 20%);
 $dark: #0d1716;
 $max-w: "1140px";
+
+/* 
+*** Fonts
+ */
+@import url("https://use.typekit.net/gvd4mwd.css");
+
 /* 
 *** GLOBAL
  */
@@ -23,6 +29,7 @@ $max-w: "1140px";
 
 html,
 body {
+  font-family: open-sans;
   overflow-x: hidden;
   font-size: 15px;
   word-break: break-word;
@@ -34,8 +41,30 @@ body {
   max-width: 1140px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: niveau-grotesk;
+}
+
 h1 {
   font-size: 2.5em;
+  font-weight: 500;
+
+  &.stylish {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 4.2rem;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+    > span {
+      font-weight: inherit;
+      font-style: inherit;
+    }
+  }
 
   &.main-heading {
     margin: 50px 0 15px 15px;
@@ -81,6 +110,7 @@ table {
 }
 
 .form-row {
+  margin: 12px 0;
   &.radio {
     label {
       margin-bottom: 0;
@@ -94,6 +124,12 @@ form {
     margin: 6px 0 0 0;
   }
 }
+
+#pw-err {
+  display: none;
+}
+
+
 
 .form-row,
 .form-row-50 {
@@ -156,7 +192,9 @@ textarea {
 
 .btn {
   display: inline-block;
-  font-weight: 600;
+  font-family: niveau-grotesk;
+  font-weight: 500;
+  letter-spacing: 0.7px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -243,21 +281,26 @@ header {
       align-items: center;
       li {
         margin: 0 8px;
+        font-family: niveau-grotesk;
         &:last-of-type {
           margin-right: 0;
         }
         a {
-          padding: 6px 8px;
+          padding: 6px;
           color: #fff;
           font-size: 1.3em;
+          border-bottom: 2px solid transparent;
+          &.active {
+            border-color: #fff;
+          }
         }
       }
     }
   }
 }
 
-#get-membership {
-  /* display: none; */
+#user-register-form {
+  display: none;
 }
 
 /* dwop dawn */
@@ -477,7 +520,7 @@ header {
 .year-heading {
   width: 100%;
   font-size: 1.8em;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 2.5rem;
 }
 
@@ -563,6 +606,10 @@ header {
 
 .post-content {
   min-height: 200vh;
+}
+
+#back-to-membership {
+  display: none;
 }
 
 /* 
@@ -708,10 +755,6 @@ ol.abc {
       }
     }
 
-    h1 {
-      font-size: 2em;
-    }
-
     > div {
       width: 50%;
 
@@ -842,17 +885,17 @@ footer {
   background-color: #000;
   img {
     width: auto !important;
-    max-height:600px;
-    margin:0 auto;
+    max-height: 600px;
+    margin: 0 auto;
     object-fit: cover;
   }
 }
 
-.active-image{
-  height:600px;
+.active-image {
+  height: 600px;
   width: 100%;
   background-color: #000;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }

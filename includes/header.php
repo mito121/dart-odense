@@ -25,7 +25,7 @@
 
 <body>
     <header>
-    <!-- <header style="display:none;"> -->
+        <!-- <header style="display:none;"> -->
         <div class="header-content">
             <!-- Logo -->
             <div class="logo">
@@ -37,33 +37,36 @@
             <nav>
                 <ul>
                     <!-- *** Show "Bliv medlem" if user is not a member -->
-                    <?php echo isset($_SESSION['membership_id']) && 
-                    !empty($_SESSION['membership_id']) ? "  <li>
-                                                                <a href=\"index.php?page=profile\">
-                                                                    Min profil
-                                                                </a>
-                                                            </li>"
-                                                        :
-                                                            "<li>
-                                                                <a href=\"index.php?page=sign-up\" class=\"btn btn-primary\" id=\"get-membership\">
-                                                                    Bliv medlem
-                                                                </a>
-                                                            </li>";
-                                                                ?>
+                    <?php if(isset($_SESSION['membership_id']) && !empty($_SESSION['membership_id'])) : ?>
+                    <li>
+                        <a href="index.php?page=profile" class="<?php echo $pageName == 'profile'? 'active' : null; ?>">
+                            Min profil
+                        </a>
+                    </li>
+                    <?php else : ?>
+                    <li>
+                        <a href="index.php?page=sign-up" class="btn btn-primary" id="get-membership">
+                            Bliv medlem
+                        </a>
+                    </li>
+                    <?php endif; ?>
 
                     <li>
-                        <a href="index.php">
+                        <a href="index.php"
+                            class="<?php echo $pageName == 'home' || $pageName == '' ? 'active' : null; ?>">
                             Forside
                         </a>
                     </li>
 
                     <li>
-                        <a href="index.php?page=news">Nyheder</a>
+                        <a href="index.php?page=news"
+                            class="<?php echo $pageName == 'news'? 'active' : null; ?>">Nyheder</a>
                     </li>
 
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
-                        <a href="index.php?page=games">Spil</a>
+                        <a href="index.php?page=games"
+                            class="<?php echo $pageName == 'games'? 'active' : null; ?>">Spil</a>
                         <div class="dropdown-content">
                             <a href="index.php?page=games">Regler</a>
                             <a href="#">Stillinger</a>
@@ -71,12 +74,15 @@
                     </li>
 
                     <li>
-                        <a href="index.php?page=galleries">Galleri</a>
+                        <a href="index.php?page=galleries"
+                            class="<?php echo $pageName == 'galleries'? 'active' : null; ?>">Galleri</a>
                     </li>
 
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
-                        <a href="index.php?page=omos">Om os</a>
+                        <a href="index.php?page=omos"
+                            class="<?php echo $pageName == 'omos' || $pageName == 'laws' || $pageName == 'privacy' ? 'active' : null; ?>">Om
+                            os</a>
                         <div class="dropdown-content">
                             <a href="index.php?page=omos">Hvem er vi?</a>
                             <a href="index.php?page=omos#openhrs">Åbningstider</a>
@@ -88,19 +94,23 @@
                     </li>
 
                     <li>
-                        <a href="index.php?page=contact">Kontakt</a>
+                        <a href="index.php?page=contact"
+                            class="<?php echo $pageName == 'contact'? 'active' : null; ?>">Kontakt</a>
                     </li>
 
                     <!-- Admin -->
-                    <?php echo isset($_SESSION['logged']) === true ? "  <li class=\"dropdown\">
-                                                                            <i class=\"fas fa-chevron-down\"></i>
-                                                                            <a href=\"index.php?page=admin\"></i>Admin</a>
-                                                                            <div class=\"dropdown-content\">
-                                                                                <a href=\"index.php?page=admin-collections\">Nyt album</a>
-                                                                                <a href=\"index.php?page=admin-posts\">Ny nyhed</a>
-                                                                                <a href=\"index.php?page=admin-games\">Nyt spil</a>
-                                                                            </div>
-                                                                        </li>" : null; ?>
+                    <?php if(isset($_SESSION['logged']) === true) : ?>
+                    <li class="dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                        <a href="index.php?page=admin"
+                            class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
+                        <div class="dropdown-content">
+                            <a href="index.php?page=admin-collections">Nyt album</a>
+                            <a href="index.php?page=admin-posts">Ny nyhed</a>
+                            <a href="index.php?page=admin-games">Nyt spil</a>
+                        </div>
+                    </li>
+                    <?php endif; ?>
 
                     <!-- Login / logout -->
                     <?php echo isset($_SESSION['logged']) === true ? "<li><a href=\"handlers/logoff.php\"><i class=\"fas fa-sign-out-alt\"></i> Log ud</a></li>" : "<li><a href=\"index.php?page=login\"><i class=\"fas fa-sign-in-alt\"></i> Log ind</a></li>"; ?>

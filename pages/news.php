@@ -60,7 +60,7 @@ if (mysqli_num_rows($result) > 0) {
                             <img src=\"$img_src\" alt=\"bannerbillede\" />
                         </div>
                         <div class=\"slide-header\">
-                            <h1>$post_title</h1>
+                            <h3>$post_title</h3>
                         </div>
                         <div class=\"read-time\">
                             Læsetid: $post_read_time min.

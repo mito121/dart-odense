@@ -46,7 +46,7 @@ if (mysqli_num_rows($result) > 0) {
                 <div class=\"gallery-container\">
                     <a href=\"index.php?page=gallery&id=$gallery_id\">
                         <div class=\"gallery-header\">
-                            <h1>$gallery_name</h1>
+                            <h3>$gallery_name</h3>
                         </div>
                         <div class=\"num-of-images\">
                             $img_count billeder
@@ -60,8 +60,17 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 /* 
-*** Get year filter select options
+*** Set year filter select options
  */
+/* foreach ($yearHeadings as $year) {
+    $options = "<option>Vælg år</option>";
+    if(isset($yearFilter) && $yearFilter == $year){
+        $options .= "<option value='$year' selected>$year</option>";
+    }else{
+        $options .= "<option value='$year'>$year</option>";
+    }
+} */
+
 $sql = "SELECT YEAR(`last_updated`) as year FROM `dart_collections` GROUP BY YEAR(`last_updated`) DESC";
 $result = $conn->query($sql);
 if (mysqli_num_rows($result) > 0) {

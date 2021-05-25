@@ -130,6 +130,11 @@ $(document).ready(function () {
       },
     ];
 
+    /*
+     *** Signup for membership
+     */
+
+    /* Show membership benefits when membership is selected */
     const container = document.querySelector("#member-details");
     const heading = document.querySelector("#membership-heading");
     const list = document.querySelector("#membership-details");
@@ -194,9 +199,15 @@ $(document).ready(function () {
     }
   });
 
-  /* Submit membership form */
-  function submitMembership() {
-    let user_id = $("#user_id").val();
+  /* Check if user is logged in */
+  const user_id = document.querySelector("#user_id").value;
+  const membershipform = document.querySelector("#membership-form");
+  const registerform = document.querySelector("#user-register-form");
+  const signUp = document.querySelector("#sign-up");
+  const backToMembership = document.querySelector("#back-to-membership");
+
+  /* Submit membership form with existing user */
+  function submitMembershipOnly() {
     let membership_id = $("input[name=membership]:checked").val();
     let membership_name = $("input[name=membership]:checked").attr("data-name");
     let interval_id = $("input[name=interval]:checked").val();
@@ -233,7 +244,164 @@ $(document).ready(function () {
     }
   }
 
-  $("#sign-up").on("click", submitMembership);
+  /* Submit membership form with NEW user*/
+  function submitMembership() {
+    // Membership fields
+    let membership_id = $("input[name=membership]:checked").val();
+    let membership_name = $("input[name=membership]:checked").attr("data-name");
+    let interval_id = $("input[name=interval]:checked").val();
+    let price = $("#calculated-price").val();
+
+    // New user fields
+    let name = $("#name").val();
+    let email = $("#email").val();
+    let password = $("#password").val();
+    let password_repeat = $("#password_repeat").val();
+
+    // Form validation
+    if (membertype == false || paymentInterval == false) {
+      // Missing form fields
+      alert("Husk lige at vælge medlemskab og betalingsinterval!");
+    } else if (
+      (user_id == 0 && !name) ||
+      !email ||
+      password !== password_repeat
+    ) {
+      // If new user and name validation fails
+      if (!name) {
+        alert("Indtast dit navn");
+        return false;
+      }
+      // If new user and email validation fails
+      if (!email) {
+        alert("Indtast din email");
+        return false;
+      }
+      // If new user and password validation fails
+      if (password !== password_repeat) {
+        alert("Dine adgangskoder er ikke ens!");
+        return false;
+      }
+      return true;
+    } else {
+      // Set & send form data
+      let form_data = new FormData();
+
+      // If user is already logged on
+      form_data.append("user_id", user_id);
+      form_data.append("membership_id", membership_id);
+      form_data.append("membership_name", membership_name);
+      form_data.append("interval_id", interval_id);
+      form_data.append("price", price);
+
+      // If anonymous user is signing up, append user data to form data
+      if (user_id == 0) {
+        let name = document.querySelector("#name").value;
+        let email = document.querySelector("#email").value;
+        let password = document.querySelector("#password").value;
+        let passwordRepeat = document.querySelector("#password_repeat").value;
+        form_data.append("name", name);
+        form_data.append("email", email);
+        form_data.append("password", password);
+        form_data.append("password_repeat", passwordRepeat);
+      }
+
+      // Send AJAX request
+      $.ajax({
+        type: "POST",
+        url: "./handlers/membership_signup.php",
+        contentType: false,
+        processData: false,
+        //async: false,
+        data: form_data,
+        success: function (response) {
+          console.log(response);
+          /* return false */
+          if (response > 0) {
+            window.location.href = "index.php?page=profile";
+            console.log("jubii");
+          } else {
+            let message = "Den indtastede email findes allerede. Prøv igen!";
+            document.querySelector("#server-msg").innerHTML = message;
+            console.log("fial");
+          }
+        },
+      });
+    }
+  }
+
+  /* Hide membership form and show user register form */
+  function showUserRegister() {
+    /* Hide membership form and show user registration form */
+    membershipform.style.display = "none";
+    registerform.style.display = "block";
+
+    /* Show back-to-membership button */
+    backToMembership.style.display = "block";
+
+    /* Add onClick eventlistener to back-to-membership button */
+    backToMembership.addEventListener("click", showMembership);
+
+    /* Set text value of submit button */
+    signUp.innerHTML = "Bliv medlem";
+    /* Remove old event listener */
+    signUp.removeEventListener("click", showUserRegister);
+    /* Add new event listener */
+    signUp.addEventListener("click", submitMembership);
+  }
+
+  function showMembership() {
+    /* Hide back-to-membership button */
+    backToMembership.style.display = "none";
+
+    /* Hide user registration form and show membership form */
+    registerform.style.display = "none";
+    membershipform.style.display = "block";
+
+    /* Set text value of submit button */
+    signUp.innerHTML = "Fortsæt";
+    /* Remove old event listener */
+    signUp.removeEventListener("click", submitMembership);
+    /* Add new event listener */
+    signUp.addEventListener("click", showUserRegister);
+  }
+
+  /* Tell user if password and password-repeat dont match */
+  const password = document.querySelector("#password");
+  const passwordRepeat = document.querySelector("#password_repeat");
+  const error = document.querySelector("#pw-err");
+  function validatePassword() {
+    if (
+      password.value &&
+      passwordRepeat.value &&
+      passwordRepeat.value !== password.value
+    ) {
+      /* Set border color */
+      password.style.borderColor = "red";
+      passwordRepeat.style.borderColor = "red";
+      /* Show error message */
+      error.style.display = "block";
+    } else {
+      /* Set border color */
+      password.style.borderColor = "#333";
+      passwordRepeat.style.borderColor = "#333";
+      /* Show error message */
+      error.style.display = "none";
+    }
+  }
+
+  if (user_id > 0) {
+    /* If user is logged on */
+    signUp.innerHTML = "Bliv medlem"; // Set text value of submit button
+    signUp.addEventListener("click", submitMembership); // Assign eventListener to submit form onClick
+  } else {
+    /* If user is NOT logged on */
+    signUp.innerHTML = "Fortsæt"; // Set text value of submit button
+    signUp.addEventListener("click", showUserRegister); // Assign eventListener to shower user register form onClick
+
+    $(password).on("keyup", validatePassword); // Validate password & password repeat
+    $(passwordRepeat).on("keyup", validatePassword); // Validate password & password repeat
+  }
 }); // document.ready
 
 /*

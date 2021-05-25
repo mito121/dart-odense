@@ -1,6 +1,7 @@
+        <?php var_dump($_SESSION); ?>
         </main>
         <footer>
-            <div class="wrapper <?php echo $pageName === 'forside' ? 'p-15px' : null; ?>">
+            <div class="wrapper <?php echo $pageName === 'home' ? 'p-15px' : null; ?>">
                 <div class="flex justify-between w-full">
                     <p class="flex items-center"> <span>&copy;</span> <span id="current-year"></span> Dart Odense - All
                         rights reserved.</p>

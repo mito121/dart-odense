@@ -3,6 +3,10 @@
 *** Variables
  */
 /* 
+*** Fonts
+ */
+@import url("https://use.typekit.net/gvd4mwd.css");
+/* 
 *** GLOBAL
  */
 * {
@@ -16,6 +20,7 @@
 
 html,
 body {
+  font-family: open-sans;
   overflow-x: hidden;
   font-size: 15px;
   word-break: break-word;
@@ -27,8 +32,29 @@ body {
   max-width: 1140px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: niveau-grotesk;
+}
+
 h1 {
   font-size: 2.5em;
+  font-weight: 500;
+}
+h1.stylish {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 4.2rem;
+  line-height: 4rem;
+  margin-bottom: 1.5rem;
+}
+h1.stylish > span {
+  font-weight: inherit;
+  font-style: inherit;
 }
 h1.main-heading {
   margin: 50px 0 15px 15px;
@@ -72,6 +98,9 @@ table {
   margin: 8px 0;
 }
 
+.form-row {
+  margin: 12px 0;
+}
 .form-row.radio label {
   margin-bottom: 0;
 }
@@ -79,6 +108,10 @@ table {
 form button,
 form input[type=submit] {
   margin: 6px 0 0 0;
+}
+
+#pw-err {
+  display: none;
 }
 
 .form-row label,
@@ -139,7 +172,9 @@ textarea {
 
 .btn {
   display: inline-block;
-  font-weight: 600;
+  font-family: niveau-grotesk;
+  font-weight: 500;
+  letter-spacing: 0.7px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -219,18 +254,23 @@ header nav ul {
 }
 header nav ul li {
   margin: 0 8px;
+  font-family: niveau-grotesk;
 }
 header nav ul li:last-of-type {
   margin-right: 0;
 }
 header nav ul li a {
-  padding: 6px 8px;
+  padding: 6px;
   color: #fff;
   font-size: 1.3em;
+  border-bottom: 2px solid transparent;
+}
+header nav ul li a.active {
+  border-color: #fff;
 }
 
-#get-membership {
-  /* display: none; */
+#user-register-form {
+  display: none;
 }
 
 /* dwop dawn */
@@ -435,7 +475,7 @@ header nav ul li a {
 .year-heading {
   width: 100%;
   font-size: 1.8em;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 2.5rem;
 }
 
@@ -512,6 +552,10 @@ header nav ul li a {
 
 .post-content {
   min-height: 200vh;
+}
+
+#back-to-membership {
+  display: none;
 }
 
 /* 
@@ -641,9 +685,6 @@ ol.abc li::before {
 }
 .games .game:hover div:last-of-type img {
   transform: scale(1.05);
-}
-.games .game h1 {
-  font-size: 2em;
 }
 .games .game > div {
   width: 50%;
