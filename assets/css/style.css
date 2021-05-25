@@ -876,53 +876,24 @@ img.hover-shadow {
 /* 
 *** Leaderboards
  */
-table.leaderboard {
-  border-collapse: collapse;
-  width: 100%;
-  /* Table head */
-  /* Table body */
-  /* All */
-  /*   tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  tr:hover {
-    background-color: #ddd;
-  } */
+table.leaderboard td,
+table.leaderboard th {
+  border-top: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
+  padding: 8px;
 }
-table.leaderboard thead tr th {
-  padding: 0;
+table.leaderboard tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table.leaderboard tr:hover {
+  background-color: #ddd;
+}
+table.leaderboard th {
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: left;
-  background-color: transparent;
-  color: black;
-  font-size: 0.7rem;
-}
-table.leaderboard tbody tr {
-  /* First <tr> */
-}
-table.leaderboard tbody tr td span {
-  padding: 15px;
-  display: block;
-}
-table.leaderboard tbody tr:first-of-type {
-  background-color: #000;
-  color: #fff;
-}
-table.leaderboard tr {
-  border-radius: 5px;
-}
-table.leaderboard tr td:first-of-type span:first-of-type {
-  color: red;
-}
-table.leaderboard td {
-  border: none;
-  padding: 0px 0px 20px 0px;
-  font-size: 1.2rem;
-  /* First <td> of each row */
-}
-table.leaderboard td:first-of-type {
-  padding: 0 15px 20px 0;
-  text-align: center;
+  background-color: #0d1716;
+  color: white;
 }
 
 .privacyList {
