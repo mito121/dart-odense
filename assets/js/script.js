@@ -33,33 +33,31 @@ $(document).ready(function () {
    *** Magical gallery
    */
 
-  if (document.querySelector("#magical-data").getAttribute("dart-magic")) {
-    const paths = JSON.parse($("#magical-data").attr("data-dart-magic"));
-    const images = document.querySelectorAll(".magical-gallery-item");
+  const paths = JSON.parse($("#magical-data").attr("data-dart-magic"));
+  const images = document.querySelectorAll(".magical-gallery-item");
 
-    /* Function to start interval that changes a specific image src (based in index, passed as a prop) */
-    const startInterval = (i) => {
-      window.setInterval(function () {
-        const newPath = paths[Math.floor(Math.random() * paths.length)].path;
-        $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
-      }, 5000);
-    };
+  /* Function to start interval that changes a specific image src (based in index, passed as a prop) */
+  const startInterval = (i) => {
+    window.setInterval(function () {
+      const newPath = paths[Math.floor(Math.random() * paths.length)].path;
+      $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
+    }, 5000);
+  };
 
-    /* Set images on load */
-    if (paths.length > 0) {
-      // If there are more than 10 images uploaded
-      for (let n = 0; n < paths.length; n++) {
-        const newPath = paths[n].path;
-        console.log(newPath);
-        $(images[n]).backstretch("uploads/small/" + newPath);
-      }
-    } else {
-      // If there are less than 10 images uploaded
-      for (let n = 0; n < paths.length; n++) {
-        const newPath = paths[n].path;
-        console.log(newPath);
-        $(images[n]).backstretch("uploads/small/" + newPath);
-      }
+  /* Set images on load */
+  if (paths.length > 0) {
+    // If there are more than 10 images uploaded
+    for (let n = 0; n < paths.length; n++) {
+      const newPath = paths[n].path;
+      console.log(newPath);
+      $(images[n]).backstretch("uploads/small/" + newPath);
+    }
+  } else {
+    // If there are less than 10 images uploaded
+    for (let n = 0; n < paths.length; n++) {
+      const newPath = paths[n].path;
+      console.log(newPath);
+      $(images[n]).backstretch("uploads/small/" + newPath);
     }
 
     /* Loop function with timeout delay */
