@@ -954,75 +954,26 @@ img.hover-shadow {
 *** Leaderboards
  */
 table.leaderboard {
-  border-collapse: collapse;
-  width: 100%;
-
-  /* Table head */
-  thead {
-    tr {
-      th {
-        padding: 0;
-        text-align: left;
-        background-color: transparent;
-        color: black;
-        font-size: 0.7rem;
-      }
-    }
+  td,
+  th {
+    border-top: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
+    padding: 8px;
   }
 
-  /* Table body */
-  tbody {
-    tr {
-      td {
-        span {
-          padding: 15px;
-          display: block;
-        }
-      }
-
-      /* First <tr> */
-      &:first-of-type {
-        background-color: #000;
-        color: #fff;
-      }
-    }
-  }
-
-  tr {
-    border-radius: 5px;
-    td {
-      &:first-of-type {
-        span {
-          &:first-of-type {
-            color: red;
-          }
-        }
-      }
-    }
-  }
-
-  /* All */
-  td {
-    border: none;
-    padding: 0px 0px 20px 0px;
-    font-size: 1.2rem;
-
-    /* First <td> of each row */
-    &:first-of-type {
-      padding: 0 15px 20px 0;
-      text-align: center;
-    }
-  }
-
-  /*   tr:nth-child(even) {
+  tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
   tr:hover {
     background-color: #ddd;
-  } */
-}
+  }
 
-.rasmus-var-her {
-  content: "lol";
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $dark;
+    color: white;
+  }
 }
