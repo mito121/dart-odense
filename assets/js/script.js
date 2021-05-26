@@ -425,6 +425,9 @@ function ajax_file_upload(file_obj) {
       processData: false,
       data: form_data,
       success: function (response) {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        $("#create-collection").css("display", "block");
         $("#create-collection").html(response);
         $("#collection_name").val("");
         $("#selectfile").val("");

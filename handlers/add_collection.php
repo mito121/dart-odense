@@ -5,23 +5,24 @@ require_once 'resize_image.php';
 $collection_name = mysqli_real_escape_string($conn, $_POST['name']);
 $collection_desc = mysqli_real_escape_string($conn, $_POST['desc']);
 $collection_thumbnail_index = mysqli_real_escape_string($conn, $_POST['thumbIndex']);
-$this_collection_id = 1;
 
 /* Get ID of this collection */
 if (!empty($_FILES) && !empty($collection_name)) {
     /* Get ID of this collection */
     $sql = "SELECT `id` FROM `dart_collections` ORDER BY id DESC LIMIT 1";
     $result = $conn->query($sql);
-    if ($result && mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         while ($obj = $result->fetch_object()) {
             $this_collection_id = $obj->id;
         }
         $this_collection_id = $this_collection_id + 1;
+    } else {
+        $this_collection_id = 1;
     }
 
     /* Set thumbnail to first image if unset */
-    if(empty($$collection_thumbnail_index)){
-        $$collection_thumbnail_index = 0;
+    if(empty($collection_thumbnail_index)){
+        $collection_thumbnail_index = 0;
     }
 
     /* Upload each file */
@@ -62,7 +63,7 @@ if (!empty($_FILES) && !empty($collection_name)) {
         }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            $output = "UPS, noget gik galt!";
+            die("UPS! Noget gik galt billedoverførslen.");
         }
         // if everything is ok, try to upload file	
         elseif (move_uploaded_file($_FILES["file"]["tmp_name"][$key], $original_target_path)) {
@@ -84,7 +85,8 @@ if (!empty($_FILES) && !empty($collection_name)) {
     if($result === true){
         echo "Album oprettet!";
     }else{
-        echo "Noget gik galt!";
+        /* ** TODO: Delete images */
+        echo "UPS! Noget gik galt med oprettelsen af albummet.";
     }
 } else {
     echo "Tilføj nogle billeder, før du opretter et album.";

@@ -23,10 +23,10 @@
                         ondragover="this.style.backgroundColor = '#ccc'; return false;"
                         ondragleave="this.style.backgroundColor = '#eee'">
                         <div id="drag_upload_file">
-                            <p>Drop files here</p>
-                            <p>or</p>
+                            <p>Træk og slip billeder her</p>
+                            <p>eller</p>
                             <p><input type="button" class="btn btn-secondary" id="collection_images"
-                                    value="Select Files" onclick="file_explorer();">
+                                    value="Vælg billeder" onclick="file_explorer();">
                             </p>
                             <input type="file" id="selectfile" multiple>
                         </div>
@@ -37,7 +37,7 @@
             <!-- List of uploaded files -->
             <div id="img-preview"></div>
 
-            <button class="btn btn-primary" id="submit-collection" onclick="upload_collection()">Opret album</button>
+            <button class="btn btn-primary my-5" id="submit-collection" onclick="upload_collection()">Opret album</button>
         </div>
     </div>
 </section>

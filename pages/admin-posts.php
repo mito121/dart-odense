@@ -2,8 +2,10 @@
 /* Get server response */
 if(isset($_GET['msg']) && !empty($_GET['msg'])){
     $response = $_GET['msg'];
+    $display = "block";
 } else {
     $response = "";
+    $display = "none";
 }
 ?>
 <section class="top-space">
@@ -11,7 +13,7 @@ if(isset($_GET['msg']) && !empty($_GET['msg'])){
         <h2>Opret nyhed</h2>
 
         <!-- Server msg -->
-        <p class="server_msg"><?php echo $response; ?></p>
+        <p class="server_msg" style="display: <?php echo $display; ?>"><?php echo $response; ?></p>
 
         <form action="./handlers/create_post.php" method="POST" enctype="multipart/form-data">
             <div class="flex w-full justify-between">

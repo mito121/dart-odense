@@ -66,7 +66,7 @@
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
                         <a href="index.php?page=games"
-                            class="<?php echo $pageName == 'games'? 'active' : null; ?>">Spil</a>
+                            class="<?php echo $pageName == 'games' || $pageName == 'leaderboards' ? 'active' : null; ?>">Spil</a>
                         <div class="dropdown-content">
                             <a href="index.php?page=games">Regler</a>
                             <a href="index.php?page=leaderboards">Stillinger</a>
@@ -75,7 +75,7 @@
 
                     <li>
                         <a href="index.php?page=galleries"
-                            class="<?php echo $pageName == 'galleries'? 'active' : null; ?>">Galleri</a>
+                            class="<?php echo $pageName == 'galleries' || $pageName == 'gallery' ? 'active' : null; ?>">Galleri</a>
                     </li>
 
                     <li class="dropdown">

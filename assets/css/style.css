@@ -199,20 +199,32 @@ textarea {
   padding-top: 75px;
 }
 
-.server_msg {
+p.server_msg, .server-response {
   background: #009a54;
   color: #fff;
   padding: 8px 24px;
   border-radius: 5px;
   width: max-content;
+  animation: serverMessage 0.9s;
+  display: none;
+  margin: 5px 0;
 }
 
-.server-response {
-  background: #009a54;
-  color: #fff;
-  width: max-content;
+@keyframes serverMessage {
+  0% {
+    display: block;
+    opacity: 0;
+    transform: translateX(-250px) skew(25deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(15px) skew(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
-
 /* 
 *** Header
  */
@@ -220,7 +232,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #0d1716;
+  background: #151515;
   height: 150px;
   display: flex;
   align-items: center;
@@ -249,9 +261,9 @@ header .header-content {
 }
 header .logo {
   user-select: none;
-  transform: translateY(20px);
+  transform: translateY(40px);
   transition: transform 250ms ease-in-out, background-color 250ms ease-in-out;
-  background-color: #0d1716;
+  background-color: #151515;
   border-radius: 50%;
   pointer-events: all;
 }
@@ -259,7 +271,10 @@ header .logo:hover {
   cursor: pointer;
 }
 header .logo img {
-  height: 200px;
+  height: 250px;
+  width: 250px;
+  object-fit: scale-down;
+  transform: scale(1.1);
 }
 header nav {
   pointer-events: all;
@@ -335,7 +350,7 @@ header nav ul li a.active {
  */
 .hero-fold {
   background-image: url(../img/hero-img.png);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
@@ -350,6 +365,7 @@ header nav ul li a.active {
 }
 
 .hero-content {
+  padding-top: 130px;
   color: #fff;
 }
 
@@ -725,7 +741,7 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #0d1716;
+  background-color: #151515;
   height: 150px;
   color: #fff;
   margin-top: 50px;
@@ -909,7 +925,7 @@ table.leaderboard th, table.cashback-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #0d1716;
+  background-color: #151515;
   color: white;
 }
 

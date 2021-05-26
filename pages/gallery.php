@@ -2,7 +2,7 @@
 require_once 'includes/dbconnect.php';
 
 /* 
-*** Get news
+*** Get gallery
  */
 $id = $_GET['id'];
 if(isset($id)){

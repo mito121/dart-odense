@@ -8,7 +8,7 @@ $secondary: #bb1835;
 $secondary-hover: darken($secondary, 20%);
 $tertiary: #dcc2a1;
 $tertiary-hover: darken($tertiary, 20%);
-$dark: #0d1716;
+$dark: #151515;
 $max-w: "1140px";
 
 /* 
@@ -217,18 +217,32 @@ textarea {
   }
 }
 
-.server_msg {
+p.server_msg, .server-response {
   background: $primary-light;
   color: #fff;
   padding: 8px 24px;
   border-radius: 5px;
   width: max-content;
+  animation: serverMessage .9s;
+  display:none;
+  margin: 5px 0;
 }
 
-.server-response {
-  background: $primary-light;
-  color: #fff;
-  width: max-content;
+@keyframes serverMessage {
+  0% {
+    display:block;
+    opacity:0;
+    transform: translateX(-250px) skew(25deg);
+  }
+
+  75% {
+    opacity:1;
+    transform: translateX(15px) skew(-10deg);
+  }
+  100% {
+    opacity:1;
+    transform: translateX(0px);
+  }
 }
 
 /* 
@@ -271,7 +285,7 @@ header {
 
   .logo {
     user-select: none;
-    transform: translateY(20px);
+    transform: translateY(40px);
     transition: transform 250ms ease-in-out, background-color 250ms ease-in-out;
     background-color: $dark;
     border-radius: 50%;
@@ -282,7 +296,10 @@ header {
     }
 
     img {
-      height: 200px;
+      height: 250px;
+      width: 250px;
+      object-fit: scale-down;
+      transform: scale(1.1);
     }
   }
 
@@ -366,7 +383,7 @@ header {
  */
 .hero-fold {
   background-image: url(../img/hero-img.png);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed; /* Parallax */
@@ -381,7 +398,9 @@ header {
 }
 
 .hero-content {
+  padding-top: 130px;
   color: #fff;
+
 }
 
 .btn-primary {
