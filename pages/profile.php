@@ -1,17 +1,80 @@
+<?php
+$user_id = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+
+require_once 'includes/dbconnect.php';
+
+/* 
+*** Get galleries
+ */
+$sql = "
+        SELECT dart_memberships.id AS membership_id, dart_memberships.type_id AS membership_type_id, dart_memberships.interval_id AS payment_interval_id, dart_memberships.price AS membership_price, dart_memberships.start_date AS date, dart_membertypes.name AS membership_type_name, dart_payment_intervals.name AS payment_name
+        FROM `dart_memberships`
+        LEFT JOIN dart_membertypes ON dart_membertypes.id = dart_memberships.type_id
+        LEFT JOIN dart_payment_intervals ON dart_payment_intervals.id = dart_memberships.interval_id
+        WHERE user_id = '$user_id'";
+
+$result = $conn->query($sql);
+if (mysqli_num_rows($result) > 0) {
+    while ($obj = $result->fetch_object()) {
+        $membership_id = $obj->membership_id;
+        $membership_type_id = $obj->membership_type_id;
+        $membership_price = $obj->membership_price;
+        $membership_type_name = $obj->membership_type_name;
+        $payment_name = $obj->payment_name;
+        $payment_interval_id = $obj->payment_interval_id;
+        $date = $obj->date;
+    }
+}
+
+/* Get tab to pre-open */
+if(isset($_GET['tab']) && !empty($_GET['tab'])){
+    $tab = $_GET['tab'];
+    $openTab = "
+        .tabcontent:nth-of-type($tab) {
+            display: block;
+        }
+    ";
+} else {
+    $tab = 0;
+    $openTab = "
+    .tabcontent:nth-of-type(1) {
+        display: block;
+    }
+";
+}
+
+/* Get server response */
+if(isset($_GET['response']) && !empty($_GET['response'])){
+    $response = $_GET['response'];
+} else {
+    $response = "";
+}
+?>
 <style>
-
+<?php echo $openTab;
+?>
 </style>
-
-
 <section class="top-space">
     <div class="wrapper">
         <h1 class="mb-8">Min profil</h1>
 
 
         <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, '1')">Betaling</button>
-            <button class="tablinks" onclick="openTab(event, '2')">Cashback</button>
-            <button class="tablinks" onclick="openTab(event, '3')">Profiloplysninger</button>
+            <!-- Tabs -->
+            <div>
+                <button class="tablinks <?php echo $tab == 1 || $tab == 0 ? 'active' : null; ?>"
+                    onclick="openTab(event, '1')">Betaling</button>
+                <button class="tablinks <?php echo $tab == 2 ? 'active' : null; ?>"" onclick=" openTab(event, '2'
+                    )">Cashback</button>
+                <button class="tablinks <?php echo $tab == 3 ? 'active' : null; ?>"" onclick=" openTab(event, '3'
+                    )">Profiloplysninger</button>
+            </div>
+
+
+            <!-- Server response -->
+            <div>
+                <p class="server_msg"><?php echo $response; ?></p>
+            </div>
         </div>
 
         <!-- Tabs content -->
@@ -80,29 +143,26 @@
                 <div class="flex">
                     <div class="w-1/3 tab-content-inner">
                         <h3>Skift medlemskab</h3>
+                        <div class="profile-content">
+                            <div class="profile-content">
+                                <!-- Current membership -->
+                                <h4>Nuværende medlemskab:</h4>
 
-                        <div>
-                            <!-- Current membership -->
-                            <h4>Nuværende medlemskab:</h4>
-
-                            <table>
-                                <tr>
-                                    <td>Medlemstype:</td>
-                                    <td>Aktiv</td>
-                                </tr>
-                                <tr>
-                                    <td>Betalingsinterval:</td>
-                                    <td>Kvartal</td>
-                                </tr>
-                                <tr>
-                                    <td>Pris:</td>
-                                    <td>275 DKK</td>
-                                </tr>
-                            </table>
-
-
-
-
+                                <table>
+                                    <tr>
+                                        <td>Medlemstype:</td>
+                                        <td><?php echo $membership_type_name; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Betalingsinterval:</td>
+                                        <td><?php echo $payment_name; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pris:</td>
+                                        <td><?php echo $membership_price; ?></td>
+                                    </tr>
+                                </table>
+                            </div>
 
                             <!-- New membership -->
                             <form action="./handlers/change_membership.php" method="POST">
@@ -110,7 +170,7 @@
                                     <!-- Choose membership -->
                                     <div class="form-row radio">
                                         <!-- Membership type -->
-                                        <h3>Medlemstype <span class="required">*</span></h3>
+                                        <h4>Medlemstype <span class="required">*</span></h4>
                                         <div class="radio-row">
                                             <input type="radio" class="membership-radio" name="membership" value="1"
                                                 data-price="275" data-name="Aktiv" data-discount="200" id="aktiv">
@@ -139,12 +199,12 @@
 
                                     <!-- Membership details -->
                                     <div class="form-row radio" id="member-details">
-                                        <h3 id="membership-heading"></h3>
+                                        <h4 id="membership-heading"></h4>
                                         <ol class="pl-8" id="membership-details"></ol>
 
                                         <!-- Discount row -->
                                         <div id="parents-radio">
-                                            <h3>Har du forældre i klubben?</h3>
+                                            <h4>Har du forældre i klubben?</h4>
                                             <div class="radio-row">
                                                 <input type="radio" class="parents-radio" name="parents" value="1"
                                                     data-discount="200" id="parents-ja">
@@ -160,7 +220,7 @@
 
                                     <!-- Payment interval -->
                                     <div class="form-row radio">
-                                        <h3>Betaling hvert <span class="required">*</span></h3>
+                                        <h4>Betaling hvert <span class="required">*</span></h4>
                                         <div class="radio-row">
                                             <div class="flex items-center mr-3">
                                                 <input type="radio" class="interval-radio" name="interval" value="2"
@@ -177,26 +237,72 @@
                                     </div>
 
                                     <div class="form-row">
-                                        <label for="price">Din pris</label>
+                                        <label for="new_price">Ny pris</label>
 
                                         <div class="calc-price">
-                                            <input type="text" id="calculated-price" disabled value="0">
+                                            <input type="text" id="calculated-price" disabled value="0"
+                                                name="new_price">
                                             <span>kr.</span>
                                         </div>
                                     </div>
+
                                     <button class="btn btn-primary" id="change-membership">Skift medlemskab</button>
                                 </div> <!-- </form-wrapper > membership form> -->
+                                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                                <input type="hidden" name="new_price" id="post_price" value />
                             </form>
                         </div>
 
                     </div>
 
                     <div class="w-1/3 payment-history tab-content-inner">
+                        <h3>Skift email</h3>
+                        <!-- Change email -->
+                        <form action="./handlers/change_email.php" method="POST">
+                            <div class="form-row">
+                                <label for="current_email">Nuværende email</label>
+                                <input type="text" id="current_email" name="current_email">
+                            </div>
 
+                            <div class="form-row">
+                                <label for="new_mail">Ny email</label>
+                                <input type="text" id="new_mail" name="new_email">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email_repeat">Gentag email</label>
+                                <input type="text" id="email_repeat" name="email_repeat">
+                            </div>
+
+                            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+
+                            <button type="submit" class="btn btn-primary">Skift email</button>
+                        </form>
                     </div>
 
                     <div class="w-1/3 payment-history tab-content-inner">
+                        <h3>Skift adgangskode</h3>
+                        <!-- Change password -->
+                        <form action="./handlers/change_password.php" method="POST">
+                            <div class="form-row">
+                                <label for="current_password">Nuværende adganskode</label>
+                                <input type="text" id="current_password" name="current_password">
+                            </div>
 
+                            <div class="form-row">
+                                <label for="new_password">Ny adganskode</label>
+                                <input type="text" id="new_password" name="new_password">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="password_repeat">Gentag adganskode</label>
+                                <input type="text" id="password_repeat" name="password_repeat">
+                            </div>
+
+                            <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+
+                            <button type="submit" class="btn btn-primary">Skift adgangskode</button>
+                        </form>
                     </div>
                 </div>
             </div> <!-- /profile data (profiloplysninger) -->

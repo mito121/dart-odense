@@ -13,12 +13,6 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
             Odense.
         </p>
 
-        <!-- 
-            ***
-            *** TODO: Require user to login before being able to sign up for a membership!
-            *** 
-         -->
-
         <div class="form-wrapper" id="membership-form">
             <!-- Choose membership -->
             <div class="form-row radio">
@@ -125,8 +119,7 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
 
         </div> <!-- </form-wrapper > user register form> -->
 
-        <input type="hidden" name="user_id" id="user_id"
-            value="<?php echo $user_id; ?>" />
+        <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id; ?>" />
 
         <div class="flex my-4">
             <button class="btn btn-secondary mr-4" id="back-to-membership">Tilbage</button>
