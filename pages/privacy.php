@@ -258,7 +258,7 @@
                             <li>Dart Odense</li>
                             <li>Grønløkkevej 16</li>
                             <li>5000 Odense C</li>
-                            <li>Telefon: +45 65 91 28 88</li>
+                            <li>Telefon: +45 28 48 62 24</li>
                         </ul>
 
 
