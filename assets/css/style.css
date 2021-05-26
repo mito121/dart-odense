@@ -85,7 +85,9 @@ table {
   width: 450px;
 }
 
-.form-row > label {
+.form-row > label,
+.form-row-50 > label {
+  font-weight: 700;
   display: block;
   margin: 8px 0;
 }
@@ -112,11 +114,6 @@ form input[type=submit] {
 
 #pw-err {
   display: none;
-}
-
-.form-row label,
-.form-row-50 label {
-  font-weight: 700;
 }
 
 .radio-row {
@@ -161,13 +158,17 @@ form input[type=submit] {
 input[type=text],
 input[type=password],
 input[type=email],
-input[type=number],
+input[type=number] {
+  border: 1px solid #bbb;
+  padding: 0 6px;
+  height: 30px;
+  width: 250px;
+  /* border-radius: 5px; */
+}
+
 select,
 textarea {
-  border: 1px solid #333;
-  padding: 0 6px;
-  height: 24px;
-  border-radius: 5px;
+  border: 1px solid #bbb;
 }
 
 .btn {
@@ -876,53 +877,24 @@ img.hover-shadow {
 /* 
 *** Leaderboards
  */
-table.leaderboard {
-  border-collapse: collapse;
-  width: 100%;
-  /* Table head */
-  /* Table body */
-  /* All */
-  /*   tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  tr:hover {
-    background-color: #ddd;
-  } */
+table.leaderboard td,
+table.leaderboard th {
+  border-top: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
+  padding: 8px;
 }
-table.leaderboard thead tr th {
-  padding: 0;
+table.leaderboard tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table.leaderboard tr:hover {
+  background-color: #ddd;
+}
+table.leaderboard th {
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: left;
-  background-color: transparent;
-  color: black;
-  font-size: 0.7rem;
-}
-table.leaderboard tbody tr {
-  /* First <tr> */
-}
-table.leaderboard tbody tr td span {
-  padding: 15px;
-  display: block;
-}
-table.leaderboard tbody tr:first-of-type {
-  background-color: #000;
-  color: #fff;
-}
-table.leaderboard tr {
-  border-radius: 5px;
-}
-table.leaderboard tr td:first-of-type span:first-of-type {
-  color: red;
-}
-table.leaderboard td {
-  border: none;
-  padding: 0px 0px 20px 0px;
-  font-size: 1.2rem;
-  /* First <td> of each row */
-}
-table.leaderboard td:first-of-type {
-  padding: 0 15px 20px 0;
-  text-align: center;
+  background-color: #0d1716;
+  color: white;
 }
 
 .privacyList {
@@ -931,6 +903,24 @@ table.leaderboard td:first-of-type {
 }
 .privacyList .privacyUO {
   font-weight: bold;
+}
+
+/* 
+*** Contact
+ */
+div.contact-form {
+  width: 100%;
+  max-width: 600px;
+}
+div.contact-form .form-row input,
+div.contact-form .form-row textarea {
+  display: block;
+  width: 100%;
+}
+div.contact-form .form-row textarea {
+  resize: vertical;
+  min-height: 200px;
+  padding: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */

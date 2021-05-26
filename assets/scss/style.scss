@@ -96,7 +96,9 @@ table {
   width: 450px;
 }
 
-.form-row > label {
+.form-row > label,
+.form-row-50 > label {
+  font-weight: 700;
   display: block;
   margin: 8px 0;
 }
@@ -127,13 +129,6 @@ form {
 
 #pw-err {
   display: none;
-}
-
-.form-row,
-.form-row-50 {
-  label {
-    font-weight: 700;
-  }
 }
 
 .radio-row {
@@ -179,13 +174,16 @@ form {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="number"],
+input[type="number"] {
+  border: 1px solid #bbb;
+  padding: 0 6px;
+  height: 30px;
+  width: 250px;
+  /* border-radius: 5px; */
+}
 select,
 textarea {
-  border: 1px solid #333;
-  padding: 0 6px;
-  height: 24px;
-  border-radius: 5px;
+  border: 1px solid #bbb;
 }
 
 .btn {
@@ -954,68 +952,53 @@ img.hover-shadow {
 *** Leaderboards
  */
 table.leaderboard {
-  border-collapse: collapse;
-  width: 100%;
-
-  /* Table head */
-  thead {
-    tr {
-      th {
-        padding: 0;
-        text-align: left;
-        background-color: transparent;
-        color: black;
-        font-size: 0.7rem;
-      }
-    }
+  td,
+  th {
+    border-top: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
+    padding: 8px;
   }
 
-  /* Table body */
-  tbody {
-    tr {
-      td {
-        span {
-          padding: 15px;
-          display: block;
-        }
-      }
-
-      /* First <tr> */
-      &:first-of-type {
-        background-color: #000;
-        color: #fff;
-      }
-    }
-  }
-
-  tr {
-    border-radius: 5px;
-    td {
-      &:first-of-type {
-        span {
-          &:first-of-type {
-            color: red;
-          }
-        }
-      }
-    }
-  }
-
-  /* All */
-  td {
-    border: none;
-    padding: 0px 0px 20px 0px;
-    font-size: 1.2rem;
-
-    /* First <td> of each row */
-    &:first-of-type {
-      padding: 0 15px 20px 0;
-      text-align: center;
-    }
-  }
-
-  /*   tr:nth-child(even) {
+  tr:nth-child(even) {
     background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $dark;
+    color: white;
+  }
+}
+//privacy page
+.privacyList {
+  list-style-type: square;
+}
+
+/* 
+*** Contact
+ */
+div.contact-form {
+  width: 100%;
+  max-width: 600px;
+
+  .form-row {
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 200px;
+      padding: 8px;
+    }
   }
 
   tr:hover {
@@ -1032,3 +1015,4 @@ table.leaderboard {
     font-weight: bold;
     }
   }
+}
