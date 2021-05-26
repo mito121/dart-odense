@@ -29,8 +29,14 @@ if (isset($_POST)) {
         case $word_count < 1000:
             $read_time = 4;
             break;
-        default:
+        case $word_count < 2000:
             $read_time = 5;
+            break;
+        case $word_count > 2000:
+            $read_time = "> 5";
+            break;
+        default:
+            $read_time = " < 1";
             break;
     }
 

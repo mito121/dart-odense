@@ -170,6 +170,7 @@ select,
 textarea {
   border: 1px solid #bbb;
   border-radius: 5px;
+  padding: 1px 12px;
 }
 
 .btn {
@@ -414,6 +415,7 @@ header nav ul li a.active {
   border-radius: 10px;
   padding: 30px;
   /* Slide header */
+  /* Slide footer */
 }
 .news-container .slide-header {
   margin-bottom: 25px;
@@ -421,6 +423,10 @@ header nav ul li a.active {
 .news-container .slide-header h1 {
   font-size: 1.6rem;
   line-height: 2rem;
+}
+.news-container .slide-footer {
+  padding-top: 8px;
+  border-top: 1px solid #4e4e4e;
 }
 .news-container .news-img {
   height: 150px;

@@ -186,6 +186,7 @@ select,
 textarea {
   border: 1px solid #bbb;
   border-radius: 5px;
+  padding: 1px 12px;
 }
 
 .btn {
@@ -459,6 +460,12 @@ header {
       font-size: 1.6rem;
       line-height: 2rem;
     }
+  }
+
+  /* Slide footer */
+  .slide-footer {
+    padding-top:8px;
+    border-top: 1px solid #4e4e4e;
   }
 
   .news-img {
