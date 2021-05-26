@@ -20,5 +20,8 @@
   "dependencies": {
     "node-sass": "^6.0.0",
     "tailwindcss": "^2.1.2"
+  },
+  "devDependencies": {
+    "prettier": "2.3.0"
   }
 }

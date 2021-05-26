@@ -1001,6 +1001,21 @@ div.contact-form {
       padding: 8px;
     }
   }
+
+  tr:hover {
+    background-color: #ddd;
+  } */
+}
+
+//privacy page
+.privacyList{
+  list-style-type: square;
+  padding-left: 50px;
+
+  .privacyUO{
+    font-weight: bold;
+    }
+  }
 }
 
 /* 
