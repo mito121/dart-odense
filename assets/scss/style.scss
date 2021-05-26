@@ -174,14 +174,16 @@ form {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="number"],
-select,
-textarea {
+input[type="number"] {
   border: 1px solid #bbb;
   padding: 0 6px;
   height: 30px;
-  width: 300px;
+  width: 250px;
   /* border-radius: 5px; */
+}
+select,
+textarea {
+  border: 1px solid #bbb;
 }
 
 .btn {
@@ -995,7 +997,7 @@ div.contact-form {
     textarea {
       resize: vertical;
       min-height: 200px;
-      padding:8px;
+      padding: 8px;
     }
   }
 }
