@@ -32,50 +32,53 @@ $(document).ready(function () {
   /*
    *** Magical gallery
    */
+  if (document.getElementById("magical-data")) {
+    const paths = JSON.parse(
+      document.querySelector("#magical-data").getAttribute("data-dart-magic")
+    );
+    const images = document.querySelectorAll(".magical-gallery-item");
 
-  const paths = JSON.parse($("#magical-data").attr("data-dart-magic"));
-  const images = document.querySelectorAll(".magical-gallery-item");
+    /* Function to start interval that changes a specific image src (based in index, passed as a prop) */
+    const startInterval = (i) => {
+      window.setInterval(function () {
+        const newPath = paths[Math.floor(Math.random() * paths.length)].path;
+        $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
+      }, 5000);
+    };
 
-  /* Function to start interval that changes a specific image src (based in index, passed as a prop) */
-  const startInterval = (i) => {
-    window.setInterval(function () {
-      const newPath = paths[Math.floor(Math.random() * paths.length)].path;
-      $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
-    }, 5000);
-  };
+    /* Set images on load */
+    if (paths.length > 10) {
+      // If there are more than 10 images uploaded
+      for (let n = 0; n < paths.length; n++) {
+        const newPath = paths[n].path;
+        console.log(newPath);
+        $(images[n]).backstretch("uploads/small/" + newPath);
+      }
+    } else {
+      // If there are less than 10 images uploaded
+      for (let n = 0; n < paths.length; n++) {
+        const newPath = paths[n].path;
+        console.log(newPath);
+        $(images[n]).backstretch("uploads/small/" + newPath);
+      }
 
-  /* Set images on load */
-  if (paths.length > 0) {
-    // If there are more than 10 images uploaded
-    for (let n = 0; n < paths.length; n++) {
-      const newPath = paths[n].path;
-      console.log(newPath);
-      $(images[n]).backstretch("uploads/small/" + newPath);
+      /* Loop function with timeout delay */
+      let i = 0;
+      function galleryLoop() {
+        setTimeout(function () {
+          console.log(i);
+          startInterval(i);
+          i++;
+
+          if (i < images.length) {
+            galleryLoop();
+          }
+        }, 7000);
+      }
+
+      // Start the loop
+      galleryLoop();
     }
-  } else {
-    // If there are less than 10 images uploaded
-    for (let n = 0; n < paths.length; n++) {
-      const newPath = paths[n].path;
-      console.log(newPath);
-      $(images[n]).backstretch("uploads/small/" + newPath);
-    }
-
-    /* Loop function with timeout delay */
-    let i = 0;
-    function galleryLoop() {
-      setTimeout(function () {
-        console.log(i);
-        startInterval(i);
-        i++;
-
-        if (i < images.length) {
-          galleryLoop();
-        }
-      }, 7000);
-    }
-
-    // Start the loop
-    galleryLoop();
   }
 
   /*
@@ -194,7 +197,7 @@ $(document).ready(function () {
   });
 
   /* Check if user is logged in */
-  const user_id = document.querySelector("#user_id").value;
+  const user_id = document.querySelector("#user_id");
   const membershipform = document.querySelector("#membership-form");
   const registerform = document.querySelector("#user-register-form");
   const signUp = document.querySelector("#sign-up");
@@ -220,19 +223,19 @@ $(document).ready(function () {
       return false;
     } else {
       // New user form validation
-      if (user_id == 0 && !name) {
+      if (user_id.value == 0 && !name) {
         alert("Indtast dit navn");
         return false;
       }
 
       // If new user and email validation fails
-      if (user_id == 0 && !email) {
+      if (user_id.value == 0 && !email) {
         alert("Indtast din email");
         return false;
       }
 
       // If new user and password validation fails
-      if (user_id == 0 && password !== password_repeat) {
+      if (user_id.value == 0 && password !== password_repeat) {
         alert("Dine adgangskoder er ikke ens!");
         return false;
       }
@@ -240,13 +243,13 @@ $(document).ready(function () {
       // Set & send form data
       let form_data = new FormData();
       // If user is already logged on
-      form_data.append("user_id", user_id);
+      form_data.append("user_id", user_id.value);
       form_data.append("membership_id", membership_id);
       form_data.append("interval_id", interval_id);
       form_data.append("price", price);
 
       // If anonymous user is signing up, append user data to form data
-      if (user_id == 0) {
+      if (user_id.value == 0) {
         let name = document.querySelector("#name").value;
         let email = document.querySelector("#email").value;
         let password = document.querySelector("#password").value;
@@ -269,6 +272,7 @@ $(document).ready(function () {
           if (response == 1) {
             window.location.href = "index.php?page=profile";
           } else {
+            console.log(response);
             document.querySelector("#server-msg").innerHTML = response;
           }
         },
@@ -288,12 +292,14 @@ $(document).ready(function () {
     /* Add onClick eventlistener to back-to-membership button */
     backToMembership.addEventListener("click", showMembership);
 
-    /* Set text value of submit button */
-    signUp.innerHTML = "Bliv medlem";
-    /* Remove old event listener */
-    signUp.removeEventListener("click", showUserRegister);
-    /* Add new event listener */
-    signUp.addEventListener("click", submitMembership);
+    if (signUp !== null) {
+      /* Set text value of submit button */
+      signUp.innerHTML = "Bliv medlem";
+      /* Remove old event listener */
+      signUp.removeEventListener("click", showUserRegister);
+      /* Add new event listener */
+      signUp.addEventListener("click", submitMembership);
+    }
   }
 
   function showMembership() {
@@ -304,12 +310,14 @@ $(document).ready(function () {
     registerform.style.display = "none";
     membershipform.style.display = "block";
 
-    /* Set text value of submit button */
-    signUp.innerHTML = "Fortsæt";
-    /* Remove old event listener */
-    signUp.removeEventListener("click", submitMembership);
-    /* Add new event listener */
-    signUp.addEventListener("click", showUserRegister);
+    if (signUp !== null) {
+      /* Set text value of submit button */
+      signUp.innerHTML = "Fortsæt";
+      /* Remove old event listener */
+      signUp.removeEventListener("click", submitMembership);
+      /* Add new event listener */
+      signUp.addEventListener("click", showUserRegister);
+    }
   }
 
   /* Tell user if password and password-repeat dont match */
@@ -336,23 +344,25 @@ $(document).ready(function () {
     }
   }
 
-  if (user_id > 0) {
+  if (user_id !== null && user_id.value > 0) {
     /* If user is logged on */
     signUp.innerHTML = "Bliv medlem"; // Set text value of submit button
     signUp.addEventListener("click", submitMembership); // Assign eventListener to submit form onClick
   } else {
-    /* If user is NOT logged on */
-    signUp.innerHTML = "Fortsæt"; // Set text value of submit button
-    signUp.addEventListener("click", showUserRegister); // Assign eventListener to shower user register form onClick
+    if (signUp !== null) {
+      /* If user is NOT logged on */
+      signUp.innerHTML = "Fortsæt"; // Set text value of submit button
+      signUp.addEventListener("click", showUserRegister); // Assign eventListener to shower user register form onClick
 
-    $(password).on("keyup", validatePassword); // Validate password & password repeat
-    $(passwordRepeat).on("keyup", validatePassword); // Validate password & password repeat
+      $(password).on("keyup", validatePassword); // Validate password & password repeat
+      $(passwordRepeat).on("keyup", validatePassword); // Validate password & password repeat
+    }
   }
 }); // document.ready
 /* TinyMCE */
 tinymce.init({
   selector: ".tinymce",
-  height: "420"
+  height: "420",
 });
 /*
  *** Create image collection
