@@ -1,7 +1,7 @@
 <!-- About us -->
 <section class="top-space pb-12 about-section">
     <div class="wrapper">
-        <h1>Hvem er vi?</h1>
+        <h1 class="mb-8">Hvem er vi?</h1>
 
         <p>Vi er dem din mor siger du ikke må lege med. Vi er dem der altid får rabat i 7-Eleven fordi vi kender nogen
             der arbejder der. Ja. Vi er dem. Dem der spiller DART! Træk maven ind og fat din pils, for nu går det løs.

@@ -578,9 +578,10 @@ header {
   }
 
   span {
+    border: 1px solid #bbb;
+    padding: 4px 6px;
+    height: 30px;
     background-color: #ddd;
-    border: 1px solid #333;
-    padding: 1px 6px;
     border-left: none;
     border-radius: 0 5px 5px 0;
     margin-left: -5px;
@@ -998,6 +999,90 @@ div.contact-form {
       resize: vertical;
       min-height: 200px;
       padding: 8px;
+    }
+  }
+}
+
+/* 
+*** Profile page
+ */
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  /* background-color: #f1f1f1; */
+
+  .tablinks {
+    border-radius: 5px 5px 0 0;
+    margin: 0 5px 0 0;
+  }
+
+  button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+
+    &.active {
+      background-color: #ccc;
+    }
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  /* padding: 18px 12px; */
+  border: 1px solid #ccc;
+  border-top: none;
+
+  &:first-of-type {
+    display: block;
+  }
+}
+
+.tab-content-inner {
+  padding: 20px;
+}
+
+.missing-payment {
+  color: $secondary;
+}
+
+.payment-history {
+  border-left: 1px solid #ccc;
+}
+
+#payment-form {
+  input {
+    height: 36px;
+  }
+  .form-row {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+
+  .form-row-50 {
+    input {
+      width: 100%;
+    }
+
+    &:first-of-type {
+      padding-right: 5px;
+    }
+
+    &:last-of-type {
+      padding-left: 5px;
     }
   }
 }
