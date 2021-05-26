@@ -352,6 +352,7 @@ $(document).ready(function () {
 /* TinyMCE */
 tinymce.init({
   selector: ".tinymce",
+  height: "420"
 });
 /*
  *** Create image collection

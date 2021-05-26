@@ -96,7 +96,9 @@ table {
   width: 450px;
 }
 
-.form-row > label {
+.form-row > label,
+.form-row-50 > label {
+  font-weight: 700;
   display: block;
   margin: 8px 0;
 }
@@ -127,13 +129,6 @@ form {
 
 #pw-err {
   display: none;
-}
-
-.form-row,
-.form-row-50 {
-  label {
-    font-weight: 700;
-  }
 }
 
 .radio-row {
@@ -182,10 +177,11 @@ input[type="email"],
 input[type="number"],
 select,
 textarea {
-  border: 1px solid #333;
+  border: 1px solid #bbb;
   padding: 0 6px;
-  height: 24px;
-  border-radius: 5px;
+  height: 30px;
+  width: 300px;
+  /* border-radius: 5px; */
 }
 
 .btn {
@@ -980,4 +976,26 @@ table.leaderboard {
 //privacy page
 .privacyList {
   list-style-type: square;
+}
+
+/* 
+*** Contact
+ */
+div.contact-form {
+  width: 100%;
+  max-width: 600px;
+
+  .form-row {
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 200px;
+      padding:8px;
+    }
+  }
 }

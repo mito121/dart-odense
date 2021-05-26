@@ -85,7 +85,9 @@ table {
   width: 450px;
 }
 
-.form-row > label {
+.form-row > label,
+.form-row-50 > label {
+  font-weight: 700;
   display: block;
   margin: 8px 0;
 }
@@ -112,11 +114,6 @@ form input[type=submit] {
 
 #pw-err {
   display: none;
-}
-
-.form-row label,
-.form-row-50 label {
-  font-weight: 700;
 }
 
 .radio-row {
@@ -164,10 +161,11 @@ input[type=email],
 input[type=number],
 select,
 textarea {
-  border: 1px solid #333;
+  border: 1px solid #bbb;
   padding: 0 6px;
-  height: 24px;
-  border-radius: 5px;
+  height: 30px;
+  width: 300px;
+  /* border-radius: 5px; */
 }
 
 .btn {
@@ -898,6 +896,24 @@ table.leaderboard th {
 
 .privacyList {
   list-style-type: square;
+}
+
+/* 
+*** Contact
+ */
+div.contact-form {
+  width: 100%;
+  max-width: 600px;
+}
+div.contact-form .form-row input,
+div.contact-form .form-row textarea {
+  display: block;
+  width: 100%;
+}
+div.contact-form .form-row textarea {
+  resize: vertical;
+  min-height: 200px;
+  padding: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */
