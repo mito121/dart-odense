@@ -193,6 +193,11 @@ $(document).ready(function () {
       }
 
       $("#calculated-price").val(price);
+
+      /* For syncronous backend calls */
+      if(document.getElementById("post_price")){
+        document.getElementById("post_price").value = price;
+      }
     }
   });
 
