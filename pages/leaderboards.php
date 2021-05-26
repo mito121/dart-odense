@@ -40,7 +40,21 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>noob lol</td>
+                        <td>Skephan</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Claus Toft</td>
                         <td>123</td>
                         <td>123</td>
                         <td>123</td>
