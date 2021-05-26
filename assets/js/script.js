@@ -393,9 +393,14 @@ function file_explorer() {
 
 /* Submit collection */
 function upload_collection() {
-  const files = document.querySelector("#selectfile").files;
-  tinyMCE.triggerSave(true, true);
-  ajax_file_upload(files);
+  let files = document.querySelector("#selectfile").files;
+
+  if (files.length > 0){
+    tinyMCE.triggerSave(true, true);
+    ajax_file_upload(files);
+  } else {
+    alert("Tilføj billeder til albummet, før du opretter det!");
+  }
 }
 
 /* Send AJAX request */
@@ -408,7 +413,7 @@ function ajax_file_upload(file_obj) {
     /* Description of collection */
     form_data.append("desc", document.querySelector("#collection_desc").value);
     /* Selected collection thumbnail */
-    form_data.append("thumb", document.querySelector("#thumbnail").value);
+    form_data.append("thumbIndex", document.querySelector("#thumbnail").value);
     /* Append each selected file to form data */
     for (i = 0; i < file_obj.length; i++) {
       form_data.append("file[]", file_obj[i]);
@@ -478,7 +483,7 @@ const preview = async (event) => {
 // Set thumbnail
 function selectThumbnail(event) {
   // Get name of selected image
-  let thumbnail = event.target.getAttribute("data-name");
+  let thumbnail = event.target.getAttribute("data-index");
   // Set hidden thumbnail input
   document.querySelector("#thumbnail").value = thumbnail;
 

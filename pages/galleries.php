@@ -6,14 +6,18 @@ require_once 'includes/dbconnect.php';
  */
 $yearFilter = !empty($_GET['year']) ? $_GET['year'] : null;
 if(isset($yearFilter)){
-    $sql = "SELECT `dart_collections`.`id` AS id, `dart_collections`.`name` AS name, `dart_collections`.`description` AS description, `dart_collections`.`thumbnail` AS img, YEAR(`dart_collections`.`last_updated`) AS year, `dart_collections`.`last_updated` AS last_updated, COUNT(`dart_images`.id) AS count
+    $sql = "SELECT `dart_collections`.`id` AS id, `dart_collections`.`name` AS name, `dart_collections`.`description` AS description, 
+                    `dart_collections`.`thumbnail` AS img, YEAR(`dart_collections`.`last_updated`) AS year, `dart_collections`.`last_updated` AS last_updated,
+                    COUNT(`dart_images`.id) AS count
             FROM `dart_collections` 
             LEFT JOIN `dart_images` ON `dart_images`.`collection_id` = `dart_collections`.`id`
             WHERE YEAR(last_updated) = '$yearFilter'
             GROUP BY `dart_collections`.`id`
             ORDER BY `last_updated` DESC, `id` DESC";
 } else {
-    $sql = "SELECT `dart_collections`.`id` AS id, `dart_collections`.`name` AS name, `dart_collections`.`description` AS description, `dart_collections`.`thumbnail` AS img, YEAR(`dart_collections`.`last_updated`) AS year, `dart_collections`.`last_updated` AS last_updated, COUNT(`dart_images`.id) AS count
+    $sql = "SELECT `dart_collections`.`id` AS id, `dart_collections`.`name` AS name, `dart_collections`.`description` AS description, 
+                    `dart_collections`.`thumbnail` AS img, YEAR(`dart_collections`.`last_updated`) AS year, `dart_collections`.`last_updated` AS last_updated,
+                    COUNT(`dart_images`.id) AS count
             FROM `dart_collections` 
             LEFT JOIN `dart_images` ON `dart_images`.`collection_id` = `dart_collections`.`id`
             GROUP BY `dart_collections`.`id`

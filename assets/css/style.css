@@ -199,6 +199,20 @@ textarea {
   padding-top: 75px;
 }
 
+.server_msg {
+  background: #009a54;
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 5px;
+  width: max-content;
+}
+
+.server-response {
+  background: #009a54;
+  color: #fff;
+  width: max-content;
+}
+
 /* 
 *** Header
  */

@@ -46,7 +46,9 @@ if (isset($_POST)) {
         $valid_formats = array("jpg", "JPG", "JPEG", "PNG", "png", "gif", "bmp");
         $target_dir = "../uploads/";
         $target_dir_small = "../uploads/small/";
-        $filename = basename($_FILES["image"]["name"]);
+        $filename = uniqid() . "-" . basename($_FILES["image"]["name"]);
+        /* Replace spaces in image name with underscores */
+        $filename = str_replace(' ', '_', $filename);
 
         $orginal_target_path = "{$target_dir}$filename";
         $small_target_path = "{$target_dir_small}$filename";
@@ -74,24 +76,23 @@ if (isset($_POST)) {
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             $output = "UPS, noget gik galt!";
+            $sql = "DELETE FROM `dart_posts` WHERE id = '$post_id'";
+            $result = $conn->query($sql);
         }
         // if everything is ok, try to upload file	
         elseif (move_uploaded_file($_FILES["image"]["tmp_name"], $orginal_target_path)) {
-            /* Replace image, if it already exists */
-            /* unlink($target_dir, $filename); */
             // RESIZE IMAGE
             $imageResizer = new ImageResizer($orginal_target_path);
             $imageResizer->resizeTo(300, 300);
             $imageResizer->saveImage($small_target_path);
-            /* $imageResizer->resizeTo(1050, 700);
-            $imageResizer->saveImage($orginal_target_path); */
 
             $sql = "INSERT INTO `dart_images`(`path`, `post_id`) VALUES ('$filename', '$post_id')";
-
             $result = $conn->query($sql);
             $output = "Nyhed oprettet.";
         } else {
-            $output = "Noget gik galt.";
+            /* Delete the post */
+            $sql = "DELETE FROM `dart_posts` WHERE id = '$post_id'";
+            $result = $conn->query($sql);
         }
         header("location: ../index.php?page=admin-posts&msg=$output");
     }

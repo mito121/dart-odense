@@ -2,6 +2,7 @@
 *** Variables
  */
 $primary: #00713e;
+$primary-light: lighten($primary, 8%);
 $primary-hover: darken($primary, 8%);
 $secondary: #bb1835;
 $secondary-hover: darken($secondary, 20%);
@@ -214,6 +215,20 @@ textarea {
   > div.wrapper {
     padding-top: 75px;
   }
+}
+
+.server_msg {
+  background: $primary-light;
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 5px;
+  width: max-content;
+}
+
+.server-response {
+  background: $primary-light;
+  color: #fff;
+  width: max-content;
 }
 
 /* 

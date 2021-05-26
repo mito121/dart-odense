@@ -4,7 +4,7 @@ require_once 'resize_image.php';
 
 $collection_name = mysqli_real_escape_string($conn, $_POST['name']);
 $collection_desc = mysqli_real_escape_string($conn, $_POST['desc']);
-$collection_thumbnail = mysqli_real_escape_string($conn, $_POST['thumb']);
+$collection_thumbnail_index = mysqli_real_escape_string($conn, $_POST['thumbIndex']);
 $this_collection_id = 1;
 
 /* Get ID of this collection */
@@ -20,8 +20,8 @@ if (!empty($_FILES) && !empty($collection_name)) {
     }
 
     /* Set thumbnail to first image if unset */
-    if(empty($collection_thumbnail)){
-        $collection_thumbnail = $_FILES['file']['name'][0];
+    if(empty($$collection_thumbnail_index)){
+        $$collection_thumbnail_index = 0;
     }
 
     /* Upload each file */
@@ -29,7 +29,13 @@ if (!empty($_FILES) && !empty($collection_name)) {
         $valid_formats = array("jpg", "JPG", "JPEG", "PNG", "png", "gif", "bmp");
         $target_dir = "../uploads/";
         $target_dir_small = "../uploads/small/";
-        $filename = basename($_FILES["file"]["name"][$key]);
+        $filename = uniqid() . "-" . basename($_FILES["file"]["name"][$key]);
+        /* Replace spaces in image name with underscores */
+        $filename = str_replace(' ', '_', $filename);
+
+        if($key == $collection_thumbnail_index){
+            $collection_thumbnail = $filename;
+        }
 
         $original_target_path = "{$target_dir}$filename";
         $small_target_path = "{$target_dir_small}$filename";

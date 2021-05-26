@@ -26,7 +26,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             $game_rules = substr($game_rules, 0, 150) . "... <span class=\"tbc\">[Fortsættes]</span>";
         }
 
-        $games .= "  <div class=\"game\">
+        $games .= " <div class=\"game\">
                         <div class=\"flex flex-col justify-between\">
                             <div class=\"w-full\">
                                 <h3>$game_name</h3>

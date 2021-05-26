@@ -22,7 +22,9 @@ if (isset($_POST)) {
         $valid_formats = array("jpg", "JPG", "JPEG", "PNG", "png", "gif", "bmp");
         $target_dir = "../uploads/";
         $target_dir_small = "../uploads/small/";
-        $filename = basename($_FILES["image"]["name"]);
+        $filename = uniqid() . "-" . basename($_FILES["image"]["name"]);
+        /* Replace spaces in image name with underscores */
+        $filename = str_replace(' ', '_', $filename);
 
         $orginal_target_path = "{$target_dir}$filename";
         $small_target_path = "{$target_dir_small}$filename";
@@ -50,6 +52,9 @@ if (isset($_POST)) {
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             $output = "UPS, noget gik galt!";
+            /* Delete the game */
+            $sql = "DELETE FROM `dart_games` WHERE id = '$game_id'";
+            $result = $conn->query($sql);
         }
         // if everything is ok, try to upload file	
         elseif (move_uploaded_file($_FILES["image"]["tmp_name"], $orginal_target_path)) {
@@ -67,7 +72,9 @@ if (isset($_POST)) {
             $result = $conn->query($sql);
             $output = "Spil oprettet.";
         } else {
-            $output = "Noget gik galt.";
+            /* Delete the game */
+            $sql = "DELETE FROM `dart_games` WHERE id = '$game_id'";
+            $result = $conn->query($sql);
         }
         header("location: ../index.php?page=admin-games&msg=$output");
     }
