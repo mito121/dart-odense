@@ -111,7 +111,8 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                     </div>
 
                     <div class="w-1/3 payment-history tab-content-inner">
-                        <table>
+                        <h3>Historik</h3>
+                        <table class="payment-history">
                             <tr>
                                 <td>1. Augst 2020</td>
                                 <td>275 DKK</td>
@@ -133,7 +134,37 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
             <div id="2" class="tabcontent">
                 <div class="flex">
                     <div class="tab-content-inner">
-                        <h3 class="missing-payment">Cashback</h3>
+                        <h3>Cashback</h3>
+                        <div class="tab-content-inner">
+                            <p>Som medlem i Dart Odense kan du drage fordel af personlige rabatter ved udvalgte partnere
+                                i form a cashback.</p>
+                            <p><a href="#">Klik her</a> for at se alle vores cashback samarbejdspartnere, og hvor store
+                                rabatter de hver især tilbyder.</p>
+
+                            <table class="cashback-table">
+                                <tr>
+                                    <th>Optjent i alt</th>
+                                    <th>Udbetalt</th>
+                                    <th>Nuværende balance</th>
+                                </tr>
+                                <tr>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+
+                            <br />
+                            <p>Alt hvad der optjenes i cashback bliver tilføjet til din konto som partnerpoint. Der skal
+                                100 partnerpoint til 1 kr. <br />
+                                Så hvis der optjenes 24 kr. i cashback fra <a href="#"
+                                    target="_blank">DanskOutlet.dk</a>, vil du få tilskrevet 2400 partnerpoint til din
+                                konto.
+                            </p>
+
+                            <p>Cashback kan udbetales i klubbben, ved at lave en <a href="#">anmodning om
+                                    udbetaling</a>, det kræver blot at du har 10.000 partnerpoint.</p>
+                        </div>
                     </div>
                 </div>
             </div>

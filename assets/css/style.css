@@ -878,18 +878,19 @@ img.hover-shadow {
 *** Leaderboards
  */
 table.leaderboard td,
-table.leaderboard th {
+table.leaderboard th, table.cashback-table td,
+table.cashback-table th {
   border-top: 1px solid #ddd;
   /* border-bottom: 1px solid #ddd; */
   padding: 8px;
 }
-table.leaderboard tr:nth-child(even) {
+table.leaderboard tr:nth-child(even), table.cashback-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-table.leaderboard tr:hover {
+table.leaderboard tr:hover, table.cashback-table tr:hover {
   background-color: #ddd;
 }
-table.leaderboard th {
+table.leaderboard th, table.cashback-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -968,7 +969,7 @@ div.contact-form tr:hover {
 /* Style the tab content */
 .tabcontent {
   display: none;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-top: none;
   /* &:first-of-type {
     display: block;
@@ -1008,6 +1009,16 @@ div.contact-form tr:hover {
 
 .profile-content {
   padding: 12px 0;
+}
+
+table.payment-history {
+  border: none;
+}
+table.payment-history tr:nth-of-type(odd) {
+  background-color: #e4e4e4;
+}
+table.payment-history tr td {
+  padding: 6px 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

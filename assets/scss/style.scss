@@ -952,7 +952,7 @@ img.hover-shadow {
 /* 
 *** Leaderboards
  */
-table.leaderboard {
+table.leaderboard, table.cashback-table {
   td,
   th {
     border-top: 1px solid #ddd;
@@ -1063,7 +1063,7 @@ div.contact-form {
 /* Style the tab content */
 .tabcontent {
   display: none;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-top: none;
 
   /* &:first-of-type {
@@ -1111,4 +1111,17 @@ div.contact-form {
 
 .profile-content {
   padding: 12px 0;
+}
+
+table.payment-history{
+  border: none;
+  tr {
+    &:nth-of-type(odd){
+      background-color: #e4e4e4;
+    }
+
+    td {
+      padding:6px 12px;
+    }
+  }
 }
