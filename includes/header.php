@@ -36,7 +36,7 @@
             <!-- Navigation -->
             <nav>
                 <ul>
-                    <!-- *** Show "Bliv medlem" if user is not a member -->
+                    <!-- *** Show "Bliv medlem" if user is not a member, else show "Min Profil" -->
                     <?php if(isset($_SESSION['membership_id']) && !empty($_SESSION['membership_id'])) : ?>
                     <li>
                         <a href="index.php?page=profile" class="<?php echo $pageName == 'profile'? 'active' : null; ?>">
