@@ -467,12 +467,11 @@ header nav ul li a.active {
 /* 
 *** All news page
  */
-.all-news {
-  /*   .news-container:nth-of-type(3) {
+/* .all-news {
+    .news-container:nth-of-type(3) {
     margin-right: 0;
-  } */
-}
-
+  }
+} */
 .year-heading {
   width: 100%;
   font-size: 1.8em;
@@ -900,10 +899,6 @@ table.leaderboard th {
 
 .privacyList {
   list-style-type: square;
-  padding-left: 50px;
-}
-.privacyList .privacyUO {
-  font-weight: bold;
 }
 
 /* 
@@ -922,6 +917,17 @@ div.contact-form .form-row textarea {
   resize: vertical;
   min-height: 200px;
   padding: 8px;
+}
+div.contact-form tr:hover {
+  background-color: #ddd;
+}
+
+.privacyList {
+  list-style-type: square;
+  padding-left: 50px;
+}
+.privacyList .privacyUO {
+  font-weight: bold;
 }
 
 /* 
