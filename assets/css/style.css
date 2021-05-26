@@ -929,5 +929,8 @@ table.leaderboard td:first-of-type {
   list-style-type: square;
   padding-left: 50px;
 }
+.privacyList .privacyUO {
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=style.css.map */
