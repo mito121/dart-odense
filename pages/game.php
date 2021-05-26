@@ -36,7 +36,7 @@ if (isset($_GET['id'])) {
             </div>
 
             <div class="w-3/6">
-                <img src="<?php echo $img; ?>" alt="<?php echo $name; ?>">
+                <img class="mx-auto" src="<?php echo $img; ?>" alt="<?php echo $name; ?>">
             </div>
         </div> <!-- /flex -->
 

@@ -290,10 +290,13 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                         <h3>Skift email</h3>
                         <!-- Change email -->
                         <form action="./handlers/change_email.php" method="POST">
-                            <div class="form-row">
-                                <label for="current_email">Nuværende email</label>
-                                <input type="text" id="current_email" name="current_email">
+                            <div class="mb-12">
+                                <div class="form-row">
+                                    <label for="current_email">Nuværende email</label>
+                                    <input type="text" id="current_email" name="current_email">
+                                </div>
                             </div>
+
 
                             <div class="form-row">
                                 <label for="new_mail">Ny email</label>
@@ -315,11 +318,13 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                         <h3>Skift adgangskode</h3>
                         <!-- Change password -->
                         <form action="./handlers/change_password.php" method="POST">
-                            <div class="form-row">
-                                <label for="current_password">Nuværende adganskode</label>
-                                <input type="text" id="current_password" name="current_password">
+                            <div class="mb-12">
+                                <div class="form-row">
+                                    <label for="current_password">Nuværende adganskode</label>
+                                    <input type="text" id="current_password" name="current_password">
+                                </div>
                             </div>
-
+                            
                             <div class="form-row">
                                 <label for="new_password">Ny adganskode</label>
                                 <input type="text" id="new_password" name="new_password">

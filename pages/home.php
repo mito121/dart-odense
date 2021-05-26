@@ -4,8 +4,10 @@ require_once 'includes/dbconnect.php';
 /* 
 *** Get news
  */
-$sql = "SELECT `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content, `dart_posts`.`read_time` AS read_time, `dart_posts`.`last_updated` AS last_updated, `dart_images`.`path` AS img, dart_users.name AS author_name
-        FROM `dart_posts` 
+$sql = "SELECT `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content,
+        `dart_posts`.`read_time` AS read_time, `dart_posts`.`last_updated` AS last_updated, `dart_images`.`path` AS img,
+         dart_users.name AS author_name
+        FROM `dart_posts`
         LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`
         LEFT JOIN `dart_users` ON `dart_users`.`id` = `dart_posts`.`author_id`";
 $result = $conn->query($sql);

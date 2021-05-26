@@ -8,21 +8,21 @@ $yearFilter = !empty($_GET['year']) ? $_GET['year'] : null;
 if(isset($yearFilter)){
     $sql = "SELECT  `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content, `dart_posts`.`read_time` AS read_time,
                     `dart_posts`.`author_id` AS author_id, YEAR(`dart_posts`.`last_updated`) AS year, `dart_posts`.`last_updated` AS last_updated ,
-                    `dart_images`.`path` AS img
+                    `dart_images`.`path` AS img, dart_users.name AS author_name
             FROM `dart_posts`
             LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`
+            LEFT JOIN `dart_users` ON `dart_users`.`id` = `dart_posts`.`author_id`
             WHERE YEAR(last_updated) = '$yearFilter'
             ORDER BY `last_updated` DESC, `id` DESC";
 } else {
     $sql = "SELECT  `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_posts`.`content` AS content, `dart_posts`.`read_time` AS read_time,
                     `dart_posts`.`author_id` AS author_id, YEAR(`dart_posts`.`last_updated`) AS year, `dart_posts`.`last_updated` AS last_updated ,
-                    `dart_images`.`path` AS img
+                    `dart_images`.`path` AS img, dart_users.name AS author_name
             FROM `dart_posts`
             LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`
+            LEFT JOIN `dart_users` ON `dart_users`.`id` = `dart_posts`.`author_id`
             ORDER BY `last_updated` DESC, `id` DESC";
 }
-
-
 
 $result = $conn->query($sql);
 $news = "";
@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
         $post_title = $obj->title;
         $post_read_time = $obj->read_time;
         $post_content = $obj->content;
-        $post_author = $obj->author_id;
+        $post_author = $obj->author_name;
         $post_updated = $obj->last_updated;
         $img_src = "./uploads/small/" . $obj->img;
 
@@ -52,21 +52,35 @@ if (mysqli_num_rows($result) > 0) {
             $post_content = substr(strip_tags($post_content), 0, 500) . "... <span class=\"tbc\">[Fortsættes]</span>";
         }
 
+        $year = substr($post_updated, 0, 4);
+        $month = substr($post_updated, 5, 2);
+        $day = substr($post_updated, 8, 2);
+
         $news .= "
                 $thisHeading
                 <div class=\"news-container\">
                     <a href=\"index.php?page=news-single&id=$post_id\">
-                        <div class=\"news-img\">
-                            <img src=\"$img_src\" alt=\"bannerbillede\" />
-                        </div>
-                        <div class=\"slide-header\">
-                            <h3>$post_title</h3>
-                        </div>
-                        <div class=\"read-time\">
-                            Læsetid: $post_read_time min.
-                        </div>
-                        <div class=\"slide-body\">
-                            $post_content
+                        <div class=\"flex flex-col justify-between h-full\">
+                            <div>
+                                <div class=\"news-img\">
+                                    <img src=\"$img_src\" alt=\"bannerbillede\" />
+                                </div>
+                                <div class=\"slide-header\">
+                                    <h1>$post_title</h1>
+                                </div>
+                                <div class=\"read-time\">
+                                    Læsetid: $post_read_time min.
+                                </div>
+                                <div class=\"slide-body\">
+                                    $post_content
+                                </div>
+                            </div>
+                            <div class=\"slide-footer\">
+                                <div class=\"flex w-full justify-between\">
+                                    <span>$day-$month-$year</span>
+                                    <span>$post_author</span>
+                                </div>
+                            </div>
                         </div>
                     </a>
                 </div>";
