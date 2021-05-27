@@ -43,7 +43,7 @@ $(document).ready(function () {
       window.setInterval(function () {
         const newPath = paths[Math.floor(Math.random() * paths.length)].path;
         $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
-      }, 500);
+      }, 5000);
     };
 
     /* Set images on load */
@@ -74,7 +74,7 @@ $(document).ready(function () {
         if (i < images.length) {
           galleryLoop();
         }
-      }, 700);
+      }, 7000);
     }
 
     // Start the loop
