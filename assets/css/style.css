@@ -32,6 +32,16 @@ body {
   max-width: 1140px;
 }
 
+@media only screen and (max-width: 1635px) {
+  .wrapper {
+    padding: 0px 175px;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .wrapper {
+    padding: 0px 50px;
+  }
+}
 h1,
 h2,
 h3,
@@ -246,6 +256,7 @@ header {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   z-index: 10;
   transition: transform 250ms ease-in-out;
+  /* dwop dawn */
 }
 header.small {
   transform: translateY(-40px);
@@ -282,48 +293,47 @@ header .logo img {
   object-fit: scale-down;
   transform: scale(1.1);
 }
-header nav {
+header nav#desktop {
   pointer-events: all;
 }
-header nav ul {
+header nav#desktop ul {
   display: flex;
   align-items: center;
 }
-header nav ul li {
+header nav#desktop ul li {
   margin: 0 12px;
   font-family: niveau-grotesk;
 }
-header nav ul li:last-of-type {
+header nav#desktop ul li:last-of-type {
   margin-right: 0;
 }
-header nav ul li a {
+header nav#desktop ul li a {
   padding: 6px;
   color: #fff;
   font-size: 1.3em;
   border-bottom: 2px solid transparent;
 }
-header nav ul li a.active {
+header nav#desktop ul li a.active {
   border-color: #fff;
 }
-
-#user-register-form {
+header nav#mobile {
+  pointer-events: all;
   display: none;
+  color: white;
 }
-
-/* dwop dawn */
-.dropdown {
-  position: relative;
+@media only screen and (max-width: 1280px) {
+  header {
+    /* Hide desktop nav */
+    /* Show desktop nav */
+  }
+  header nav#desktop {
+    display: none;
+  }
+  header nav#mobile {
+    display: block;
+  }
 }
-.dropdown i {
-  color: #fff;
-  margin-right: -5px;
-  transition: transform 250ms ease-in-out;
-}
-.dropdown:hover i {
-  transform: rotate(180deg);
-}
-
-.dropdown-content {
+header .dropdown-content {
   display: none;
   position: absolute;
   left: 0;
@@ -334,21 +344,104 @@ header nav ul li a.active {
   z-index: 1;
   background-color: #fff;
 }
-.dropdown-content a {
+header .dropdown-content a {
   display: block;
-  padding: 0.5rem 1rem;
-  color: black;
+  padding: 0.5rem 1rem !important;
+  color: black !important;
 }
-.dropdown-content a:hover {
+header .dropdown-content a:hover {
   background-color: #bb1835;
-  color: white;
+  color: white !important;
 }
-.dropdown-content a:first-of-type {
+header .dropdown-content a:first-of-type {
   margin-top: 0;
 }
-
-.dropdown:hover .dropdown-content {
+header .dropdown {
+  position: relative;
+}
+header .dropdown:hover i {
+  transform: rotate(180deg);
+}
+header .dropdown:hover .dropdown-content {
   display: block;
+}
+
+@media only screen and (max-width: 1280px) {
+  header {
+    transform: translateY(-40px) !important;
+  }
+  header .logo {
+    transform: scale(0.5) translateX(-140px) !important;
+    background-color: transparent !important;
+  }
+  header .logo img {
+    height: 250px !important;
+    width: 250px !important;
+    object-fit: scale-down !important;
+    transform: scale(1.1) !important;
+  }
+  header .header-content {
+    transform: translateY(20px) !important;
+  }
+}
+/* <ul> */
+#mobile-nav {
+  position: relative;
+  background: #151515;
+  color: #fff;
+  font-size: 1.5em;
+  height: 100vh;
+  width: 75%;
+  max-width: 300px;
+  position: fixed;
+  top: 0;
+  right: -500px;
+  text-align: right;
+  transition: all 250ms ease-in-out;
+  padding-top: 175px;
+  padding-right: 45px;
+  z-index: 9;
+  overflow-y: scroll;
+}
+#mobile-nav li {
+  padding: 8px 12px;
+}
+#mobile-nav .dropdown i {
+  margin-right: 3px;
+}
+#mobile-nav .dropdown.open > .dropdown-content {
+  display: block;
+}
+#mobile-nav .dropdown.open > i {
+  transform: rotate(180deg);
+}
+#mobile-nav .dropdown-content {
+  margin: 4px 0;
+  border-right: 5px solid #bb1835;
+  position: initial;
+  background-color: #333;
+  text-align: right;
+  display: none;
+}
+#mobile-nav .dropdown-content a {
+  color: #fff !important;
+  padding: 0.5rem 1rem !important;
+  display: block;
+}
+
+i {
+  color: #fff;
+  margin-right: -5px;
+  transition: transform 250ms ease-in-out;
+}
+
+/* Show mobile nav when #bruger has opened class */
+#burger.opened ~ #mobile-nav {
+  right: 0;
+}
+
+#user-register-form {
+  display: none;
 }
 
 /* 
@@ -375,10 +468,21 @@ header nav ul li a.active {
   color: #fff;
 }
 
+@media only screen and (max-width: 875px) {
+  .hero-content > div {
+    width: 60% !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .hero-content > div {
+    width: 100% !important;
+  }
+}
 .btn-primary {
   background-color: #00713e;
   color: white;
-  padding: 6px 1.8rem;
+  padding: 6px 1.8rem !important;
+  font-size: 1rem !important;
 }
 .btn-primary:hover {
   cursor: pointer;
@@ -388,7 +492,8 @@ header nav ul li a.active {
 .btn-secondary {
   background-color: #bb1835;
   color: white;
-  padding: 6px 1.8rem;
+  padding: 6px 1.8rem !important;
+  font-size: 1rem !important;
 }
 .btn-secondary:hover {
   cursor: pointer;
@@ -398,7 +503,8 @@ header nav ul li a.active {
 .btn-tertiary {
   background-color: #c09257;
   color: white;
-  padding: 6px 1.8rem;
+  padding: 6px 1.8rem !important;
+  font-size: 1rem !important;
 }
 .btn-tertiary:hover {
   cursor: pointer;
@@ -1140,6 +1246,55 @@ table.current-membership tr td:last-of-type {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Burger menu */
+.menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
 }
 
 /*# sourceMappingURL=style.css.map */

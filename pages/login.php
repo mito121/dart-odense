@@ -10,7 +10,7 @@
                 <label for="password">Adgangskode</label>
                 <input type="password" id="password" name="password" placeholder="Indtast din adgangskode" />
             </div>
-            <button type="submit">Log ind</button>
+            <button type="submit" class="btn btn-primary">Log ind</button>
             <br />
             <?php echo isset($_GET['message']) ? $_GET['message'] : null; ?>
         </form>

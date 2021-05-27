@@ -42,6 +42,18 @@ body {
   max-width: 1140px;
 }
 
+@media only screen and (max-width: 1635px) {
+  .wrapper {
+    padding: 0px 175px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .wrapper {
+    padding: 0px 50px;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -309,7 +321,7 @@ header {
     }
   }
 
-  nav {
+  nav#desktop {
     pointer-events: all;
     ul {
       display: flex;
@@ -332,56 +344,150 @@ header {
       }
     }
   }
+
+  nav#mobile {
+    pointer-events: all;
+    display: none;
+    color: white;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    /* Hide desktop nav */
+    nav#desktop {
+      display: none;
+    }
+
+    /* Show desktop nav */
+    nav#mobile {
+      display: block;
+    }
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    text-align: left;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    z-index: 1;
+    background-color: #fff;
+
+    a {
+      display: block;
+      padding: 0.5rem 1rem !important;
+      color: black !important;
+
+      &:hover {
+        background-color: $secondary;
+        color: white !important;
+      }
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+
+  /* dwop dawn */
+  .dropdown {
+    position: relative;
+
+    &:hover i {
+      transform: rotate(180deg);
+    }
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  header {
+    transform: translateY(-40px) !important;
+    .logo {
+      transform: scale(0.5) translateX(-140px) !important;
+      background-color: transparent !important;
+      img {
+        height: 250px !important;
+        width: 250px !important;
+        object-fit: scale-down !important;
+        transform: scale(1.1) !important;
+      }
+    }
+    .header-content {
+      transform: translateY(20px) !important;
+    }
+  }
+}
+
+/* <ul> */
+#mobile-nav {
+  position: relative;
+  background: $dark;
+  color: #fff;
+  font-size: 1.5em;
+  height: 100vh;
+  width: 75%;
+  max-width: 300px;
+  position: fixed;
+  top: 0;
+  right: -500px;
+  text-align: right;
+  transition: all 250ms ease-in-out;
+  padding-top: 175px;
+  padding-right: 45px;
+  z-index: 9;
+  overflow-y: scroll;
+
+  li {
+    padding: 8px 12px;
+  }
+
+  .dropdown {
+    i {
+      margin-right: 3px;
+    }
+  }
+
+  .dropdown.open > .dropdown-content {
+    display: block;
+  }
+
+  .dropdown.open > i {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-content {
+    margin: 4px 0;
+    border-right: 5px solid $secondary;
+    position: initial;
+    background-color: #333;
+    text-align: right;
+    display: none;
+    a {
+      color: #fff !important;
+      padding: 0.5rem 1rem !important;
+      display: block;
+    }
+  }
+}
+
+i {
+  color: #fff;
+  margin-right: -5px;
+  transition: transform 250ms ease-in-out;
+}
+
+/* Show mobile nav when #bruger has opened class */
+#burger.opened ~ #mobile-nav {
+  right: 0;
 }
 
 #user-register-form {
   display: none;
-}
-
-/* dwop dawn */
-.dropdown {
-  position: relative;
-
-  i {
-    color: #fff;
-    margin-right: -5px;
-    transition: transform 250ms ease-in-out;
-  }
-
-  &:hover i {
-    transform: rotate(180deg);
-  }
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  text-align: left;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 0;
-  z-index: 1;
-  background-color: #fff;
-
-  a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: black;
-
-    &:hover {
-      background-color: $secondary;
-      color: white;
-    }
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 /* 
@@ -408,10 +514,23 @@ header {
   color: #fff;
 }
 
+@media only screen and (max-width: 875px) {
+  .hero-content > div {
+    width: 60% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-content > div {
+    width: 100% !important;
+  }
+}
+
 .btn-primary {
   background-color: $primary;
   color: white;
-  padding: 6px 1.8rem;
+  padding: 6px 1.8rem !important;
+  font-size: 1rem !important;
 
   &:hover {
     cursor: pointer;
@@ -422,7 +541,8 @@ header {
 .btn-secondary {
   background-color: $secondary;
   color: white;
-  padding: 6px 1.8rem;
+  padding: 6px 1.8rem !important;
+  font-size: 1rem !important;
 
   &:hover {
     cursor: pointer;
@@ -433,7 +553,8 @@ header {
 .btn-tertiary {
   background-color: $tertiary;
   color: white;
-  padding: 6px 1.8rem;
+  padding: 6px 1.8rem !important;
+  font-size: 1rem !important;
 
   &:hover {
     cursor: pointer;
@@ -1249,4 +1370,47 @@ table.current-membership {
     text-decoration: none;
     cursor: pointer;
   }
+}
+
+/* Burger menu */
+.menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
 }

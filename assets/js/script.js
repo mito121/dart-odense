@@ -27,6 +27,34 @@ $(document).ready(function () {
     slidesToScroll: 3,
     infinite: false,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 1636,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          arrows: true,
+        },
+      },
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          variableWidth: true,
+          arrows: true
+        },
+      },
+      {
+        breakpoint: 860,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: true,
+          arrows: false
+        },
+      },
+    ],
   });
 
   /*
@@ -543,3 +571,17 @@ function handleGalleryYearFilter(e) {
 if (GalleryFilterYear) {
   GalleryFilterYear.addEventListener("change", handleGalleryYearFilter);
 }
+
+/*
+ *** Toggle mobile nav
+ */
+document.getElementById("burger").addEventListener("click", function () {
+  const menu = document.getElementById("mobile-nav");
+  if (this.classList.contains("opened")) {
+    /* Open */
+    menu.style.right = "0px";
+  } else {
+    /* Close */
+    menu.style.right = "-500px";
+  }
+});
