@@ -43,7 +43,7 @@ $(document).ready(function () {
       window.setInterval(function () {
         const newPath = paths[Math.floor(Math.random() * paths.length)].path;
         $(images[i]).backstretch("uploads/small/" + newPath, { fade: 400 });
-      }, 5000);
+      }, 500);
     };
 
     /* Set images on load */
@@ -61,24 +61,24 @@ $(document).ready(function () {
         console.log(newPath);
         $(images[n]).backstretch("uploads/small/" + newPath);
       }
-
-      /* Loop function with timeout delay */
-      let i = 0;
-      function galleryLoop() {
-        setTimeout(function () {
-          console.log(i);
-          startInterval(i);
-          i++;
-
-          if (i < images.length) {
-            galleryLoop();
-          }
-        }, 7000);
-      }
-
-      // Start the loop
-      galleryLoop();
     }
+
+    /* Loop function with timeout delay */
+    let i = 0;
+    function galleryLoop() {
+      setTimeout(function () {
+        console.log(i);
+        startInterval(i);
+        i++;
+
+        if (i < images.length) {
+          galleryLoop();
+        }
+      }, 700);
+    }
+
+    // Start the loop
+    galleryLoop();
   }
 
   /*
@@ -195,7 +195,7 @@ $(document).ready(function () {
       $("#calculated-price").val(price);
 
       /* For syncronous backend calls */
-      if(document.getElementById("post_price")){
+      if (document.getElementById("post_price")) {
         document.getElementById("post_price").value = price;
       }
     }
@@ -395,7 +395,7 @@ function file_explorer() {
 function upload_collection() {
   let files = document.querySelector("#selectfile").files;
 
-  if (files.length > 0){
+  if (files.length > 0) {
     tinyMCE.triggerSave(true, true);
     ajax_file_upload(files);
   } else {
