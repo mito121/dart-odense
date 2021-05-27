@@ -1,7 +1,9 @@
 <?php
+require_once 'includes/login_protect.php';
+require_once 'includes/dbconnect.php';
+
 $user_id = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 
-require_once 'includes/dbconnect.php';
 
 /* 
 *** Get galleries

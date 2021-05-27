@@ -1,3 +1,12 @@
+<?php
+/* Protect login pages */
+if($pageName == 'profile'){
+    require_once 'includes/login_protect.php';
+}
+if(strpos($pageName, "admin") !== false) {
+    require_once 'includes/admin_protect.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="en" translate="no">
 
