@@ -1,3 +1,13 @@
+<?php
+/* Get server response */
+if(isset($_GET['response']) && !empty($_GET['response'])){
+    $response = $_GET['response'];
+    $display = "block";
+} else {
+    $response = "";
+    $display = "none";
+}
+?>
 <section class="top-space">
     <div class="wrapper">
         <h1>Kontakt os</h1>
@@ -28,6 +38,8 @@
             </div>
 
             <div class="contact-form">
+                <!-- Server msg -->
+                <p class="server_msg" style="display: <?php echo $display; ?>"><?php echo $response; ?></p>
                 <form action="./handlers/contact.php" method="POST">
                     <div class="form-row">
                         <label for="name">Navn <span class="required">*</span></label>
@@ -40,8 +52,8 @@
                     </div>
 
                     <div class="form-row">
-                        <label for="phone">Telefonnummer </label>
-                        <input type="email" id="phone" name="phone">
+                        <label for="phone">Telefonnummer</label>
+                        <input type="text" id="phone" name="phone">
                     </div>
 
                     <div class="form-row">

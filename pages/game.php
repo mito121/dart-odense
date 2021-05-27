@@ -24,11 +24,46 @@ if (isset($_GET['id'])) {
 } else {
     die("Hovsa... Dette spil findes ikke!");
 }
+
+
+/* 
+*** Check if user is admin
+ */
+if(isset($_SESSION['logged']) && !empty($_SESSION['logged']) && $_SESSION['role_id'] == 3){
+    $admin_controls = "<div class=\"admin-controls my-4\">
+                            <form action=\"./handlers/delete_game.php\" method=\"POST\">
+                                <input type=\"hidden\" name=\"id\" value=\"$id\">
+                                <button type=\"submit\" class=\"btn btn-secondary mr-2\" onclick=\"return confirm('Er du sikker på at du vil slette dette spil?')\">Slet spil</button>
+                            </form>
+
+                            <form action=\"./handlers/update_game.php\" method=\"POST\">
+                                <button type=\"button\" class=\"btn btn-tertiary ml-2\" id=\"openEditModal\">Redigér spil</button>
+
+                                <div id=\"editModal\" class=\"modal\">
+                                    <div class=\"modal-content\">
+                                        <h1 class=\"mb-6\">Redigér spil</h1>
+                                        <span class=\"close\">&times;</span>
+                                        <input type=\"text\" name=\"new_name\" class=\"my-4\" value=\"$name\" />
+                                        <textarea class=\"tinymce\" name=\"new_rules\">$rules</textarea>
+                                        <input type=\"hidden\" name=\"id\" value=\"$id\">
+
+                                        <button type=\"submit\" class=\"btn btn-primary my-4\">Gem ændringer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        ";
+} else {
+    $admin_controls = "";
+}
 ?>
 
 <section class="top-space">
     <div class="wrapper">
         <h1 class="mb-8"><?php echo $name; ?></h1>
+
+        <!-- admin controls -->
+        <?php echo $admin_controls; ?>
 
         <div class="flex">
             <div class="w-3/6 pr-6">
@@ -109,3 +144,31 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </section>
+
+<script>
+// Get the modal
+var modal = document.getElementById("editModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("openEditModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

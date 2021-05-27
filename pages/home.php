@@ -39,7 +39,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         $news .= "
                 <div class=\"slick-slide\">
                     <div class=\"news-container\">
-                        <a href=\"index.php?page=news-single&id=$post_id\">
+                        <a href=\"index.php?page=post&id=$post_id\">
                             <div class=\"flex flex-col justify-between h-full\">
                                 <div>
                                     <div class=\"news-img\">
