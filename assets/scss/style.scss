@@ -172,6 +172,10 @@ form {
   padding: 15px;
 }
 
+.pr-30px {
+  padding-right: 30px;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -218,30 +222,31 @@ textarea {
   }
 }
 
-p.server_msg, .server-response {
+p.server_msg,
+.server-response {
   background: $primary-light;
   color: #fff;
   padding: 8px 24px;
   border-radius: 5px;
   width: max-content;
-  animation: serverMessage .9s;
-  display:none;
+  animation: serverMessage 0.9s;
+  display: none;
   margin: 5px 0;
 }
 
 @keyframes serverMessage {
   0% {
-    display:block;
-    opacity:0;
+    display: block;
+    opacity: 0;
     transform: translateX(-250px) skew(25deg);
   }
 
   75% {
-    opacity:1;
+    opacity: 1;
     transform: translateX(15px) skew(-10deg);
   }
   100% {
-    opacity:1;
+    opacity: 1;
     transform: translateX(0px);
   }
 }
@@ -401,7 +406,6 @@ header {
 .hero-content {
   padding-top: 130px;
   color: #fff;
-
 }
 
 .btn-primary {
@@ -464,8 +468,13 @@ header {
 
   /* Slide footer */
   .slide-footer {
-    padding-top:8px;
+    padding-top: 8px;
     border-top: 1px solid #4e4e4e;
+
+    span {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
   }
 
   .news-img {
@@ -994,7 +1003,8 @@ img.hover-shadow {
 /* 
 *** Leaderboards
  */
-table.leaderboard, table.cashback-table {
+table.leaderboard,
+table.cashback-table {
   td,
   th {
     border-top: 1px solid #ddd;
@@ -1050,15 +1060,14 @@ div.contact-form {
 }
 
 //privacy page
-.privacyList{
+.privacyList {
   list-style-type: square;
   padding-left: 50px;
 
-  .privacyUO{
+  .privacyUO {
     font-weight: bold;
-    }
   }
-
+}
 
 /* 
 *** Profile page
@@ -1069,12 +1078,11 @@ div.contact-form {
   border-bottom: 1px solid #ccc;
   /* background-color: #f1f1f1; */
 
-
   display: flex;
   justify-content: space-between;
 
   div {
-    margin-bottom:-5px;
+    margin-bottom: -5px;
   }
 
   .tablinks {
@@ -1155,15 +1163,31 @@ div.contact-form {
   padding: 12px 0;
 }
 
-table.payment-history{
+table.payment-history {
   border: none;
   tr {
-    &:nth-of-type(odd){
+    &:nth-of-type(odd) {
       background-color: #e4e4e4;
     }
 
     td {
-      padding:6px 12px;
+      padding: 6px 12px;
     }
+  }
+}
+
+table.current-membership {
+  tr {
+    td {
+      &:last-of-type {
+        text-align: right;
+      }
+    }
+  }
+}
+
+#membership-details {
+  li {
+    margin: 6px 0;
   }
 }

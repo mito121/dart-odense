@@ -155,6 +155,10 @@ form input[type=submit] {
   padding: 15px;
 }
 
+.pr-30px {
+  padding-right: 30px;
+}
+
 input[type=text],
 input[type=password],
 input[type=email],
@@ -200,7 +204,8 @@ textarea {
   padding-top: 75px;
 }
 
-p.server_msg, .server-response {
+p.server_msg,
+.server-response {
   background: #009a54;
   color: #fff;
   padding: 8px 24px;
@@ -427,6 +432,10 @@ header nav ul li a.active {
 .news-container .slide-footer {
   padding-top: 8px;
   border-top: 1px solid #4e4e4e;
+}
+.news-container .slide-footer span {
+  font-size: 0.9rem;
+  font-style: italic;
 }
 .news-container .news-img {
   height: 150px;
@@ -915,19 +924,23 @@ img.hover-shadow {
 *** Leaderboards
  */
 table.leaderboard td,
-table.leaderboard th, table.cashback-table td,
+table.leaderboard th,
+table.cashback-table td,
 table.cashback-table th {
   border-top: 1px solid #ddd;
   /* border-bottom: 1px solid #ddd; */
   padding: 8px;
 }
-table.leaderboard tr:nth-child(even), table.cashback-table tr:nth-child(even) {
+table.leaderboard tr:nth-child(even),
+table.cashback-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-table.leaderboard tr:hover, table.cashback-table tr:hover {
+table.leaderboard tr:hover,
+table.cashback-table tr:hover {
   background-color: #ddd;
 }
-table.leaderboard th, table.cashback-table th {
+table.leaderboard th,
+table.cashback-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -1056,6 +1069,14 @@ table.payment-history tr:nth-of-type(odd) {
 }
 table.payment-history tr td {
   padding: 6px 12px;
+}
+
+table.current-membership tr td:last-of-type {
+  text-align: right;
+}
+
+#membership-details li {
+  margin: 6px 0;
 }
 
 /*# sourceMappingURL=style.css.map */

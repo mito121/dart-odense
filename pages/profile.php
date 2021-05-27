@@ -179,7 +179,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                                 <!-- Current membership -->
                                 <h4>Nuværende medlemskab:</h4>
 
-                                <table>
+                                <table class="current-membership">
                                     <tr>
                                         <td>Medlemstype:</td>
                                         <td><?php echo $membership_type_name; ?></td>
@@ -190,7 +190,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                                     </tr>
                                     <tr>
                                         <td>Pris:</td>
-                                        <td><?php echo $membership_price; ?></td>
+                                        <td><?php echo $membership_price; ?> DKK</td>
                                     </tr>
                                 </table>
                             </div>
@@ -324,7 +324,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                                     <input type="text" id="current_password" name="current_password">
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <label for="new_password">Ny adganskode</label>
                                 <input type="text" id="new_password" name="new_password">
