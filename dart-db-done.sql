@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 25. 05 2021 kl. 14:16:04
+-- Genereringstid: 27. 05 2021 kl. 13:00:52
 -- Serverversion: 10.1.33-MariaDB
 -- PHP-version: 7.2.6
 
@@ -35,14 +35,6 @@ CREATE TABLE `dart_collections` (
   `thumbnail` varchar(255) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
   `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Data dump for tabellen `dart_collections`
---
-
-INSERT INTO `dart_collections` (`id`, `name`, `description`, `thumbnail`, `last_updated`) VALUES
-(1, 'rumpedart er ogs en spart', '<p>vi skyder efter rumpen joo (;</p>', 'thumb16.jpg', '2016-05-25 07:42:48'),
-(2, 'zhug zhug', '<p>vap vap</p>', 'hero_spring_6.jpg', '2021-05-25 07:44:44');
 
 -- --------------------------------------------------------
 
@@ -111,6 +103,21 @@ INSERT INTO `dart_membertypes` (`id`, `name`, `price`, `discount_dkk`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur-dump for tabellen `dart_messages`
+--
+
+CREATE TABLE `dart_messages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
+  `email` varchar(42) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
+  `phone` int(8) DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_danish_ci NOT NULL,
+  `unread` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur-dump for tabellen `dart_payment_intervals`
 --
 
@@ -138,7 +145,7 @@ CREATE TABLE `dart_posts` (
   `id` int(11) NOT NULL,
   `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
   `content` mediumtext CHARACTER SET utf8 COLLATE utf8_danish_ci NOT NULL,
-  `read_time` int(11) NOT NULL,
+  `read_time` varchar(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `restricted` tinyint(1) NOT NULL DEFAULT '0'
@@ -183,8 +190,7 @@ CREATE TABLE `dart_users` (
 --
 
 INSERT INTO `dart_users` (`id`, `name`, `email`, `password`, `role_id`) VALUES
-(1, 'Dartmin Jensen', 'admin', '$2y$10$z9DVAoGJt7PMrgraJ5Lun.Wk6z4rV6RIIuO4Wqvt6TeSPIi0w64M.', 3),
-(2, 'Rasmus Andersen', 'rasan', '$2y$10$vX8Jn/5scjkXnnHFdKCQguHdd6liiDukTChXXEx03UlA5WiZW6BJi', 3);
+(1, 'Dartmin Jensen', 'admin', '$2y$10$z9DVAoGJt7PMrgraJ5Lun.Wk6z4rV6RIIuO4Wqvt6TeSPIi0w64M.', 3);
 
 --
 -- Begrænsninger for dumpede tabeller
@@ -222,6 +228,12 @@ ALTER TABLE `dart_membertypes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks for tabel `dart_messages`
+--
+ALTER TABLE `dart_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks for tabel `dart_payment_intervals`
 --
 ALTER TABLE `dart_payment_intervals`
@@ -254,25 +266,31 @@ ALTER TABLE `dart_users`
 -- Tilføj AUTO_INCREMENT i tabel `dart_games`
 --
 ALTER TABLE `dart_games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `dart_images`
 --
 ALTER TABLE `dart_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `dart_memberships`
 --
 ALTER TABLE `dart_memberships`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `dart_membertypes`
 --
 ALTER TABLE `dart_membertypes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `dart_messages`
+--
+ALTER TABLE `dart_messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `dart_payment_intervals`
@@ -284,7 +302,7 @@ ALTER TABLE `dart_payment_intervals`
 -- Tilføj AUTO_INCREMENT i tabel `dart_posts`
 --
 ALTER TABLE `dart_posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `dart_roles`
@@ -296,7 +314,7 @@ ALTER TABLE `dart_roles`
 -- Tilføj AUTO_INCREMENT i tabel `dart_users`
 --
 ALTER TABLE `dart_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
