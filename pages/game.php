@@ -30,27 +30,29 @@ if (isset($_GET['id'])) {
 *** Check if user is admin
  */
 if(isset($_SESSION['logged']) && !empty($_SESSION['logged']) && $_SESSION['role_id'] == 3){
-    $admin_controls = "<div class=\"admin-controls my-4\">
-                            <form action=\"./handlers/delete_game.php\" method=\"POST\">
-                                <input type=\"hidden\" name=\"id\" value=\"$id\">
-                                <button type=\"submit\" class=\"btn btn-secondary mr-2\" onclick=\"return confirm('Er du sikker på at du vil slette dette spil?')\">Slet spil</button>
-                            </form>
+    $admin_controls = " <div id=\"admin\">
+                            <div class=\"admin-controls my-4\">
+                                <form action=\"./handlers/delete_game.php\" method=\"POST\">
+                                    <input type=\"hidden\" name=\"id\" value=\"$id\">
+                                    <button type=\"submit\" class=\"btn btn-secondary mr-2\" onclick=\"return confirm('Er du sikker på at du vil slette dette spil?')\">Slet spil</button>
+                                </form>
 
-                            <form action=\"./handlers/update_game.php\" method=\"POST\">
-                                <button type=\"button\" class=\"btn btn-tertiary ml-2\" id=\"openEditModal\">Redigér spil</button>
+                                <form action=\"./handlers/update_game.php\" method=\"POST\">
+                                    <button type=\"button\" class=\"btn btn-tertiary ml-2\" id=\"openEditModal\">Redigér spil</button>
 
-                                <div id=\"editModal\" class=\"modal\">
-                                    <div class=\"modal-content\">
-                                        <h1 class=\"mb-6\">Redigér spil</h1>
-                                        <span class=\"close\">&times;</span>
-                                        <input type=\"text\" name=\"new_name\" class=\"my-4\" value=\"$name\" />
-                                        <textarea class=\"tinymce\" name=\"new_rules\">$rules</textarea>
-                                        <input type=\"hidden\" name=\"id\" value=\"$id\">
+                                    <div id=\"editModal\" class=\"modal\">
+                                        <div class=\"modal-content\">
+                                            <h1 class=\"mb-6\">Redigér spil</h1>
+                                            <span class=\"close\">&times;</span>
+                                            <input type=\"text\" name=\"new_name\" class=\"my-4\" value=\"$name\" />
+                                            <textarea class=\"tinymce\" name=\"new_rules\">$rules</textarea>
+                                            <input type=\"hidden\" name=\"id\" value=\"$id\">
 
-                                        <button type=\"submit\" class=\"btn btn-primary my-4\">Gem ændringer</button>
+                                            <button type=\"submit\" class=\"btn btn-primary my-4\">Gem ændringer</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                         ";
 } else {

@@ -1094,10 +1094,14 @@ table.current-membership tr td:last-of-type {
 }
 
 /* 
-*** Modal
+*** Admin Modal
  */
-/* The Modal (background) */
-.modal {
+#admin {
+  /* The Modal (background) */
+  /* Modal Content */
+  /* The Close Button */
+}
+#admin .modal {
   display: none;
   /* Hidden by default */
   position: fixed;
@@ -1119,25 +1123,20 @@ table.current-membership tr td:last-of-type {
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
 }
-
-/* Modal Content */
-.modal-content {
+#admin .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
 }
-
-/* The Close Button */
-.close {
+#admin .close {
   color: #aaaaaa;
   font-size: 28px;
   font-weight: bold;
 }
-
-.close:hover,
-.close:focus {
+#admin .close:hover,
+#admin .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;

@@ -33,27 +33,29 @@ if (mysqli_num_rows($result) > 0) {
 *** Check if user is admin
  */
 if(isset($_SESSION['logged']) && !empty($_SESSION['logged']) && $_SESSION['role_id'] == 3){
-    $admin_controls = "<div class=\"admin-controls my-4\">
-                            <form action=\"./handlers/delete_post.php\" method=\"POST\">
-                                <input type=\"hidden\" name=\"id\" value=\"$id\">
-                                <button type=\"submit\" class=\"btn btn-secondary mr-2\" onclick=\"return confirm('Er du sikker på at du vil slette denne nyhed?')\">Slet nyhed</button>
-                            </form>
+    $admin_controls = "<div id=\"admin\">
+                            <div class=\"admin-controls my-4\">
+                                <form action=\"./handlers/delete_post.php\" method=\"POST\">
+                                    <input type=\"hidden\" name=\"id\" value=\"$id\">
+                                    <button type=\"submit\" class=\"btn btn-secondary mr-2\" onclick=\"return confirm('Er du sikker på at du vil slette denne nyhed?')\">Slet nyhed</button>
+                                </form>
 
-                            <form action=\"./handlers/update_post.php\" method=\"POST\">
-                                <button type=\"button\" class=\"btn btn-tertiary ml-2\" id=\"openEditModal\">Redigér nyhed</button>
+                                <form action=\"./handlers/update_post.php\" method=\"POST\">
+                                    <button type=\"button\" class=\"btn btn-tertiary ml-2\" id=\"openEditModal\">Redigér nyhed</button>
 
-                                <div id=\"editModal\" class=\"modal\">
-                                    <div class=\"modal-content\">
-                                        <h1 class=\"mb-6\">Redigér nyhed</h1>
-                                        <span class=\"close\">&times;</span>
-                                        <input type=\"text\" name=\"new_title\" class=\"my-4\" value=\"$post_title\" />
-                                        <textarea class=\"tinymce\" name=\"new_content\">$post_content</textarea>
-                                        <input type=\"hidden\" name=\"id\" value=\"$id\">
+                                    <div id=\"editModal\" class=\"modal\">
+                                        <div class=\"modal-content\">
+                                            <h1 class=\"mb-6\">Redigér nyhed</h1>
+                                            <span class=\"close\">&times;</span>
+                                            <input type=\"text\" name=\"new_title\" class=\"my-4\" value=\"$post_title\" />
+                                            <textarea class=\"tinymce\" name=\"new_content\">$post_content</textarea>
+                                            <input type=\"hidden\" name=\"id\" value=\"$id\">
 
-                                        <button type=\"submit\" class=\"btn btn-primary my-4\">Gem ændringer</button>
+                                            <button type=\"submit\" class=\"btn btn-primary my-4\">Gem ændringer</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                         ";
 } else {
