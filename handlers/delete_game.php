@@ -23,7 +23,7 @@ if (isset($_POST)) {
       unlink($path_small);
 
       /* Remove image data from database */
-      $sql = "DELETE FROM `dart_images` WHERE post_id = '$id'";
+      $sql = "DELETE FROM `dart_images` WHERE game_id = '$id'";
       $result = $conn->query($sql);
     }
     header("location: ../index.php?page=games");
