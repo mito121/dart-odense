@@ -3,18 +3,13 @@
     <div class="wrapper">
         <h1 class="mb-8">Hvem er vi?</h1>
 
-        <p>Vi er dem din mor siger du ikke må lege med. Vi er dem der altid får rabat i 7-Eleven fordi vi kender nogen
-            der arbejder der. Ja. Vi er dem. Dem der spiller DART! Træk maven ind og fat din pils, for nu går det løs.
-        </p>
-        <p>Vi er dem din mor siger du ikke må lege med. Vi er dem der altid får rabat i 7-Eleven fordi vi kender nogen
-            der arbejder der. Ja. Vi er dem. Dem der spiller DART! Træk maven ind og fat din pils, for nu går det løs.
-        </p>
-        <p>Vi er dem din mor siger du ikke må lege med. Vi er dem der altid får rabat i 7-Eleven fordi vi kender nogen
-            der arbejder der. Ja. Vi er dem. Dem der spiller DART! Træk maven ind og fat din pils, for nu går det løs.
-        </p>
-        <p>Vi er dem din mor siger du ikke må lege med. Vi er dem der altid får rabat i 7-Eleven fordi vi kender nogen
-            der arbejder der. Ja. Vi er dem. Dem der spiller DART! Træk maven ind og fat din pils, for nu går det løs.
-        </p>
+        <p>Klubben er resultatet af en fusion i 2006 mellem dartklubberne Dart 88 og
+            Odense dartclub og repræsenterer over 20 års erfaring i klubregi.</p>
+
+        <p>Dart Odense er medlem af <a href="http://dart-ddu.dk" target="_blank" class="link">Dansk Dart Union</a>, samt <a href="http://siko.dk" target="_blank" class="link">SIKO – Samvirkende Idrætsklubber i Odense</a>.
+            Klubben er desuden også medlem af DartFyn.</p>
+
+        <p>Vi har plads til både ”hyggespilleren” og den ”seriøse” dartspiller.</p>
     </div>
 </section>
 
@@ -131,11 +126,12 @@
     <div class="wrapper">
         <h1>Love og vedtægter <span id="rules"></span></h1>
 
-        <p>Her kan du finde en liste over bestyrelsesmedlemmerne i Dart Odense</p>
-
+        <p><a class="link" href="index.php?page=laws">Her kan du finde en liste over bestyrelsesmedlemmerne i Dart
+                Odense</a></p>
 
         <h1>Privatlivspolitik</h1>
 
-        <p>Her kan du finde en liste over bestyrelsesmedlemmerne i Dart Odense</p>
+        <p><a class="link" href="index.php?page=privacy">Her kan du finde en liste over bestyrelsesmedlemmerne i Dart
+                Odense</a></p>
     </div>
 </section>

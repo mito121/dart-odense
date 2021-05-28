@@ -24,7 +24,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
 
                 <p>Har du spørgsmål eller lignende, kan vi kontaktes på telefon på:</p>
 
-                <p><a href="tel:+4512345678">Tlf. +45 12 34 56 78</a></p>
+                <p><a href="tel:+4512345678" class="link">Tlf. +45 12 34 56 78</a></p>
 
                 <p>Eller du kan skrive os en besked i formularen nedenunder, så venner vi tilbage snarest muligt.</p>
             </div>

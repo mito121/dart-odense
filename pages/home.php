@@ -101,7 +101,7 @@ if (mysqli_num_rows($result) > 0) {
                 <p>I Dart Odense brænder vi for darten.<br />
                     Som medlem af både DDU og Dartfyn er <br /> der masser af muligheder for dig der <br /> gerne vil
                     spille dart.</p>
-                <button class="btn btn-primary">Bliv medlem</button>
+                <a href="index.php?page=sign-up" class="btn btn-primary">Bliv medlem</a>
             </div>
         </div>
     </div>
