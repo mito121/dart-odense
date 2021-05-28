@@ -13,15 +13,14 @@ if(strpos($pageName, "admin") !== false) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dart Odense | Når dart går spart i den</title>
+    <title>Dart Odense | Når dart er en sport</title>
     <!-- Favicon -->
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="icon" href="assets/img/logo.png">
 
     <!-- ** CSS ** -->
     <!-- Tailwind -->
     <link href="assets/css/tailwind/style.css" rel="stylesheet" type="text/css" />
     <!-- Slick -->
-    <!-- <link rel="stylesheet" href="assets/css/swiper/swiper.css" /> -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" />
     <!-- Custom -->

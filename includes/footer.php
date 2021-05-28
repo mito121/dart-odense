@@ -38,7 +38,5 @@
         <script src="assets/js/backstrech/backstrech.js"></script>
         <script src="assets/js/pagination/pagination.js"></script>
         <script src="assets/js/script.js"></script>
-
-        </body>
-
-        </html>
+    </body>
+</html>
