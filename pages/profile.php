@@ -83,7 +83,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
         <div class="tabs-content">
             <!-- Payment (betaling) -->
             <div id="1" class="tabcontent">
-                <div class="flex">
+                <div class="flex flex-wrap">
                     <div class="w-4/6 tab-content-inner">
                         <h3 class="missing-payment">Betaling mangler!</h3>
 
@@ -134,7 +134,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
 
             <!-- Cashback -->
             <div id="2" class="tabcontent">
-                <div class="flex">
+                <div class="flex flex-wrap">
                     <div class="tab-content-inner">
                         <h3>Cashback</h3>
                         <div class="tab-content-inner">
@@ -173,7 +173,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
 
             <!-- Profile data (Profiloplysninger) -->
             <div id="3" class="tabcontent">
-                <div class="flex">
+                <div class="flex flex-wrap">
                     <div class="w-1/3 tab-content-inner">
                         <h3>Skift medlemskab</h3>
                         <div class="profile-content">

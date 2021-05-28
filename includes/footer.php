@@ -2,15 +2,16 @@
         </main>
         <footer>
             <div class="wrapper <?php echo $pageName === 'home' ? 'p-15px' : null; ?>">
-                <div class="flex justify-between w-full">
+                <div class="flex justify-between w-full footer-flex"">
                     <p class="flex items-center"> <span>&copy;</span> <span id="current-year"></span> Dart Odense - All
                         rights reserved.</p>
 
-                    <div class="flex flex-col text-right  <?php echo $pageName === 'news' || $pageName === 'galleries' ? 'pr-30px' : null; ?>">
+                    <div
+                        class="flex flex-col text-right  <?php echo $pageName === 'news' || $pageName === 'galleries' ? 'pr-30px' : null; ?>">
                         <p class="follow-us my-3">Følg os!</p>
-                        <div class="flex">
-                            <a href="#" target="_blank">
-                                <i class="fab fa-facebook"></i>
+                        <div class="flex>
+                            <a href=" #" target="_blank">
+                            <i class="fab fa-facebook"></i>
                             </a>
                             <a href="#" target="_blank">
                                 <i class="fab fa-instagram"></i>

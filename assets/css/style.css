@@ -34,12 +34,12 @@ body {
 
 @media only screen and (max-width: 1635px) {
   .wrapper {
-    padding: 0px 175px;
+    padding: 0px 175px !important;
   }
 }
 @media only screen and (max-width: 1400px) {
   .wrapper {
-    padding: 0px 50px;
+    padding: 0px 50px !important;
   }
 }
 h1,
@@ -391,7 +391,7 @@ header .dropdown:hover .dropdown-content {
   color: #fff;
   font-size: 1.5em;
   height: 100vh;
-  width: 75%;
+  width: 80%;
   max-width: 300px;
   position: fixed;
   top: 0;
@@ -406,6 +406,16 @@ header .dropdown:hover .dropdown-content {
 #mobile-nav li {
   padding: 8px 12px;
 }
+#mobile-nav li a {
+  user-select: none;
+}
+#mobile-nav li a:hover {
+  cursor: pointer;
+}
+#mobile-nav li a.active {
+  border-bottom: 2px solid;
+  border-color: #fff;
+}
 #mobile-nav .dropdown i {
   margin-right: 3px;
 }
@@ -416,7 +426,7 @@ header .dropdown:hover .dropdown-content {
   transform: rotate(180deg);
 }
 #mobile-nav .dropdown-content {
-  margin: 4px 0;
+  margin: 8px 0;
   border-right: 5px solid #bb1835;
   position: initial;
   background-color: #333;
@@ -431,7 +441,6 @@ header .dropdown:hover .dropdown-content {
 
 i {
   color: #fff;
-  margin-right: -5px;
   transition: transform 250ms ease-in-out;
 }
 
@@ -660,6 +669,13 @@ i {
   font-size: 1.6rem;
   line-height: 2rem;
 }
+.gallery-container .gallery-footer {
+  padding-top: 8px;
+}
+.gallery-container .gallery-footer span {
+  font-size: 0.9rem;
+  font-style: italic;
+}
 .gallery-container .gallery-thumbnail {
   height: 250px;
   width: 100%;
@@ -685,6 +701,10 @@ i {
 /* 
 *** Sign up
  */
+.calc-price {
+  display: flex;
+  word-break: keep-all;
+}
 .calc-price input {
   border-right: none;
   border-radius: 5px 0 0 5px;
@@ -713,8 +733,17 @@ i {
   background-size: 1140px;
 }
 
-.post-content {
-  min-height: 200vh;
+.post-footer {
+  padding-top: 6px;
+  border-top: 1px solid #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.post-footer span {
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 #back-to-membership {
@@ -838,11 +867,11 @@ ol.abc li::before {
  */
 .games .game {
   display: flex;
+  flex-wrap: wrap;
   box-shadow: 0px 3px 10px #00000035;
   border-radius: 10px;
   /* padding: 20px 30px; */
   margin-bottom: 30px;
-  width: 100%;
   height: 330px;
   overflow: hidden;
 }
@@ -851,6 +880,7 @@ ol.abc li::before {
 }
 .games .game > div {
   width: 50%;
+  min-width: 250px;
 }
 .games .game > div:first-of-type {
   padding: 20px 30px;
@@ -864,10 +894,24 @@ ol.abc li::before {
   height: 100%;
   margin-left: auto;
   object-fit: cover;
-  border-radius: 0 10px 10px 0;
   transition: transform 500ms ease-in-out;
 }
 
+@media only screen and (max-width: 600px) {
+  .game {
+    height: auto !important;
+    width: 100% !important;
+    /* width: min-content !important; */
+    margin: 0 auto !important;
+  }
+  .game > div {
+    width: 100% !important;
+  }
+  .game > div img {
+    width: 100%;
+    height: 175px !important;
+  }
+}
 footer {
   width: 100%;
   display: flex;
@@ -889,6 +933,14 @@ footer .follow-us {
   font-style: italic;
 }
 
+@media only screen and (max-width: 566px) {
+  .footer-flex {
+    display: block;
+  }
+  .footer-flex div.text-right {
+    text-align: left;
+  }
+}
 /* 
 *** Single gallery
  */
@@ -1089,6 +1141,11 @@ div.contact-form tr:hover {
   background-color: #ddd;
 }
 
+@media only screen and (max-width: 760px) {
+  .contact-flex {
+    display: block;
+  }
+}
 .privacyList {
   list-style-type: square;
   padding-left: 50px;
@@ -1144,6 +1201,7 @@ div.contact-form tr:hover {
 
 .tab-content-inner {
   padding: 20px;
+  min-width: 300px;
 }
 
 .missing-payment {

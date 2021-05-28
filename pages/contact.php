@@ -12,11 +12,9 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
     <div class="wrapper">
         <h1>Kontakt os</h1>
 
-        <div class="flex">
-            <div class="pt-10 pr-8">
-                <p>
-                    Vi bor i Odense, kun 20 minutters gang fra banegården, på adressen:
-                </p>
+        <div class="flex contact-flex">
+            <div class="pt-10 pr-8 ">
+                <p>Vi bor i Odense, kun 20 minutters gang fra banegården, på adressen:</p>
 
                 <ul>
                     <li>Dart Odense</li>
@@ -24,15 +22,9 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                     <li>5000 Odense C</li>
                 </ul>
 
-                <p>
-                    Har du spørgsmål eller lignende, kan vi kontaktes på telefon på:
-                </p>
+                <p>Har du spørgsmål eller lignende, kan vi kontaktes på telefon på:</p>
 
-                <!-- <p>Tlf. 42 50 11 80</p> -->
-                <p>
-                    <a href="tel:+4512345678">Tlf. +45 12 34 56 78</a>
-                </p>
-
+                <p><a href="tel:+4512345678">Tlf. +45 12 34 56 78</a></p>
 
                 <p>Eller du kan skrive os en besked i formularen nedenunder, så venner vi tilbage snarest muligt.</p>
             </div>

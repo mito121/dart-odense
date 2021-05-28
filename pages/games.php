@@ -45,11 +45,10 @@ if ($result && mysqli_num_rows($result) > 0) {
 ?>
 <section class="top-space">
     <div class="wrapper">
-        <div class="flex justify-between items-center w-full">
+        <div class="flex flex-wrap justify-between items-center w-full mb-4">
             <h1 class="mb-8">Spil og regler</h1>
             <input type="text" placeholder="Søg">
         </div>
-
 
         <div class="games">
             <?php echo $games; ?>

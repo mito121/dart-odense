@@ -44,13 +44,13 @@ body {
 
 @media only screen and (max-width: 1635px) {
   .wrapper {
-    padding: 0px 175px;
+    padding: 0px 175px !important;
   }
 }
 
 @media only screen and (max-width: 1400px) {
   .wrapper {
-    padding: 0px 50px;
+    padding: 0px 50px !important;
   }
 }
 
@@ -337,6 +337,7 @@ header {
           color: #fff;
           font-size: 1.3em;
           border-bottom: 2px solid transparent;
+
           &.active {
             border-color: #fff;
           }
@@ -430,7 +431,7 @@ header {
   color: #fff;
   font-size: 1.5em;
   height: 100vh;
-  width: 75%;
+  width: 80%;
   max-width: 300px;
   position: fixed;
   top: 0;
@@ -444,6 +445,17 @@ header {
 
   li {
     padding: 8px 12px;
+
+    a {
+      user-select: none;
+      &:hover {
+        cursor: pointer;
+      }
+      &.active {
+        border-bottom: 2px solid;
+        border-color: #fff;
+      }
+    }
   }
 
   .dropdown {
@@ -461,7 +473,7 @@ header {
   }
 
   .dropdown-content {
-    margin: 4px 0;
+    margin: 8px 0;
     border-right: 5px solid $secondary;
     position: initial;
     background-color: #333;
@@ -477,7 +489,6 @@ header {
 
 i {
   color: #fff;
-  margin-right: -5px;
   transition: transform 250ms ease-in-out;
 }
 
@@ -725,6 +736,15 @@ i {
     }
   }
 
+  .gallery-footer {
+    padding-top: 8px;
+
+    span {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+  }
+
   .gallery-thumbnail {
     height: 250px;
     width: 100%;
@@ -754,6 +774,8 @@ i {
 *** Sign up
  */
 .calc-price {
+  display: flex;
+  word-break: keep-all;
   input {
     border-right: none;
     border-radius: 5px 0 0 5px;
@@ -784,8 +806,18 @@ i {
   background-size: 1140px;
 }
 
-.post-content {
-  min-height: 200vh;
+.post-footer {
+  padding-top: 6px;
+  border-top: 1px solid #4e4e4e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  span {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
 }
 
 #back-to-membership {
@@ -921,11 +953,11 @@ ol.abc {
 .games {
   .game {
     display: flex;
+    flex-wrap: wrap;
     box-shadow: 0px 3px 10px #00000035;
     border-radius: 10px;
     /* padding: 20px 30px; */
     margin-bottom: 30px;
-    width: 100%;
     height: 330px;
     overflow: hidden;
 
@@ -937,6 +969,7 @@ ol.abc {
 
     > div {
       width: 50%;
+      min-width: 250px;
 
       &:first-of-type {
         padding: 20px 30px;
@@ -950,9 +983,25 @@ ol.abc {
           height: 100%;
           margin-left: auto;
           object-fit: cover;
-          border-radius: 0 10px 10px 0;
           transition: transform 500ms ease-in-out;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .game {
+    height: auto !important;
+    width: 100% !important;
+    /* width: min-content !important; */
+    margin: 0 auto !important;
+
+    > div {
+      width: 100% !important;
+      img {
+        width: 100%;
+        height: 175px !important;
       }
     }
   }
@@ -979,6 +1028,16 @@ footer {
 
   .follow-us {
     font-style: italic;
+  }
+}
+
+@media only screen and (max-width: 566px) {
+  .footer-flex {
+    display: block;
+
+    div.text-right {
+      text-align: left;
+    }
   }
 }
 
@@ -1191,6 +1250,12 @@ div.contact-form {
   }
 }
 
+@media only screen and (max-width: 760px) {
+  .contact-flex {
+    display: block;
+  }
+}
+
 //privacy page
 .privacyList {
   list-style-type: square;
@@ -1255,6 +1320,7 @@ div.contact-form {
 
 .tab-content-inner {
   padding: 20px;
+  min-width:300px;
 }
 
 .missing-payment {

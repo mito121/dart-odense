@@ -108,7 +108,7 @@ if (mysqli_num_rows($result) > 0) {
 
 <section class="top-space">
     <div class="wrapper">
-        <div class="flex justify-between items-center pr-30px">
+        <div class="flex justify-between flex-wrap items-center pr-30px">
             <h1 class="mb-8">Nyheder</h1>
             <!-- Filter year -->
             <select id="filter-year">

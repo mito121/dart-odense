@@ -99,7 +99,8 @@ if (mysqli_num_rows($result) > 0) {
             <div class="w-2/5 text-right">
                 <h1 class="stylish">Når dart er en sport</h1>
                 <p>I Dart Odense brænder vi for darten.<br />
-                    Som medlem af både DDU og Dartfyn er <br /> der masser af muligheder for dig der <br /> gerne vil spille dart.</p>
+                    Som medlem af både DDU og Dartfyn er <br /> der masser af muligheder for dig der <br /> gerne vil
+                    spille dart.</p>
                 <button class="btn btn-primary">Bliv medlem</button>
             </div>
         </div>
@@ -120,9 +121,7 @@ if (mysqli_num_rows($result) > 0) {
                 <button class="btn btn-primary mr-4">Se alle</button>
             </a>
         </div>
-
     </div>
-
 </section>
 
 
@@ -135,7 +134,7 @@ if (mysqli_num_rows($result) > 0) {
 
         <div class="magical-gallery" id="magical-data"
             data-dart-magic="<?php echo isset($magicJSON) && !empty($magicJSON) ? htmlspecialchars($magicJSON, ENT_QUOTES, 'UTF-8') : null; ?>">
-            <div class="magical-gallery-item" onmouseover=""></div>
+            <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>
             <div class="magical-gallery-item"></div>

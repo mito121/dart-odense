@@ -1,5 +1,6 @@
 <section class="top-space">
     <div class="wrapper">
+        <h1>Log ind</h1>
         <form action="./handlers/logon.php" method="post">
             <div class="form-row">
                 <label for="email">Email</label>
@@ -12,7 +13,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Log ind</button>
             <br />
-            <?php echo isset($_GET['message']) ? $_GET['message'] : null; ?>
+            <p>
+                <?php echo isset($_GET['message']) ? $_GET['message'] : null; ?>
+            </p>
         </form>
     </div>
 </section>
