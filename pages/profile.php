@@ -48,8 +48,10 @@ if(isset($_GET['tab']) && !empty($_GET['tab'])){
 /* Get server response */
 if(isset($_GET['response']) && !empty($_GET['response'])){
     $response = $_GET['response'];
+    $display = "block";
 } else {
     $response = "";
+    $display = "none";
 }
 ?>
 <style>
@@ -75,7 +77,7 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
 
             <!-- Server response -->
             <div>
-                <p class="server_msg"><?php echo $response; ?></p>
+                <p class="server_msg" style="display: <?php echo $display; ?>"><?php echo $response; ?></p>
             </div>
         </div>
 
@@ -323,18 +325,18 @@ if(isset($_GET['response']) && !empty($_GET['response'])){
                             <div class="mb-12">
                                 <div class="form-row">
                                     <label for="current_password">Nuværende adganskode</label>
-                                    <input type="text" id="current_password" name="current_password">
+                                    <input type="password" id="current_password" name="current_password">
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <label for="new_password">Ny adganskode</label>
-                                <input type="text" id="new_password" name="new_password">
+                                <input type="password" id="new_password" name="new_password">
                             </div>
 
                             <div class="form-row">
                                 <label for="password_repeat">Gentag adganskode</label>
-                                <input type="text" id="password_repeat" name="password_repeat">
+                                <input type="password" id="password_repeat" name="password_repeat">
                             </div>
 
                             <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
