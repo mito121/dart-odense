@@ -23,8 +23,10 @@ if(strpos($pageName, "admin") !== false) {
     <!-- Slick -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" />
-    <!-- Custom -->
+    <!-- Calendar -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Custom -->
+    <link href="assets/js/calendar/main.css" rel="stylesheet" type="text/css" />
 
     <!-- TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/6tuqmnzsuhl7pk0sio1g4wiw8uuumzsntdwfi22eo6q251qg/tinymce/5/tinymce.min.js"
@@ -129,9 +131,9 @@ if(strpos($pageName, "admin") !== false) {
                         <a href="index.php?page=admin"
                             class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
                         <div class="dropdown-content">
-                            <a href="index.php?page=admin-posts">Ny nyhed</a>
-                            <a href="index.php?page=admin-collections">Nyt album</a>
-                            <a href="index.php?page=admin-games">Nyt spil</a>
+                            <a href="index.php?page=admin-posts">Opret nyhed</a>
+                            <a href="index.php?page=admin-collections">Opret album</a>
+                            <a href="index.php?page=admin-games">Opret spil</a>
                         </div>
                     </li>
                     <?php endif; ?>
@@ -215,9 +217,9 @@ if(strpos($pageName, "admin") !== false) {
                 <a
                     class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
                 <div class="dropdown-content">
-                    <a href="index.php?page=admin-posts">Ny nyhed</a>
-                    <a href="index.php?page=admin-collections">Nyt album</a>
-                    <a href="index.php?page=admin-games">Nyt spil</a>
+                    <a href="index.php?page=admin-posts">Opret nyhed</a>
+                    <a href="index.php?page=admin-collections">Opret album</a>
+                    <a href="index.php?page=admin-games">Opret spil</a>
                 </div>
             </li>
             <?php endif; ?>
