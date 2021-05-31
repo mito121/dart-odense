@@ -6,45 +6,51 @@ document.addEventListener("DOMContentLoaded", function () {
   let events = [
     {
       title: "Heldags engagement",
-      start: "2021-05-01",
+      start: "2021-06-01",
     },
     {
-      title: "Langt engagement",
-      start: "2021-05-07",
-      end: "2021-05-10",
+      title: "Dart Camp Danmark",
+      start: "2021-06-07",
+      end: "2021-06-10",
+    },
+    // Mandagsspil
+    {
+      groupId: "999",
+      title: "Mandagsspil",
+      start: "2021-05-24T16:00:00",
     },
     {
       groupId: "999",
-      title: "Gentagende engagement",
-      start: "2021-05-09T16:00:00",
+      title: "Mandagsspil",
+      start: "2021-05-31T16:00:00",
     },
     {
       groupId: "999",
-      title: "Gentagende engagement",
-      start: "2021-05-16T16:00:00",
+      title: "Tirsdagsdart",
+      start: "2021-05-01T16:00:00",
     },
     {
       title: "Dart Konference Kolding (DKK)",
-      start: "2021-05-11",
-      end: "2021-05-13",
+      start: "2021-06-11",
+      end: "2021-06-13",
     },
     {
-      title: "Møde",
-      start: "2021-05-12T10:30:00",
-      end: "2021-05-12T12:30:00",
+      title: "Åbent hus",
+      start: "2021-06-12T18:30:00",
+      end: "2021-06-12T20:30:00",
     },
     {
-      title: "Møde",
-      start: "2021-05-12T14:30:00",
+      title: "Åbent hus",
+      start: "2021-06-12T14:30:00",
     },
     {
       title: "Yvette's fødselsdag",
-      start: "2021-05-13T07:00:00",
+      start: "2021-06-13T07:00:00",
     },
     {
       title: "Nyhed! (Klik for at se mere)",
       url: "index.php?page=news",
-      start: "2021-05-28",
+      start: "2021-06-28",
     },
   ];
 

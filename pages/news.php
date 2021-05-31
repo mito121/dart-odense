@@ -25,8 +25,8 @@ if(isset($yearFilter)){
 }
 
 $result = $conn->query($sql);
-$news = "";
 if (mysqli_num_rows($result) > 0) {
+    $news = "";
     $yearHeadings = array();
     while ($obj = $result->fetch_object()) {
         $post_id = $obj->id;
@@ -85,6 +85,8 @@ if (mysqli_num_rows($result) > 0) {
                     </a>
                 </div>";
     }
+} else {
+    $news = "Der er endnu ingen nyheder.";
 }
 
 /* 

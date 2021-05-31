@@ -11,9 +11,8 @@ $sql = "SELECT `dart_games`.`id` AS id, `dart_games`.`name` AS name, `dart_games
         ";
 $result = $conn->query($sql);
 
-$games = "";
-
 if ($result && mysqli_num_rows($result) > 0) {
+    $games = "";
     while ($obj = $result->fetch_object()) {
         $game_id = $obj->id;
         $game_name = $obj->name;
@@ -41,6 +40,8 @@ if ($result && mysqli_num_rows($result) > 0) {
                         </div>
                     </div>";
     }
+} else {
+    $games = "Der er endnu ikke oprettet nogle spil.";
 }
 ?>
 <section class="top-space">

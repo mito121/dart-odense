@@ -92,11 +92,6 @@ if(strpos($pageName, "admin") !== false) {
                             class="<?php echo $pageName == 'news'? 'active' : null; ?>">Nyheder</a>
                     </li>
 
-                    <li>
-                        <a href="index.php?page=calendar"
-                            class="<?php echo $pageName == 'calendar'? 'active' : null; ?>">Kalender</a>
-                    </li>
-
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
                         <a href="index.php?page=games"
@@ -125,6 +120,11 @@ if(strpos($pageName, "admin") !== false) {
                             <a href="index.php?page=laws">Love & vedtægter</a>
                             <a href="index.php?page=privacy">Privatlivspolitik</a>
                         </div>
+                    </li>
+
+                    <li>
+                        <a href="index.php?page=calendar"
+                            class="<?php echo $pageName == 'calendar'? 'active' : null; ?>">Kalender</a>
                     </li>
 
                     <li>
@@ -180,11 +180,6 @@ if(strpos($pageName, "admin") !== false) {
                 <a href="index.php?page=news" class="<?php echo $pageName == 'news' ? 'active' : null; ?>">Nyheder</a>
             </li>
 
-            <li>
-                <a href="index.php?page=calendar"
-                    class="<?php echo $pageName == 'calendar' ? 'active' : null; ?>">Kalender</a>
-            </li>
-
             <li class="dropdown"
                 onclick="this.classList.toggle('open'); this.setAttribute('aria-expanded', this.classList.contains('open'));">
                 <i class="fas fa-chevron-down"></i>
@@ -218,6 +213,11 @@ if(strpos($pageName, "admin") !== false) {
             </li>
 
             <li>
+                <a href="index.php?page=calendar"
+                    class="<?php echo $pageName == 'calendar' ? 'active' : null; ?>">Kalender</a>
+            </li>
+
+            <li>
                 <a href="index.php?page=contact"
                     class="<?php echo $pageName == 'contact'? 'active' : null; ?>">Kontakt</a>
             </li>
@@ -230,6 +230,7 @@ if(strpos($pageName, "admin") !== false) {
                 <a
                     class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
                 <div class="dropdown-content">
+                    <a href="index.php?page=admin">Dashboard</a>
                     <a href="index.php?page=admin-posts">Opret nyhed</a>
                     <a href="index.php?page=admin-collections">Opret album</a>
                     <a href="index.php?page=admin-games">Opret spil</a>
