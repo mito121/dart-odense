@@ -326,7 +326,7 @@ header nav#mobile {
   display: none;
   color: white;
 }
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1326px) {
   header {
     /* Hide desktop nav */
     /* Show desktop nav */
@@ -371,7 +371,7 @@ header .dropdown:hover .dropdown-content {
   display: block;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1326px) {
   header {
     transform: translateY(-40px) !important;
   }

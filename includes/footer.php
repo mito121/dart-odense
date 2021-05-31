@@ -6,7 +6,8 @@
                         All
                         rights reserved.</p>
 
-                    <div class="flex flex-col text-right <?php echo $pageName === 'news' || $pageName === 'galleries' ? 'pr-30px' : null; ?>">
+                    <div
+                        class="flex flex-col text-right <?php echo $pageName === 'news' || $pageName === 'galleries' ? 'pr-30px' : null; ?>">
                         <p class="follow-us my-3">Følg os!</p>
                         <div class="flex">
                             <a href=" #" target="_blank">
@@ -35,11 +36,15 @@
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="assets/js/backstrech/backstrech.js"></script>
         <script src="assets/js/pagination/pagination.js"></script>
+
+        <!-- Include calendar JS if page is calendar -->
+        <?php if($pageName == 'calendar') : ?>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/locales-all.js"></script>
+        <script src="assets/js/datepicker/datepicker.js"></script>
+        <script src="assets/js/calendar/calendar.js"></script>
+        <?php endif; ?>
+
         <script src="assets/js/script.js"></script>
-
-
-
-
-        </body>
-
-        </html>
+    </body>
+</html>

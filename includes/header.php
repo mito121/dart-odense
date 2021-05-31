@@ -23,10 +23,12 @@ if(strpos($pageName, "admin") !== false) {
     <!-- Slick -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" />
-    <!-- Calendar -->
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- calendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.7.0/main.min.css" />
+    <!-- datepicker -->
+    <link href="assets/js/datepicker/datepicker.css" rel="stylesheet" type="text/css" />
     <!-- Custom -->
-    <link href="assets/js/calendar/main.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
     <!-- TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/6tuqmnzsuhl7pk0sio1g4wiw8uuumzsntdwfi22eo6q251qg/tinymce/5/tinymce.min.js"
@@ -65,7 +67,8 @@ if(strpos($pageName, "admin") !== false) {
                     <!-- *** Show "Bliv medlem" if user is not a member, else show "Min Profil" -->
                     <?php if(isset($_SESSION['membership_id']) && !empty($_SESSION['membership_id'])) : ?>
                     <li>
-                        <a href="index.php?page=profile" class="<?php echo $pageName == 'profile'? 'active' : null; ?>">
+                        <a href="index.php?page=profile"
+                            class="<?php echo $pageName == 'profile' ? 'active' : null; ?>">
                             Min profil
                         </a>
                     </li>
@@ -87,6 +90,11 @@ if(strpos($pageName, "admin") !== false) {
                     <li>
                         <a href="index.php?page=news"
                             class="<?php echo $pageName == 'news'? 'active' : null; ?>">Nyheder</a>
+                    </li>
+
+                    <li>
+                        <a href="index.php?page=calendar"
+                            class="<?php echo $pageName == 'calendar'? 'active' : null; ?>">Kalender</a>
                     </li>
 
                     <li class="dropdown">
@@ -150,7 +158,7 @@ if(strpos($pageName, "admin") !== false) {
             <!-- *** Show "Bliv medlem" if user is not a member, else show "Min Profil" -->
             <?php if(isset($_SESSION['membership_id']) && !empty($_SESSION['membership_id'])) : ?>
             <li>
-                <a href="index.php?page=profile" class="<?php echo $pageName == 'profile'? 'active' : null; ?>">
+                <a href="index.php?page=profile" class="<?php echo $pageName == 'profile' ? 'active' : null; ?>">
                     Min profil
                 </a>
             </li>
@@ -169,7 +177,12 @@ if(strpos($pageName, "admin") !== false) {
             </li>
 
             <li>
-                <a href="index.php?page=news" class="<?php echo $pageName == 'news'? 'active' : null; ?>">Nyheder</a>
+                <a href="index.php?page=news" class="<?php echo $pageName == 'news' ? 'active' : null; ?>">Nyheder</a>
+            </li>
+
+            <li>
+                <a href="index.php?page=calendar"
+                    class="<?php echo $pageName == 'calendar' ? 'active' : null; ?>">Kalender</a>
             </li>
 
             <li class="dropdown"
