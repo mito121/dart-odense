@@ -36,6 +36,10 @@ body {
   word-break: break-word;
 }
 
+main {
+  min-height: 64vh;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 100%;
@@ -1526,7 +1530,7 @@ table.messages {
  */
 .login-wrapper {
   max-width: 300px;
-  margin:0 auto;
+  margin: 0 auto;
   text-align: center;
   .form-row > {
     input[type="text"],

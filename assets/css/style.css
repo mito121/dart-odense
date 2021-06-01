@@ -26,6 +26,10 @@ body {
   word-break: break-word;
 }
 
+main {
+  min-height: 64vh;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 100%;
