@@ -19,9 +19,7 @@
 <section class="bg-gray py-12 about-section">
     <div class="wrapper">
         <h1>Åbningstider <span id="openhrs"></span></h1>
-        <p>Vi har normalt åbent Mandag, Onsdag og Fredag aften.
-            Noget om hjemmekampe her? Hvis de åbningstider er relevante... men hvis der kun er åbent for dem der
-            deltager i kampen så står det jo nok på tilmeldingen...</p>
+        <p>Vi har normalt åbent Mandag, Onsdag og Fredag aften. Vi holder typisk stævner og kampe mod andre klubber Tirsdag, Torsdag, og Lørdag, og derfor gælder åbningstiderne for dem kun når sådan et arrangement er planlagt. Se kalenderen for at finde ud af hvornår det næste stævne er.</p>
 
         <div class="flex flex-wrap">
             <div class="w-450">
