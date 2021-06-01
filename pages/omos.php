@@ -6,8 +6,10 @@
         <p>Klubben er resultatet af en fusion i 2006 mellem dartklubberne Dart 88 og
             Odense dartclub og repræsenterer over 20 års erfaring i klubregi.</p>
 
-        <p>Dart Odense er medlem af <a href="http://dart-ddu.dk" target="_blank" class="link">Dansk Dart Union</a>, samt <a href="http://siko.dk" target="_blank" class="link">SIKO – Samvirkende Idrætsklubber i Odense</a>.
-            Klubben er desuden også medlem af DartFyn.</p>
+        <p>Dart Odense er medlem af <a href="http://dart-ddu.dk" target="_blank" class="link">Dansk Dart Union</a>, samt
+            <a href="http://siko.dk" target="_blank" class="link">SIKO – Samvirkende Idrætsklubber i Odense</a>.
+            Klubben er desuden også medlem af DartFyn.
+        </p>
 
         <p>Vi har plads til både ”hyggespilleren” og den ”seriøse” dartspiller.</p>
     </div>
@@ -77,6 +79,9 @@
             <li>Bestyrelsesmedlem - Kitte Skovlund</li>
             <li>Bestyrelsesmedlem - Preben Laursen</li>
         </ul>
+
+        <p class="mt-6">Har du spørgsmål, så kan du skrive til os via <a class="link"
+                href="index.php?page=contact">kontaktformularen</a>, eller ringe når der er åbent i klubben.</p>
     </div>
 </section>
 
@@ -126,12 +131,12 @@
     <div class="wrapper">
         <h1>Love og vedtægter <span id="rules"></span></h1>
 
-        <p><a class="link" href="index.php?page=laws">Her kan du finde en liste over bestyrelsesmedlemmerne i Dart
-                Odense</a></p>
+        <p>*Kort tekst om love og vedtøgter*</p>
+        <p><a class="btn btn-primary" href="index.php?page=laws">Læs mere</a></p>
 
         <h1>Privatlivspolitik</h1>
 
-        <p><a class="link" href="index.php?page=privacy">Her kan du finde en liste over bestyrelsesmedlemmerne i Dart
-                Odense</a></p>
+        <p>*Kort tekst om privatlivspolitik*</p>
+        <p><a class="btn btn-primary" href="index.php?page=privacy">Læs mere</a></p>
     </div>
 </section>

@@ -32,6 +32,16 @@
         <script src="assets/js/fontawesome/fontawesome.js"></script>
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        /* Fix unsupported passive listeners */
+        jQuery.event.special.touchstart = {
+            setup: function(_, ns, handle) {
+                this.addEventListener("touchstart", handle, {
+                    passive: true
+                });
+            }
+        };
+        </script>
         <!-- slick -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="assets/js/backstrech/backstrech.js"></script>
@@ -46,5 +56,6 @@
         <?php endif; ?>
 
         <script src="assets/js/script.js"></script>
-    </body>
-</html>
+        </body>
+
+        </html>

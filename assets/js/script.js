@@ -481,7 +481,15 @@ const preview = async (event) => {
   // Clear list
   document.querySelector("#img-preview").innerHTML = "";
 
+  const selectCoverImageText = document.querySelector("#select-cover-image");
   const files = document.querySelector("#selectfile").files;
+
+  if(files.length > 0) {
+    selectCoverImageText.style.display = "block";
+  } else {
+    selectCoverImageText.style.display = "none";
+  }
+
   for (let i = 0; i < files.length; i++) {
     // Create container
     const container = document.createElement("div");
@@ -504,7 +512,6 @@ const preview = async (event) => {
     container.appendChild(p);
 
     document.querySelector("#img-preview").appendChild(container);
-    /*document.querySelector("#img-preview").appendChild(img); */
 
     const url = await readURL(files[i]);
     img.src = url;

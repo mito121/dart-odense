@@ -29,7 +29,7 @@ if(isset($_GET['msg']) && !empty($_GET['msg'])){
             </div>
 
             <div class="form-row">
-                <label for="the_post">Brødtekst</label>
+                <label for="the_post">Indhold</label>
                 <textarea class="tinymce" name="the_post" id="the_post"></textarea>
             </div>
 

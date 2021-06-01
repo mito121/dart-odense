@@ -775,7 +775,12 @@ i {
   width: 100%;
   max-width: 600px;
   min-width: 290px;
-  min-height: 200px;
+  min-height: 420px;
+  padding: 8px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   /* width: 290px;
   height: 200px; */
   padding: 8px;
@@ -793,6 +798,11 @@ i {
 
 #drag_upload_file #selectfile {
   display: none;
+}
+
+#select-cover-image {
+  display: none;
+  font-weight: 600;
 }
 
 #img-preview {
@@ -1063,19 +1073,16 @@ footer .follow-us {
   -webkit-user-select: none;
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -1094,7 +1101,7 @@ img.hover-shadow {
 }
 
 /* 
-*** Leaderboards
+*** Tables
  */
 table.messages td,
 table.messages th,
@@ -1385,6 +1392,19 @@ table.messages tr:hover {
 }
 .unread:hover {
   background-color: #e7d5bf !important;
+}
+
+/* 
+*** Login
+ */
+.login-wrapper {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+.login-wrapper .form-row > input[type=text],
+.login-wrapper .form-row > input[type=password] {
+  width: 300px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -14,6 +14,7 @@ if(strpos($pageName, "admin") !== false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dart Odense | Når dart er en sport</title>
+    <meta name="description" content="Dartklub i hjertet af Odense C">
     <!-- Favicon -->
     <link rel="icon" href="assets/img/logo.png">
 
@@ -164,7 +165,7 @@ if(strpos($pageName, "admin") !== false) {
             </li>
             <?php else : ?>
             <li>
-                <a href="index.php?page=sign-up" class="btn btn-primary" id="get-membership">
+                <a href="index.php?page=sign-up" class="btn btn-primary" id="get-membership-mobile">
                     Bliv medlem
                 </a>
             </li>

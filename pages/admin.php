@@ -113,10 +113,7 @@ function openModal(el) {
                 el.children[3].innerHTML = "Læst";
             },
         });
-    } else {
-        console.log("already read")
     }
-
 }
 
 function closeModal() {

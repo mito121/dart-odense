@@ -6,19 +6,19 @@
             <div class="server-response" id="create-collection"></div>
 
             <div class="form-row">
-                <label for="collection_name">Navn på album</label>
+                <label for="collection_name">Titel</label>
                 <input type="text" name="collection_name" id="collection_name">
             </div>
 
             <div class="flex">
                 <div class="form-row-50">
-                    <label for="collection_desc">Album beskrivelse</label>
+                    <label for="collection_desc">Beskrivelse</label>
                     <textarea class="tinymce" name="the_post" id="collection_desc"></textarea>
                 </div>
 
                 <!-- Drag & drop area -->
                 <div class="form-row-50">
-                    <label for="collection_images">Album billeder</label>
+                    <label for="collection_images">Billeder</label>
                     <div id="drop_file_zone" ondrop="upload_file(event); this.style.backgroundColor = '#eee';"
                         ondragover="this.style.backgroundColor = '#ccc'; return false;"
                         ondragleave="this.style.backgroundColor = '#eee'">
@@ -35,9 +35,15 @@
                 <input type="hidden" id="thumbnail" value />
             </div>
             <!-- List of uploaded files -->
-            <div id="img-preview"></div>
 
-            <button class="btn btn-primary my-5" id="submit-collection" onclick="upload_collection()">Opret album</button>
+            <div class="mt-6">
+                <span id="select-cover-image">Vælg det billede du vil bruge som bannerbillede</span>
+                <div id="img-preview"></div>
+            </div>
+
+
+            <button class="btn btn-primary my-5" id="submit-collection" onclick="upload_collection()">Opret
+                album</button>
         </div>
     </div>
 </section>

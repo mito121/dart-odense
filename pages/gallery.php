@@ -85,12 +85,14 @@ if (mysqli_num_rows($images_result) > 0) {
 </section>
 
 <script>
+const modal = document.getElementById("myModal");
+
 function openModal() {
-    document.getElementById("myModal").style.display = "block";
+    modal.style.display = "block";
 }
 
 function closeModal() {
-    document.getElementById("myModal").style.display = "none";
+    modal.style.display = "none";
 }
 
 var slideIndex = 1;
@@ -122,5 +124,11 @@ function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[slideIndex - 1].style.display = "block";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
 }
 </script>
