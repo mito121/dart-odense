@@ -21,25 +21,25 @@ $response = isset($_GET['response']) === true ? $_GET['response'] : false;
                 <div class="radio-row">
                     <input type="radio" class="membership-radio" name="membership" value="1" data-price="275"
                         data-name="Aktiv" data-discount="200" id="aktiv">
-                    <label for="aktiv">Aktiv</label>
+                    <label for="aktiv"><span class="font-bold">Aktiv</span> - Til dig der gerne vil spille med!</label>
                 </div>
 
                 <div class="radio-row">
                     <input type="radio" class="membership-radio" name="membership" value="2" data-price="75"
                         data-discount="60" data-name="Passiv" id="passiv">
-                    <label for="passiv">Passiv</label>
+                    <label for="passiv"><span class="font-bold">Passiv</span> - Også kaldet støttemedlemskab, til dig der vil give os økonomisk opbakning!</label>
                 </div>
 
                 <div class="radio-row">
                     <input type="radio" class="membership-radio" name="membership" value="3" data-price="150"
                         data-discount="150" data-name="Pensionist" id="pensionist">
-                    <label for="pensionist">Pensionist</label>
+                    <label for="pensionist"><span class="font-bold">Senior</span> - Til dig der er fyldt 65 men stadig vil spille med!</label>
                 </div>
 
                 <div class="radio-row">
                     <input type="radio" class="membership-radio" name="membership" value="4" data-price="100"
                         data-discount="0" data-name="Junior" id="junior">
-                    <label for="junior">Junior</label>
+                    <label for="junior"><span class="font-bold">Junior</span> - Til dig der ikke er fyldt 18 endnu, men brænder for dart!</label>
                 </div>
             </div>
 
