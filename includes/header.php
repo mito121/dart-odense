@@ -99,7 +99,7 @@ if(strpos($pageName, "admin") !== false) {
                             class="<?php echo $pageName == 'games' || $pageName == 'leaderboards' || $pageName == 'game' ? 'active' : null; ?>">Spil</a>
                         <div class="dropdown-content">
                             <a href="index.php?page=games">Regler</a>
-                            <a href="index.php?page=leaderboards">Stillinger</a>
+                            <a href="index.php?page=leaderboards">Ranglister</a>
                         </div>
                     </li>
 
@@ -188,7 +188,7 @@ if(strpos($pageName, "admin") !== false) {
                     class="<?php echo $pageName == 'games' || $pageName == 'leaderboards' || $pageName == 'game' ? 'active' : null; ?>">Spil</a>
                 <div class="dropdown-content">
                     <a href="index.php?page=games">Regler</a>
-                    <a href="index.php?page=leaderboards">Stillinger</a>
+                    <a href="index.php?page=leaderboards">Ranglister</a>
                 </div>
             </li>
 
