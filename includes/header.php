@@ -1,10 +1,25 @@
 <?php
+require_once 'includes/dbconnect.php';
 /* Protect login pages */
 if($pageName == 'profile'){
     require_once 'includes/login_protect.php';
 }
 if(strpos($pageName, "admin") !== false) {
     require_once 'includes/admin_protect.php';
+}
+
+/* Get unread messages for admins */
+$sql = "SELECT COUNT(id) AS messages FROM `dart_messages` WHERE `unread` = '1'";
+$result = $conn->query($sql);
+if (mysqli_num_rows($result) > 0) {
+    while ($obj = $result->fetch_object()) {
+        $unread_messages = $obj->messages;
+    }
+    if ($unread_messages > 0) {
+        $messages_alert = "<div id=\"unread-messages\">$unread_messages</div>";
+    } else {
+        $messages_alert = "";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -69,8 +84,8 @@ if(strpos($pageName, "admin") !== false) {
                     <?php if(isset($_SESSION['membership_id']) && !empty($_SESSION['membership_id'])) : ?>
                     <li>
                         <a href="index.php?page=profile"
-                            class="<?php echo $pageName == 'profile' ? 'active' : null; ?>">
-                            Min profil
+                            class="relative profile-navlink <?php echo $pageName == 'profile' ? 'active' : null; ?>">
+                            Min profil <div class="unread-messages">1</div>
                         </a>
                     </li>
                     <?php else : ?>
@@ -138,8 +153,10 @@ if(strpos($pageName, "admin") !== false) {
                     <li class="dropdown">
                         <i class="fas fa-chevron-down"></i>
                         <a href="index.php?page=admin"
-                            class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
+                            class="relative <?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin
+                            <?php echo $messages_alert; ?></a>
                         <div class="dropdown-content">
+                            <a href="index.php?page=admin" class="relative">Beskeder <?php echo $unread_messages > 0 ? "<div id='unread-bullet'></div>" : null; ?></a>
                             <a href="index.php?page=admin-posts">Opret nyhed</a>
                             <a href="index.php?page=admin-collections">Opret album</a>
                             <a href="index.php?page=admin-games">Opret spil</a>
@@ -231,7 +248,7 @@ if(strpos($pageName, "admin") !== false) {
                 <a
                     class="<?php echo $pageName == 'admin' || $pageName == 'admin-collections' || $pageName == 'admin-posts' || $pageName == 'admin-games' ? 'active' : null; ?>">Admin</a>
                 <div class="dropdown-content">
-                    <a href="index.php?page=admin">Dashboard</a>
+                    <a href="index.php?page=admin">Beskeder</a>
                     <a href="index.php?page=admin-posts">Opret nyhed</a>
                     <a href="index.php?page=admin-collections">Opret album</a>
                     <a href="index.php?page=admin-games">Opret spil</a>

@@ -37,7 +37,7 @@
             <!-- List of uploaded files -->
 
             <div class="mt-6">
-                <span id="select-cover-image">Vælg det billede du vil bruge som bannerbillede</span>
+                <span id="select-cover-image">Klik på det billede, du vil bruge som bannerbillede:</span>
                 <div id="img-preview"></div>
             </div>
 

@@ -9,7 +9,8 @@ $sql = "SELECT `dart_posts`.`id` AS id, `dart_posts`.`title` AS title, `dart_pos
          dart_users.name AS author_name
         FROM `dart_posts`
         LEFT JOIN `dart_images` ON `dart_images`.`post_id` = `dart_posts`.`id`
-        LEFT JOIN `dart_users` ON `dart_users`.`id` = `dart_posts`.`author_id`";
+        LEFT JOIN `dart_users` ON `dart_users`.`id` = `dart_posts`.`author_id`
+        ORDER BY `dart_posts`.`last_updated` DESC, `dart_posts`.`id` DESC";
 $result = $conn->query($sql);
 
 $news = "";
@@ -101,7 +102,10 @@ if (mysqli_num_rows($result) > 0) {
                 <p>I Dart Odense brænder vi for darten.<br />
                     Som medlem af både DDU og Dartfyn er <br /> der masser af muligheder for dig der <br /> gerne vil
                     spille dart.</p>
+
+                <?php if(!isset($_SESSION['membership_id']) && empty($_SESSION['membership_id'])) : ?>
                 <a href="index.php?page=sign-up" class="btn btn-primary">Bliv medlem</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

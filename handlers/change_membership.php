@@ -17,5 +17,5 @@ if(isset($_POST) && !empty($_POST)){
         $response = "UPS! Noget gik galt.";
     }
 
-    header("location: ../index.php?page=profile&tab=3&response=" . $response);
+    header("location: ../index.php?page=profile&tab=1&response=" . $response);
 }

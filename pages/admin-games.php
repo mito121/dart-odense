@@ -23,7 +23,7 @@ if(isset($_GET['msg']) && !empty($_GET['msg'])){
                 </div>
 
                 <div class="form-row">
-                    <label for="fileToUpload">Bannerbillede</label>
+                    <label for="fileToUpload">Billede</label>
                     <input type="file" name="image" id="fileToUpload" required>
                 </div>
             </div>
@@ -37,3 +37,25 @@ if(isset($_GET['msg']) && !empty($_GET['msg'])){
         </form>
     </div>
 </section>
+
+<script>
+/*
+ *** FORBEDRINGER
+ */
+
+/* Preview single banner image */
+const bannerImg = document.getElementById("fileToUpload");
+const bannerPreview = document.getElementById("bannerimg-preview");
+const bannerPreviewText = document.getElementById("select-cover-image");
+bannerImg.onchange = (evt) => {
+    const [file] = bannerImg.files;
+    if (file) {
+        bannerPreviewText.style.display = "block";
+        bannerPreview.style.height = "350px";
+        bannerPreview.style.backgroundImage = "url(" + URL.createObjectURL(file) + ")";
+    } else {
+        bannerPreviewText.style.display = "none";
+        bannerPreview.style.height = 0;
+    }
+};
+</script>

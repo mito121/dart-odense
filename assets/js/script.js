@@ -484,7 +484,7 @@ const preview = async (event) => {
   const selectCoverImageText = document.querySelector("#select-cover-image");
   const files = document.querySelector("#selectfile").files;
 
-  if(files.length > 0) {
+  if (files.length > 0) {
     selectCoverImageText.style.display = "block";
   } else {
     selectCoverImageText.style.display = "none";
@@ -592,3 +592,4 @@ document.getElementById("burger").addEventListener("click", function () {
     menu.style.right = "-500px";
   }
 });
+

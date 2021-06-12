@@ -45,5 +45,5 @@ if(isset($_POST) && !empty($_POST)){
         }
     }
     /* Redirect to profile with tab and response as params */
-    header("location: ../index.php?page=profile&tab=3&response=" . $response);
+    header("location: ../index.php?page=profile&tab=1&response=" . $response);
 }
